@@ -2,80 +2,83 @@ $font-path: "../../fonts/";
 
 
 @font-face {
-  font-family: "Hiromisake";
-  font-weight: 500;
+  font-family: "Amita";
+  font-weight: 400;
   font-style: normal;
   font-display: "swap";
-  src: url("#{$font-path}/Hiromisake/Hiromisake.ttf") format("truetype");
+  src: url("#{$font-path}/Amita/Amita-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Amita";
+  font-weight: 700;
+  font-style: normal;
+  font-display: "swap";
+  src: url("#{$font-path}/Amita/Amita-Bold.ttf") format("truetype");
 }
 // ---------------------------------------------Satoshi---------------------------------------------
 // ------------------------------------------------------------------------------------------------
 @font-face {
-  font-family: "Satoshi";
+  font-family: "Outfit";
+  font-weight: 100;
+  font-style: normal;
+  font-display: "swap";
+  src: url("#{$font-path}/Outfit/Outfit-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit";
+  font-weight: 100;
+  font-style: normal;
+  font-display: "swap";
+  src: url("#{$font-path}/Outfit/Outfit-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit";
   font-weight: 300;
   font-style: normal;
   font-display: "swap";
-  src: url("#{$font-path}/Satoshi/Satoshi-Light.ttf") format("truetype");
+  src: url("#{$font-path}/Outfit/Outfit-Light.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Satoshi";
+  font-family: "Outfit";
   font-weight: 400;
   font-style: normal;
   font-display: "swap";
-  src: url("#{$font-path}/Satoshi/Satoshi-Regular.ttf") format("truetype");
+  src: url("#{$font-path}/Outfit/Outfit-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Satoshi";
+  font-family: "Outfit";
   font-weight: 500;
   font-style: normal;
   font-display: "swap";
-  src: url("#{$font-path}/Satoshi/Satoshi-Medium.ttf") format("truetype");
+  src: url("#{$font-path}/Outfit/Outfit-Medium.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Satoshi";
+  font-family: "Outfit";
+  font-weight: 600;
+  font-style: normal;
+  font-display: "swap";
+  src: url("#{$font-path}/Outfit/Outfit-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit";
   font-weight: 700;
   font-style: normal;
   font-display: "swap";
-  src: url("#{$font-path}/Satoshi/Satoshi-Bold.ttf") format("truetype");
+  src: url("#{$font-path}/Outfit/Outfit-Bold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Satoshi";
+  font-family: "Outfit";
+  font-weight: 800;
+  font-style: normal;
+  font-display: "swap";
+  src: url("#{$font-path}/Outfit/Outfit-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Outfit";
   font-weight: 900;
   font-style: normal;
   font-display: "swap";
-  src: url("#{$font-path}/Satoshi/Satoshi-Black.ttf") format("truetype");
-}
-
-//italic
-@font-face {
-  font-family: "Satoshi";
-  font-weight: 300;
-  font-style: italic;
-  src: url("#{$font-path}/Satoshi/Satoshi-LightItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Satoshi";
-  font-weight: 400;
-  font-style: italic;
-  src: url("#{$font-path}/Satoshi/Satoshi-Italic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Satoshi";
-  font-weight: 500;
-  font-style: italic;
-  src: url("#{$font-path}/Satoshi/Satoshi-MediumItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Satoshi";
-  font-weight: 700;
-  font-style: italic;
-  src: url("#{$font-path}/Satoshi/Satoshi-BoldItalic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Satoshi";
-  font-weight: 900;
-  font-style: italic;
-  src: url("#{$font-path}/Satoshi/Satoshi-BlackItalic.ttf") format("truetype");
+  src: url("#{$font-path}/Outfit/Outfit-Black.ttf") format("truetype");
 }
 
 // ---------------------------------------------ROBOTO---------------------------------------------

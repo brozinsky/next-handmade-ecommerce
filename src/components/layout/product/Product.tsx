@@ -35,28 +35,28 @@ export default function Product({
       >
         {/* {isNew && isAvailable && (
           <div className="absolute top-0 right-0 z-10 w-16 h-16">
-            <div className="absolute transform rotate-45 bg-sky-200 text-center text-sky-900 font-semibold py-1 left-[-68px] top-[32px] w-[170px]">
+            <div className="absolute transform rotate-45 bg-sky-200 text-center text-sky-900 font-medium py-1 left-[-68px] top-[32px] w-[170px]">
               Nowość
             </div>
           </div>
         )} */}
         {!isAvailable && (
-          <div className="absolute z-10 flex items-center justify-center px-5 py-5 font-semibold text-center transform -translate-x-1/2 -translate-y-1/2 rounded-md bg-white/70 h-fit w-fit text-neutral-600 top-1/2 left-1/2">
+          <div className="absolute z-10 flex items-center justify-center px-5 py-5 text-center transform -translate-x-1/2 -translate-y-1/2 rounded-md font-regular bg-white/70 h-fit w-fit text-neutral-600 top-1/2 left-1/2">
             Wyprzedane
           </div>
         )}
         {isImmidiate && isAvailable && (
-          <span className="absolute z-10 px-6 py-1 font-semibold text-yellow-900 bg-yellow-200 rounded-md text-md top-1 left-1">
+          <span className="absolute z-10 px-6 py-1 text-yellow-900 bg-yellow-200 rounded-md font-regular text-md top-1 left-1">
             Dostępne od ręki
           </span>
         )}
         {isNew && isAvailable && (
-          <span className="absolute z-10 px-6 py-1 font-semibold rounded-md text-md bg-sky-200 text-sky-900 top-2 left-2">
+          <span className="absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-sky-200 text-sky-900 top-2 left-2">
             Nowość
           </span>
         )}
         {discountPrice && discountPrice >= 0 && isAvailable && (
-          <span className="absolute z-10 px-6 py-1 font-semibold rounded-md text-md bg-rose-200 text-rose-800 top-2 left-2">
+          <span className="absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-rose-200 text-rose-800 top-2 left-2">
             Promocja!
           </span>
         )}
@@ -85,12 +85,12 @@ export default function Product({
           {category}
         </a> */}
         <Link href={href}>
-          <h3 className="mb-2 text-xl font-semibold leading-tight text-center">
+          <h3 className="mb-2 text-xl font-medium leading-tight text-center">
             {title}
           </h3>
         </Link>
         {description && description.length > 0 && (
-          <p className="mb-2 text-center line-clamp-2 text-neutral-500">
+          <p className="mb-2 font-light leading-tight text-center line-clamp-2 text-neutral-500">
             {description}
           </p>
         )}
@@ -101,11 +101,11 @@ export default function Product({
             </span>
           ) : null}
           {discountPrice ? (
-            <span className="text-xl font-semibold">
+            <span className="text-xl font-medium">
               {discountPrice}.00 <span>zł</span>
             </span>
           ) : (
-            <span className="text-xl font-semibold text-center">
+            <span className="text-xl font-medium text-center">
               {price}.00 <span>zł</span>
             </span>
           )}

@@ -49,17 +49,17 @@ export default function Button({
   const classes = cva(
     [
       className,
-      "font-medium tracking-wider relative flex items-center justify-center w-fit gap-2 cursor-pointer",
+      "font-regular tracking-wider relative flex items-center justify-center w-fit gap-2 cursor-pointer",
     ],
     {
       variants: {
         variant: {
-          primary: "text-white font-bold bg-primary-500 hover:bg-primary-600 ",
+          primary: "text-white font-regular bg-primary-500 hover:bg-primary-600 ",
           neutral: "bg-neutral-200/70 hover:bg-neutral-200",
           outlined:
             "text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-500 dark:focus:ring-primary-800",
           ghost:
-            "group bg-transparent-500 hover:bg-neutral-500 text-neutral-500 hover:text-neutral-500 font-bold",
+            "group bg-transparent-500 hover:bg-neutral-500 text-neutral-500 hover:text-neutral-500 font-regular",
         },
         shape: {
           custom: "rounded-tl-xl rounded-br-xl",
@@ -103,7 +103,7 @@ export default function Button({
         {icon === "arrow-sm-top" && <ArrowUp />}
       </LoadingWrapper>
       <LoadingWrapper isLoading={isLoading}>
-        <span className="font-bold">{children}</span>
+        <span className="font-regular">{children}</span>
       </LoadingWrapper>
       {isLoading && (
         <div className="absolute -rotate-90 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">

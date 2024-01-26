@@ -59,7 +59,7 @@ export default function Header() {
             <div className="flex items-center justify-between w-full">
               <Link
                 href="/"
-                className="flex items-center justify-center gap-2 text-2xl font-semibold text-neutral-100"
+                className="flex items-center justify-center gap-2 text-2xl font-regular text-neutral-100"
               >
                 {/* <span className="flex gap-1">
                   <span className="text-white font-brush">Asian</span>
@@ -93,10 +93,10 @@ export default function Header() {
                       key={id}
                       onClick={() => setIsMenuOpen(false)}
                       className={clsx(
-                        "whitespace-nowrap relative my-2 transition-colors duration-300 transform md:mx-4 md:my-0",
+                        "font-light whitespace-nowrap relative my-2 transition-colors duration-300 transform md:mx-4 md:my-0",
                         isPathname
                           ? "text-neutral-800"
-                          : "text-neutral-800 hover:text-primary-400"
+                          : "text-neutral-800 hover:text-primary-800"
                       )}
                       href={path}
                     >

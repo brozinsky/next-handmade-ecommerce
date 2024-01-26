@@ -25,10 +25,10 @@ export default function Contact() {
             <h2 className="text-center heading-second text-primary-800">
               Skontaktuj się
             </h2>
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 group">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 text-primary-800 "
+                className="w-5 h-5 text-primary-800 group-hover:text-primary-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -41,17 +41,17 @@ export default function Contact() {
                 />
               </svg>
               <Link
-                className="truncate text-neutral-600"
+                className="font-light truncate text-neutral-600 hover:underline group-hover:text-primary-500"
                 href={"tel:1234567890"}
               >
                 (123) 456-7890
               </Link>
             </div>
 
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 font-light group">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 text-primary-800 "
+                className="w-5 h-5 text-primary-800 group-hover:text-primary-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -65,14 +65,14 @@ export default function Contact() {
               </svg>
 
               <Link
-                className="truncate w-fit text-neutral-600"
+                className="truncate w-fit text-neutral-600 group-hover:underline group-hover:text-primary-500"
                 href={"mailto:contact@loremipsum.com"}
               >
                 contact@loremipsum.com
               </Link>
             </div>
             <section className="mt-6 ">
-              <p className="mb-2 text-center text-neutral-600">Obserwuj nas:</p>
+              <p className="mb-2 font-light text-center text-neutral-600">Obserwuj nas:</p>
               <div className="flex items-center justify-center gap-2 lg:justify-start">
                 <SocialLink variant="facebook" url="https://facebook.com/" />
                 <SocialLink variant="instagram" url="https://instagram.com/" />

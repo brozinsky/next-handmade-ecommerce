@@ -115,17 +115,17 @@ export default function ProductPage({ searchParams }) {
 
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <p>
+                  <p className="text-base font-light leading-snug text-neutral-800">
                     Info Lorem ipsum dolor sit amet consectetur adipisicing
                     elit. Quasi, excepturi? Fugiat distinctio ut earum magni.
                   </p>
-                  <p>
-                    <strong>Dostępność:</strong> od ręki
+                  <p className="font-light">
+                    <strong className="font-semibold">Dostępność:</strong> od ręki
                   </p>
                 </div>
                 <Separator />
                 <div className="flex flex-row items-center justify-between gap-8">
-                  <div className="text-3xl font-bold text-primary-800">
+                  <div className="text-3xl font-semibold text-primary-800">
                     {searchParams.price},00 zł
                   </div>
                   <div className="flex flex-row items-center justify-end gap-4">
@@ -163,7 +163,7 @@ export default function ProductPage({ searchParams }) {
                       )}
                       onClick={() => setTab(0)}
                     >
-                      <span className={"text-lg font-bold cursor-pointer"}>
+                      <span className={"text-lg font-medium cursor-pointer"}>
                         Opis
                       </span>
                     </button>
@@ -176,7 +176,7 @@ export default function ProductPage({ searchParams }) {
                       )}
                       onClick={() => setTab(1)}
                     >
-                      <span className={"text-lg font-bold cursor-pointer"}>
+                      <span className={"text-lg font-medium cursor-pointer"}>
                         Wymiary
                       </span>
                     </button>
@@ -189,35 +189,35 @@ export default function ProductPage({ searchParams }) {
                       )}
                       onClick={() => setTab(2)}
                     >
-                      <span className={"text-lg font-bold cursor-pointer"}>
+                      <span className={"text-lg font-medium cursor-pointer"}>
                         Koszty wysyłki
                       </span>
                     </button>
                   </div>
                   {tab == 0 && (
-                    <p>
+                    <p className="font-light">
                       Torba została wykonana z wysokiej jakości tkaniny
                       imitującej len.
                     </p>
                   )}
                   {tab == 1 && (
                     <div>
-                      <p>
-                        <strong>Wysokość:</strong> 40 cm
+                      <p className="font-light">
+                        <strong className="font-semibold">Wysokość:</strong> 40 cm
                       </p>
-                      <p>
-                        <strong>Szerokość:</strong> 40cm
+                      <p className="font-light">
+                        <strong className="font-semibold">Szerokość:</strong> 40cm
                       </p>
-                      <p>
-                        <strong>Szerokość boku:</strong> 12 cm
+                      <p className="font-light">
+                        <strong className="font-semibold">Szerokość boku:</strong> 12 cm
                       </p>
                     </div>
                   )}
                 </div>
                 {tab == 2 && (
                   <div className="product-shipping-info">
-                    <div>Paczkomaty inPost: 18 zł</div>
-                    <div>Poczta Polska - priorytet: 17 zł</div>
+                    <div className="font-light">Paczkomaty inPost: 18 zł</div>
+                    <div className="font-light">Poczta Polska - priorytet: 17 zł</div>
                   </div>
                 )}
               </div>

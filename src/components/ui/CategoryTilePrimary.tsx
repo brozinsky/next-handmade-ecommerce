@@ -31,7 +31,7 @@ export default function CategoryTilePrimary({
         />
       </Link>
       <Link href={"/"} className="relative flex flex-col justify-center w-1/2 p-8 items-left">
-        <h3 className="text-2xl font-medium text-neutral-700">{title}</h3>
+        <h3 className="text-2xl font-regular text-neutral-700">{title}</h3>
       </Link>
     </div>
 

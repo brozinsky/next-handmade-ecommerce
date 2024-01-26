@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="max-w-screen-xl mx-auto text-center">
           <Link
             href="/"
-            className="flex items-center justify-center gap-2 text-2xl font-semibold text-neutral-900"
+            className="flex items-center justify-center gap-2 text-2xl font-regular text-neutral-900"
           >
             <Image
               className="w-fit h-[50px] transition duration-500 group-hover:scale-110"
@@ -32,13 +32,13 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-6 mt-4 mb-6 text-neutral-900">
             {links.map(({ id, title, path }) => {
               return (
-                <Link key={id} className="hover:underline" href={path}>
+                <Link key={id} className="font-light hover:underline" href={path}>
                   {title}
                 </Link>
               );
             })}
           </div>
-          <span className="text-sm text-neutral-800 sm:text-center">
+          <span className="text-sm font-light text-neutral-800 sm:text-center">
             Created by{" "}
             <Link
               className="hover:underline"
