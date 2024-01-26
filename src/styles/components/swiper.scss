@@ -1,0 +1,46 @@
+.slider-gallery-main {
+  @apply cursor-pointer overflow-hidden;
+  .swiper-slide {
+    & > img {
+      @apply transition duration-300;
+    }
+    &:hover {
+      & > img {
+        @apply transform duration-300 scale-105 ease-out;
+      }
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply bg-white/40 w-8 h-8 text-sm rounded-lg transition duration-200 absolute;
+    &:hover {
+      @apply bg-white/60;
+    }
+    &:after {
+      @apply text-neutral-900 text-xs;
+    }
+  }
+  .swiper-button-next {
+    @apply left-12 top-auto bottom-2;
+  }
+  .swiper-button-prev {
+    @apply left-2 top-auto bottom-2;
+  }
+}
+
+.slider-gallery-thumbs {
+  .swiper-slide {
+    @apply overflow-hidden transition duration-300;
+    opacity: 0.7;
+    & > img {
+      @apply transition duration-300;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+    &.swiper-slide-thumb-active {
+      opacity: 1;
+    }
+  }
+}

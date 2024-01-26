@@ -1,0 +1,35 @@
+html,
+body {
+  @apply text-neutral-900;
+  padding: 0;
+  margin: 0;
+  // overflow-x: hidden;
+  font-family: $font-family-base;
+  scroll-behavior: smooth;
+}
+
+.font-brush {
+  font-family: $font-family-serif;
+}
+
+p {
+  letter-spacing: 0.2px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.heading-first {
+  @apply text-3xl font-semibold md:text-5xl font-brush ;
+
+}
+
+.heading-second {
+  @apply text-2xl md:text-3xl font-brush;
+}
