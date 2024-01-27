@@ -13,6 +13,7 @@ const links = [
   { id: 1, title: "Sklep", path: "/sklep" },
   { id: 2, title: "O mnie", path: "/o-mnie" },
   { id: 3, title: "Kontakt", path: "/kontakt" },
+  { id: 3, title: "Koszyk", path: "/koszyk" },
 ];
 
 export default function Header() {
@@ -84,7 +85,6 @@ export default function Header() {
             >
               <div className="flex flex-col items-center gap-8 lg:flex-row">
                 {links.map(({ id, title, path }) => {
-                  console.log(pathname === "/" && path === "/");
                   const isPathname =
                     (pathname === "/" && path === "/") ||
                     (pathname !== "/" && pathname.includes(path) && path !== "/");

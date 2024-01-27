@@ -9,6 +9,7 @@ import Separator from "@/components/utils/Separator";
 import Product from "@/components/layout/product/Product";
 import HeadingLine from "@/components/ui/HeadingLine";
 import ProductGallery from "@/components/layout/gallery/ProductGallery";
+import useCartStore from "@/stores/useCartStore";
 
 const products = [
   {
@@ -94,6 +95,8 @@ const products = [
 export default function ProductPage({ searchParams }) {
   const [counter, setCounter] = useState(1);
   const [tab, setTab] = useState(0);
+  const {addItem} = useCartStore();
+
   const handleIncrement = () => {
     setCounter(counter + 1);
   };
@@ -102,6 +105,7 @@ export default function ProductPage({ searchParams }) {
       setCounter(counter - 1);
     }
   };
+
   return (
     <PageWrapper className="bg-light-ivory">
       <div className="py-section">
@@ -146,7 +150,7 @@ export default function ProductPage({ searchParams }) {
                         +
                       </button>
                     </div>
-                    <Button variant="primary" shape="rectangle">
+                    <Button onClick={() => addItem(products[0])} variant="primary" shape="rectangle">
                       Dodaj do koszyka
                     </Button>
                   </div>
@@ -241,7 +245,7 @@ export default function ProductPage({ searchParams }) {
               )
               .map((product) => {
                 return (
-                  <div className="max-w-[224px]">
+                  <div className="max-w-[250px]">
                     <Product key={product.id} {...product} />
                   </div>
                 );

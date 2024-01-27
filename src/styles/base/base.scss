@@ -25,6 +25,10 @@ a {
   box-sizing: border-box;
 }
 
+.min-h-screen-footer {
+  min-height: calc(100vh - 250px);
+}
+
 .heading-first {
   @apply text-3xl font-semibold md:text-5xl font-brush ;
 

@@ -8,7 +8,7 @@ import HeadingLine from "@/components/ui/HeadingLine";
 export default function About() {
   return (
     <>
-      <section id="About" className="py-section">
+      <section id="About" className="py-section min-h-screen-footer">
         <div className="container container--sm">
           <div className="flex flex-col items-center content-center justify-center gap-16 md:grid md:grid-cols-2">
             <div className="font-light text-neutral-800 sm:text-lg">

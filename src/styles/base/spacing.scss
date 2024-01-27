@@ -49,10 +49,28 @@ $section-padding-sm: 2rem;
 }
 .pb-section {
   padding-bottom: $section-padding-sm;
-  background: red !important;
   @include sm {
-    background: green !important;
-    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+  }
+}
+.py-section-half {
+  padding-top: $section-padding-sm / 2;
+  padding-bottom: $section-padding-sm / 2;
+  @include sm {
+    padding-top: $section-padding / 2;
+    padding-bottom: $section-padding / 2;
+  }
+}
+.pt-section-half {
+  padding-top: $section-padding-sm / 2;
+  @include sm {
+    padding-top: $section-padding / 2;
+  }
+}
+.pb-section-half {
+  padding-bottom: $section-padding-sm / 2;
+  @include sm {
+    padding-bottom: $section-padding / 2;
   }
 }
 .py-section-xl {

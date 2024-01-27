@@ -4,7 +4,8 @@ import Product from "./Product";
 import Separator from "@/components/utils/Separator";
 import clsx from "clsx";
 import HeadingLine from "@/components/ui/HeadingLine";
-import Link from "next/link";
+import { X, Loader, ArrowUpRight } from "react-feather";
+import HeadlingLineWithLink from "@/components/ui/HeadlingLineWithLink";
 
 const products = [
   {
@@ -96,53 +97,24 @@ const categories = [
   { id: 5, value: "inne", title: "Inne" },
 ];
 
-export default function Products({ category = "wszystkie" }) {
-  // const [filterValue, setFilterValue] = useState("wszystkie");
-  const href = {
-    pathname: `/sklep/${category}`
-  };
+export default function Featured() {
+  const [filterValue, setFilterValue] = useState("wszystkie");
   return (
-    <section id="Featured" className="bg-white py-section">
-      <div className="container p-6 mx-auto space-y-8 container--sm">
+    <section className="bg-white pt-section pb-section-half">
+      <div className="container mx-auto space-y-8 container--xs">
         <div className="space-y-2 text-center">
-          <HeadingLine textPosition="center">Produkty</HeadingLine>
-          {/* <p className="font-serif text-sm dark:text-gray-400">
-            Qualisque erroribus usu at, duo te agam soluta mucius.
-          </p> */}
-          {/* <Separator /> */}
-          <div className="flex flex-row items-center justify-center gap-8 py-4 text-lg">
-            {categories.map(({ title, value, id }) => {
-              return (
-                <Link href={`/sklep/${value}`}
-                  // onClick={() => setFilterValue(value)}
-                  key={id}
-                  role="button"
-                  className={clsx(
-                    category == value &&
-                      "border-primary-500 text-primary-500 hover:text-primary-500 border-t-2 border-b-2",
-                    "select-none py-1.5 text-neutral-600 cursor-pointer hover:text-black transition"
-                  )}
-                >
-                  {title}
-                </Link>
-              );
-            })}
-            {/* <div className="py-1.5">Plecaki i torebki</div>
-            <div className="py-1.5">Koszyki</div>
-            <div className="py-1.5">Świece</div>
-            <div className="py-1.5">Inne</div> */}
-          </div>
-          {/* <Separator /> */}
+          <HeadlingLineWithLink>Wybrane produkty</HeadlingLineWithLink>
         </div>
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
           {[...products]
             .filter(
               (product) =>
-                category === "wszystkie" || product.category === category
+                filterValue === "wszystkie" || product.category === filterValue
             )
             .sort((a, b) =>
               a.isAvailable === b.isAvailable ? 0 : a.isAvailable ? -1 : 1
             )
+            .slice(0, 4)
             .map((product) => {
               return <Product key={product.id} {...product} />;
             })}
