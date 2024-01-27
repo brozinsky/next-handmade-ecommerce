@@ -28,6 +28,10 @@ module.exports = {
       boxShadow: {
         default: "0 7px 13px rgba(0,0,0,.15)",
       },
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '5/3': '5 / 3',
+      },
     }
   },
 };
