@@ -78,7 +78,7 @@ export default function ProductGallery() {
 
   return (
     <div>
-      <div className="max-w-[400px]">
+      <div className="max-w-[250px] xs:max-w-[400px]">
         {/* Conditional rendering of SimpleGallery */}
 
         <Swiper
@@ -116,97 +116,6 @@ export default function ProductGallery() {
               </a>
             </SwiperSlide>
           ))}
-          {/* <SwiperSlide >
-            <Image
-              key={`slide-1}`} onClick={() => handleImageClick(1)}
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-1.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-2.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-3.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-4.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-5.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-6.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-7.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-8.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-9.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full rounded-lg"
-              width="532"
-              height="532"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-10.jpg"
-            />
-          </SwiperSlide> */}
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}

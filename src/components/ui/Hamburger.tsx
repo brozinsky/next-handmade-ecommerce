@@ -11,7 +11,7 @@ export default function Hamburger({ isOpen, setIsOpen }: Props) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         type="button"
-        className="text-neutral-200 hover:text-neutral-400 focus:outline-none focus:text-neutral-400"
+        className="text-neutral-800 hover:text-neutral-900 focus:outline-none focus:text-neutral-900"
         aria-label="toggle menu"
       >
         {!isOpen ? (

@@ -1,12 +1,9 @@
-"use client";
 import HeadbandImg from "@/public/opaski-1.jpg";
 import BagImg from "@/public/torebka-2.jpg";
-import BackpackImg from "@/public/plecak-1.jpg";
 import BasketImg from "@/public/koszyk-1.jpg";
 import OtherImg from "@/public/inne-1.webp";
 import clsx from "clsx";
 import ScrollAnimated from "../utils/ScrollAnimated";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import CategoryTile from "../ui/CategoryTile";
 import HeadingLine from "../ui/HeadingLine";
 
@@ -16,7 +13,6 @@ type Props = {
 };
 
 export default function Categories({ pb = "md", pt = "md" }: Props) {
-  const isMobile = useMediaQuery(`(max-width: 1280px)`);
 
   return (
     <section id="Categories" className={"pt-section-half"}>

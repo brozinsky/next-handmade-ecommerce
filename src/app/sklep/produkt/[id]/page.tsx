@@ -30,7 +30,7 @@ export default function ProductPage({ searchParams }) {
     <PageWrapper className="bg-light-ivory">
       <div className="py-section">
         <div className="container container--xs">
-          <div className="flex flex-row gap-16">
+          <div className="flex flex-col-reverse items-center gap-16 lg:flex-row">
             <ProductGallery />
             <div>
               <h1 className="mb-4 text-4xl font-medium text-primary-800">
@@ -49,7 +49,7 @@ export default function ProductPage({ searchParams }) {
                   </p>
                 </div>
                 <Separator />
-                <div className="flex flex-row items-center justify-between gap-8">
+                <div className="flex flex-col items-center justify-between gap-8 sm:flex-row lg:flex-col xl:flex-row">
                   <div className="text-3xl font-semibold text-primary-800">
                     {searchParams.price},00 zł
                   </div>
@@ -172,7 +172,7 @@ export default function ProductPage({ searchParams }) {
       <div className="py-section">
         <div className="container container--xs">
           <HeadingLine textPosition="center">Podobne produkty</HeadingLine>
-          <div className="flex flex-row justify-center gap-x-4">
+          <div className="flex flex-row flex-wrap justify-center gap-x-4">
             {[...products]
               .filter(
                 (product) =>
