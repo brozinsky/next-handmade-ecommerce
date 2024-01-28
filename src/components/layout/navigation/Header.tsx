@@ -7,13 +7,14 @@ import Hamburger from "@/components/ui/Hamburger";
 import Image from "next/image";
 import Image1 from "@/public/contact/contact-1.jpg";
 import logoSm from "@/public/logo-sm.png";
+import useCartStore from "@/stores/useCartStore";
+import { getTotalQuantity } from "@/utils/function";
 
 const links = [
   { id: 0, title: "Strona główna", path: "/" },
   { id: 1, title: "Sklep", path: "/sklep" },
   { id: 2, title: "O mnie", path: "/o-mnie" },
   { id: 3, title: "Kontakt", path: "/kontakt" },
-  { id: 3, title: "Koszyk", path: "/koszyk" },
 ];
 
 export default function Header() {
@@ -21,6 +22,21 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomepage = pathname === "/";
+  const { items } = useCartStore();
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationInstances, setAnimationInstances] = useState([]);
+
+  useEffect(() => {
+    const newInstance = { id: Date.now() }; // Using the current timestamp as a unique ID
+    setAnimationInstances((prevInstances) => [...prevInstances, newInstance]);
+
+    // Schedule removal of this instance after animation duration
+    setTimeout(() => {
+      setAnimationInstances((prevInstances) =>
+        prevInstances.filter((instance) => instance.id !== newInstance.id)
+      );
+    }, 1000);
+  }, [getTotalQuantity(items)]);
 
   useEffect(() => {
     const toggleOverflowHidden = (shouldHide: boolean) => {
@@ -87,7 +103,9 @@ export default function Header() {
                 {links.map(({ id, title, path }) => {
                   const isPathname =
                     (pathname === "/" && path === "/") ||
-                    (pathname !== "/" && pathname.includes(path) && path !== "/");
+                    (pathname !== "/" &&
+                      pathname.includes(path) &&
+                      path !== "/");
                   return (
                     <Link
                       key={id}
@@ -107,6 +125,36 @@ export default function Header() {
                     </Link>
                   );
                 })}
+                <Link
+                  onClick={() => setIsMenuOpen(false)}
+                  className={clsx(
+                    "font-light whitespace-nowrap relative my-2 transition-colors duration-300 transform md:mx-4 md:my-0"
+                  )}
+                  href={"/koszyk"}
+                >
+                  <svg
+                    className="block w-5 h-5 MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      className="fill-primary-800"
+                      d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z"
+                    ></path>
+                  </svg>
+                  <div className="absolute -right-[10px] -bottom-[10px]">
+                    <span className="font-medium text-primary-800 z-10 w-[18px] h-[18px] text-xs bg-white rounded-full flex-center-center">
+                      {getTotalQuantity(items)}
+                    </span>
+                    {animationInstances.map((instance) => (
+                      <span
+                        key={instance.id}
+                        className="absolute top-0 left-0 w-[18px] h-[18px] rounded-full bg-primary-500 -z-10 animate-ping"
+                      ></span>
+                    ))}
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

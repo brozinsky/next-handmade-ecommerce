@@ -3,99 +3,19 @@ import About from "@/components/layout/about/About";
 import PageWrapper from "@/components/utils/PageWrapper";
 import { ZoomIn } from "react-feather";
 import Button from "@/components/ui/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import Separator from "@/components/utils/Separator";
 import Product from "@/components/layout/product/Product";
 import HeadingLine from "@/components/ui/HeadingLine";
 import ProductGallery from "@/components/layout/gallery/ProductGallery";
 import useCartStore from "@/stores/useCartStore";
-
-const products = [
-  {
-    id: 1,
-    title: "Opaska typ 1",
-    category: "opaski",
-    price: 15,
-    discountPrice: null,
-    description:
-      "Ręcznie wykonana opaska z przędzy bawełnianej T-shirt yarn typu premium. <br> Szerokość opaski – 3 cm. <br> Wygodna, bez uciskowa. <br> Róźne kolory do wyboru, zdjęcia znajdują się w galerii.",
-    isAvailable: true,
-    isNew: false,
-    isImmidiate: true,
-  },
-  {
-    id: 2,
-    title: "Opaska 2",
-    category: "opaski",
-    price: 15,
-    discountPrice: null,
-    description: "",
-    isAvailable: true,
-    isNew: false,
-    isImmidiate: true,
-  },
-  {
-    id: 22,
-    title: "Opaska typ 3",
-    category: "opaski",
-    price: 18,
-    discountPrice: null,
-    description: "",
-    isAvailable: true,
-    isNew: false,
-    isImmidiate: true,
-  },
-  {
-    id: 3,
-    title: "Torebka 1",
-    category: "plecaki",
-    price: 90,
-    description: "",
-    isAvailable: false,
-    isNew: false,
-    isImmidiate: false,
-  },
-  {
-    id: 4,
-    title: "Torebka 2",
-    category: "plecaki",
-    price: 80,
-    discountPrice: null,
-    description: "",
-    isAvailable: true,
-    isNew: true,
-    isImmidiate: false,
-  },
-  {
-    id: 5,
-    title: "Plecak",
-    category: "plecaki",
-    price: 120,
-    discountPrice: 18,
-    description: "",
-    isAvailable: true,
-    isNew: false,
-    isImmidiate: false,
-  },
-  {
-    id: 6,
-    title: "Koszyk z ażurowym wieczkiem",
-    category: "koszyki",
-    price: 60,
-    discountPrice: null,
-    description:
-      "Ręcznie wykonany koszyk ze sznurka bawełnianego z ażurowym wieczkiem oraz mocnym spodem z drewnianej sklejki. <br> Idealny do przechowywania różnych rzeczy lub na prezent. <br> Średnica koszyka 20 cm.",
-    isAvailable: true,
-    isNew: false,
-    isImmidiate: false,
-  },
-];
+import { products } from "@/utils/products";
 
 export default function ProductPage({ searchParams }) {
   const [counter, setCounter] = useState(1);
   const [tab, setTab] = useState(0);
-  const {addItem} = useCartStore();
+  const { addItem } = useCartStore();
 
   const handleIncrement = () => {
     setCounter(counter + 1);
@@ -124,7 +44,8 @@ export default function ProductPage({ searchParams }) {
                     elit. Quasi, excepturi? Fugiat distinctio ut earum magni.
                   </p>
                   <p className="font-light">
-                    <strong className="font-semibold">Dostępność:</strong> od ręki
+                    <strong className="font-semibold">Dostępność:</strong> od
+                    ręki
                   </p>
                 </div>
                 <Separator />
@@ -150,7 +71,18 @@ export default function ProductPage({ searchParams }) {
                         +
                       </button>
                     </div>
-                    <Button onClick={() => addItem(products[0])} variant="primary" shape="rectangle">
+                    <Button
+                      onClick={() => {
+                        const productToAdd = products.find(
+                          (product) => product.id === parseInt(searchParams.id)
+                        );
+                        if (productToAdd) {
+                          addItem(productToAdd, counter);
+                        }
+                      }}
+                      variant="primary"
+                      shape="rectangle"
+                    >
                       Dodaj do koszyka
                     </Button>
                   </div>
@@ -207,13 +139,18 @@ export default function ProductPage({ searchParams }) {
                   {tab == 1 && (
                     <div>
                       <p className="font-light">
-                        <strong className="font-semibold">Wysokość:</strong> 40 cm
+                        <strong className="font-semibold">Wysokość:</strong> 40
+                        cm
                       </p>
                       <p className="font-light">
-                        <strong className="font-semibold">Szerokość:</strong> 40cm
+                        <strong className="font-semibold">Szerokość:</strong>{" "}
+                        40cm
                       </p>
                       <p className="font-light">
-                        <strong className="font-semibold">Szerokość boku:</strong> 12 cm
+                        <strong className="font-semibold">
+                          Szerokość boku:
+                        </strong>{" "}
+                        12 cm
                       </p>
                     </div>
                   )}
@@ -221,7 +158,9 @@ export default function ProductPage({ searchParams }) {
                 {tab == 2 && (
                   <div className="product-shipping-info">
                     <div className="font-light">Paczkomaty inPost: 18 zł</div>
-                    <div className="font-light">Poczta Polska - priorytet: 17 zł</div>
+                    <div className="font-light">
+                      Poczta Polska - priorytet: 17 zł
+                    </div>
                   </div>
                 )}
               </div>

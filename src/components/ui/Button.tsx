@@ -24,6 +24,7 @@ type Props = {
   size?: "md" | "sm" | null | undefined;
   isLoading?: boolean;
   label?: string;
+  isFullWidth?: boolean;
 };
 
 type LoadingWrapperProps = {
@@ -45,6 +46,7 @@ export default function Button({
   shape = "custom",
   size = "md",
   label,
+  isFullWidth,
 }: Props) {
   const classes = cva(
     [
@@ -54,7 +56,8 @@ export default function Button({
     {
       variants: {
         variant: {
-          primary: "text-white font-regular bg-primary-500 hover:bg-primary-600 ",
+          primary:
+            "text-white font-regular bg-primary-500 hover:bg-primary-600 ",
           neutral: "bg-neutral-200/70 hover:bg-neutral-200",
           outlined:
             "text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-500 dark:focus:ring-primary-800",
@@ -74,6 +77,9 @@ export default function Button({
         },
         isLoading: {
           true: "bg-emerald-700 !cursor-default",
+        },
+        isFullWidth: {
+          true: "w-full",
         },
       },
       compoundVariants: [
@@ -95,7 +101,7 @@ export default function Button({
     <motion.button
       aria-label={label}
       onClick={onClick}
-      className={classes({ variant, shape, size, isLoading })}
+      className={classes({ variant, shape, size, isLoading, isFullWidth })}
       whileTap={isLoading ? undefined : { scale: 0.9 }}
     >
       <LoadingWrapper isLoading={isLoading}>

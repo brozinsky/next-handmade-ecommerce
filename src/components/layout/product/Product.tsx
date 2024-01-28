@@ -1,18 +1,17 @@
+"use client";
+import Button from "@/components/ui/Button";
+import useCartStore from "@/stores/useCartStore";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import HeadbandImg from "@/public/opaski-1.jpg";
+import { products } from "@/utils/products";
+import { Product } from "@/utils/types";
 
-type Props = {
-  id: number;
-  title: string;
-  category: string;
-  price: number;
+type Props = Product & {
   discountPrice?: number | null;
-  description: string;
-  isAvailable: boolean;
   isNew?: boolean;
-  isImmidiate: boolean;
 };
 
 export default function Product({
@@ -24,9 +23,13 @@ export default function Product({
   description,
   isAvailable = true,
   isNew = false,
-  isImmidiate = false,
+  isImmediate = false,
 }: Props) {
-  const href = { pathname: `/sklep/${id}`, query: { title, price, id, category } }
+  const { addItem } = useCartStore();
+  const href = {
+    pathname: `/sklep/produkt/${id}`,
+    query: { title, price, id, category },
+  };
   return (
     <div className="flex flex-col overflow-hidden transition rounded-md shadow-none group hover:shadow-default">
       <Link
@@ -45,7 +48,7 @@ export default function Product({
             Wyprzedane
           </div>
         )}
-        {isImmidiate && isAvailable && (
+        {isImmediate && isAvailable && (
           <span className="absolute z-10 px-6 py-1 text-yellow-900 bg-yellow-200 rounded-md font-regular text-md top-1 left-1">
             Dostępne od ręki
           </span>
@@ -61,7 +64,7 @@ export default function Product({
           </span>
         )}
         <Image
-          src="https://images.unsplash.com/photo-1603533627544-4b256401b1ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={HeadbandImg}
           alt=""
           className={clsx(
             !isAvailable && "opacity-30",
@@ -71,44 +74,50 @@ export default function Product({
           height={261}
         />
       </Link>
-      <div className="flex flex-col flex-1 p-6">
-        <a
-          rel="noopener noreferrer"
-          href="#"
-          aria-label="Te nulla oportere reprimique his dolorum"
-        ></a>
-        {/* <a
-          rel="noopener noreferrer"
-          href="#"
-          className="text-xs uppercase tracki hover:underline dark:text-blue-400"
-        >
-          {category}
-        </a> */}
-        <Link href={href}>
-          <h3 className="mb-2 text-xl font-medium leading-tight text-center">
-            {title}
-          </h3>
-        </Link>
-        {description && description.length > 0 && (
-          <p className="mb-2 font-light leading-tight text-center line-clamp-2 text-neutral-500">
-            {description}
-          </p>
-        )}
-        <div className="flex flex-wrap items-end justify-center space-x-2 text-xs text-neutral-600">
-          {discountPrice ? (
-            <span className="text-sm line-through">
-              {price}.00 <span>zł</span>
-            </span>
-          ) : null}
-          {discountPrice ? (
-            <span className="text-xl font-medium">
-              {discountPrice}.00 <span>zł</span>
-            </span>
-          ) : (
-            <span className="text-xl font-medium text-center">
-              {price}.00 <span>zł</span>
-            </span>
+      <div className="flex flex-col justify-between flex-1 p-6">
+        <div>
+          <Link href={href}>
+            <h3 className="mb-2 text-xl font-medium leading-tight text-center">
+              {title}
+            </h3>
+          </Link>
+          {description && description.length > 0 && (
+            <p className="mb-2 font-light leading-tight text-center line-clamp-2 text-neutral-500">
+              {description}
+            </p>
           )}
+          <div className="flex flex-wrap items-end justify-center space-x-2 text-xs text-neutral-600">
+            {discountPrice ? (
+              <span className="text-sm line-through text-primary-900">
+                {price}.00 <span>zł</span>
+              </span>
+            ) : null}
+            {discountPrice ? (
+              <span className="text-xl font-medium text-red-500">
+                {discountPrice}.00 <span>zł</span>
+              </span>
+            ) : (
+              <span className="text-xl font-medium text-center text-primary-900">
+                {price}.00 <span>zł</span>
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="mx-auto mt-4">
+          <Button
+            onClick={() => {
+              const productToAdd = products.find(
+                (product) => product.id === id
+              );
+              if (productToAdd) {
+                addItem(productToAdd, 1);
+              }
+            }}
+            variant="primary"
+            shape="rectangle"
+          >
+            Dodaj do koszyka
+          </Button>
         </div>
       </div>
     </div>

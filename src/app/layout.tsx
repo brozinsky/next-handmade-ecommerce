@@ -1,6 +1,8 @@
 import Header from "@/components/layout/navigation/Header";
 import "../styles/main.scss";
 import Footer from "@/components/layout/navigation/Footer";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: "Create Next App",
@@ -15,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative h-full min-h-screen ">
+        <ToastContainer />
         <Header />
         {children}
         <Footer />
