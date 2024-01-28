@@ -14,6 +14,10 @@ type Props = Product & {
   isNew?: boolean;
 };
 
+type CartItem = Product & {
+  quantity: number;
+};
+
 export default function Product({
   id,
   title,
@@ -110,7 +114,7 @@ export default function Product({
                 (product) => product.id === id
               );
               if (productToAdd) {
-                addItem(productToAdd, 1);
+                addItem(productToAdd as CartItem, 1);
               }
             }}
             variant="primary"

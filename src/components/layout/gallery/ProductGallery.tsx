@@ -1,67 +1,70 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Swiper as SwiperType } from "swiper";
+import { Swiper as SwiperClass } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
-// import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
 import { ZoomIn } from "react-feather";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 
-export default function ProductGallery() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [lightbox, setLightbox] = useState(null);
+type ImageType = {
+  src: string;
+  width: number;
+  height: number;
+};
 
-  const images = [
+export default function ProductGallery() {
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
+  const [lightbox, setLightbox] = useState<PhotoSwipeLightbox | null>(null);
+
+  const images: ImageType[] = [
     {
       src: "https://swiperjs.com/demos/images/nature-1.jpg",
-      width: "532",
-      height: "532",
+      width: 532,
+      height: 532,
     },
     {
       src: "https://swiperjs.com/demos/images/nature-2.jpg",
-      width: "532",
-      height: "532",
+      width: 532,
+      height: 532,
     },
     {
       src: "https://swiperjs.com/demos/images/nature-3.jpg",
-      width: "532",
-      height: "532",
+      width: 532,
+      height: 532,
     },
     {
       src: "https://swiperjs.com/demos/images/nature-4.jpg",
-      width: "532",
-      height: "532",
+      width: 532,
+      height: 532,
     },
     {
       src: "https://swiperjs.com/demos/images/nature-5.jpg",
-      width: "532",
-      height: "532",
+      width: 532,
+      height: 532,
     },
     {
       src: "https://swiperjs.com/demos/images/nature-6.jpg",
-      width: "532",
-      height: "532",
+      width: 532,
+      height: 532,
     },
     {
       src: "https://swiperjs.com/demos/images/nature-7.jpg",
-      width: "532",
-      height: "532",
+      width: 532,
+      height: 532,
     },
   ];
 
   useEffect(() => {
     const lightbox = new PhotoSwipeLightbox({
       gallery: ".slider-gallery-main",
-      children: "div.swiper-slide", // Adjust this selector based on your actual SwiperSlide element
+      children: "div.swiper-slide",
       pswpModule: () => import("photoswipe"),
     });
     lightbox.init();
@@ -72,7 +75,7 @@ export default function ProductGallery() {
     };
   }, []);
 
-  const handleImageClick = (index) => {
+  const handleImageClick = (index: number) => {
     lightbox && lightbox.loadAndOpen(index);
   };
 
@@ -118,7 +121,7 @@ export default function ProductGallery() {
           ))}
         </Swiper>
         <Swiper
-          onSwiper={setThumbsSwiper}
+          onSwiper={(swiper: SwiperType) => setThumbsSwiper(swiper)}
           loop={true}
           spaceBetween={10}
           slidesPerView={4}

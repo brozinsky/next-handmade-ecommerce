@@ -4,8 +4,14 @@ import Image from "next/image";
 import clsx from "clsx";
 import useCartStore from "@/stores/useCartStore";
 import Link from "next/link";
+import { Product } from "@/utils/types";
 
-export default function CartProduct({ id, title, price, imgSrc, quantity, category }) {
+type Props = Product & {
+  imgSrc: string;
+  quantity: number;
+};
+
+export default function CartProduct({ id, title, price, imgSrc, quantity, category }: Props) {
   const { incrementItemQuantity, decrementItemQuantity, removeItem } =
     useCartStore((state) => ({
       incrementItemQuantity: state.incrementItemQuantity,

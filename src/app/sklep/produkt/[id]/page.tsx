@@ -1,9 +1,7 @@
 "use client";
-import About from "@/components/layout/about/About";
 import PageWrapper from "@/components/utils/PageWrapper";
-import { ZoomIn } from "react-feather";
 import Button from "@/components/ui/Button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import Separator from "@/components/utils/Separator";
 import Product from "@/components/layout/product/Product";
@@ -11,8 +9,24 @@ import HeadingLine from "@/components/ui/HeadingLine";
 import ProductGallery from "@/components/layout/gallery/ProductGallery";
 import useCartStore from "@/stores/useCartStore";
 import { products } from "@/utils/products";
+import { Product as ProductType } from "@/utils/types";
 
-export default function ProductPage({ searchParams }) {
+type SearchParams = {
+  id: number;
+  title: string;
+  price: number;
+  category: string;
+};
+
+type CartItem = ProductType & {
+  quantity: number;
+};
+
+type Props = {
+  searchParams: SearchParams;
+};
+
+export default function ProductPage({ searchParams }: Props) {
   const [counter, setCounter] = useState(1);
   const [tab, setTab] = useState(0);
   const { addItem } = useCartStore();
@@ -74,10 +88,10 @@ export default function ProductPage({ searchParams }) {
                     <Button
                       onClick={() => {
                         const productToAdd = products.find(
-                          (product) => product.id === parseInt(searchParams.id)
+                          (product) => product.id === searchParams.id
                         );
                         if (productToAdd) {
-                          addItem(productToAdd, counter);
+                          addItem(productToAdd as CartItem, counter);
                         }
                       }}
                       variant="primary"
@@ -184,8 +198,8 @@ export default function ProductPage({ searchParams }) {
               )
               .map((product) => {
                 return (
-                  <div className="max-w-[250px]">
-                    <Product key={product.id} {...product} />
+                  <div key={product.id} className="max-w-[250px]">
+                    <Product {...product} />
                   </div>
                 );
               })}

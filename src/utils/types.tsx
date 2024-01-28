@@ -3,11 +3,11 @@ export type Product = {
   title: string;
   category: string;
   price: number;
-  discountPrice: number | null;
-  description: string;
-  isAvailable: boolean;
-  isNew: boolean;
-  isImmediate: boolean;
+  discountPrice?: number | null;
+  description?: string;
+  isAvailable?: boolean;
+  isNew?: boolean;
+  isImmediate?: boolean;
 };
 
 export type Category = {

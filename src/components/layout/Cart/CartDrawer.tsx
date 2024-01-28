@@ -76,7 +76,7 @@ export default function CartDrawer() {
                         role="list"
                         className="-my-6 divide-y divide-gray-200"
                       >
-                        <CartProduct
+                        {/* <CartProduct
                           id={1}
                           title={"Opaska typ 1"}
                           price={32}
@@ -107,7 +107,7 @@ export default function CartDrawer() {
                           imgSrc={
                             "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
                           }
-                        />
+                        /> */}
                       </ul>
                     </div>
                   </div>
