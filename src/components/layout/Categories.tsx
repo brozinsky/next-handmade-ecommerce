@@ -20,9 +20,9 @@ export default function Categories({ pb = "md", pt = "md" }: Props) {
 
   return (
     <section id="Categories" className={"pt-section-half"}>
-      <ScrollAnimated className={clsx(!isMobile && "container container--xs")}>
+      <ScrollAnimated className={clsx("container container--xs")}>
         <HeadingLine textPosition="center">Kategorie</HeadingLine>
-        <div className="grid grid-cols-2 gap-2 sm:gap-6 md:gap-2 lg:gap-8">
+        <div className="grid gap-2 md:grid-cols-2 sm:gap-6 md:gap-2 lg:gap-8">
           <CategoryTile value="opaski" title={"Opaski"} imgSrc={HeadbandImg} />
           <CategoryTile value="plecaki" title={"Plecaki i torebki"} imgSrc={BagImg} />
           <CategoryTile value="koszyki" title={"Koszyki"} imgSrc={BasketImg} />

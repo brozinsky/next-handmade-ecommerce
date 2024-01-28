@@ -5,6 +5,7 @@ import HeadingLine from "@/components/ui/HeadingLine";
 import Link from "next/link";
 import { categories } from "@/utils/categories";
 import { products } from "@/utils/products";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Products({ category = "wszystkie" }) {
   return (

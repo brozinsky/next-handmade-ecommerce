@@ -10,7 +10,7 @@ type Props = {
 
 export default function HeadlingLineWithLink({ children }: Props) {
   return (
-    <div className="flex items-center gap-8 mb-8">
+    <div className="flex flex-col items-center gap-2 mb-8 sm:gap-8 sm:flex-row">
       <h2 className={clsx("left heading-second text-primary-800")}>
         {children}
       </h2>

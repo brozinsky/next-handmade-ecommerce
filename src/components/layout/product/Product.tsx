@@ -31,7 +31,7 @@ export default function Product({
     query: { title, price, id, category },
   };
   return (
-    <div className="flex flex-col overflow-hidden transition rounded-md shadow-none group hover:shadow-default">
+    <div className="xs:max-w-[300px] w-full mx-auto flex flex-col overflow-hidden transition rounded-md shadow-none group hover:shadow-default">
       <Link
         href={href}
         className="relative w-full h-56 overflow-hidden bg-white border cursor-pointer aspect-square"

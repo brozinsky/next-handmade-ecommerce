@@ -11,27 +11,8 @@
   }
 }
 
-// .container {
-//     max-width: 97%;
-//     @include sm {
-//       width: 600px;
-//     }
-//     @include md {
-//       width: 984px;
-//     }
-//     @include lg {
-//       width: 1240px;
-//     }
-//     @include xl {
-//       width: 1240px;
-//     }
-//     @include xxl {
-//       width: 1464px;
-//     }
-//   }
-
 $section-padding: 4rem;
-$section-padding-sm: 2rem;
+$section-padding-sm: 3rem;
 
 .py-section {
   padding-top: $section-padding-sm;
