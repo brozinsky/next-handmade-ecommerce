@@ -12,8 +12,8 @@ export default function Contact() {
   return (
     <section id="Contact" className="py-section">
       <ScrollAnimated className="container container--sm">
-        <div className="grid w-full grid-cols-3 gap-4">
-          <div className="w-full h-full overflow-hidden rounded-md bg-primary-300">
+        <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
+          <div className="hidden w-full h-full overflow-hidden rounded-md lg:block bg-primary-300">
             <Image
               className="object-cover w-full h-full transition z-1"
               src={contact1}
@@ -21,7 +21,7 @@ export default function Contact() {
               alt="Sznurkowe Królowe"
             />
           </div>
-          <div className="flex flex-col items-center justify-center px-8 space-y-8 py-section">
+          <div className="flex flex-col items-center justify-center px-8 pb-8 space-y-8 lg:py-section">
             <h2 className="text-center heading-second text-primary-800">
               Skontaktuj się
             </h2>
@@ -79,10 +79,16 @@ export default function Contact() {
               </div>
             </section>
           </div>
-          <div className="w-full h-full overflow-hidden rounded-md bg-primary-300">
+          <div className="grid w-full h-full gap-8 overflow-hidden rounded-md xs:grid-cols-2 lg:block lg:bg-primary-300">
             <Image
               className="object-cover w-full h-full transition z-1"
               src={contact2}
+              priority
+              alt="Sznurkowe Królowe"
+            />
+             <Image
+              className="object-cover w-full h-full transition z-1 lg:hidden"
+              src={contact1}
               priority
               alt="Sznurkowe Królowe"
             />
