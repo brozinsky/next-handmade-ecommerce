@@ -16,6 +16,7 @@ const links = [
   { id: 1, title: "Sklep", path: "/sklep" },
   { id: 2, title: "O mnie", path: "/o-mnie" },
   { id: 3, title: "Kontakt", path: "/kontakt" },
+  { id: 3, title: "Koszyk", path: "/koszyk" },
 ];
 
 export default function Header() {
@@ -45,7 +46,7 @@ export default function Header() {
       ></div>
       <nav
         id="Header"
-        className={clsx("z-40 w-full transition fixed top-0 bg-primary-300")}
+        className={clsx("z-40 w-full transition fixed top-0 bg-primary-300 rounded-b-lg")}
       >
         <div className="container container--sm">
           <div className="w-full py-4 mx-auto lg:flex md:justify-between md:items-center">
@@ -60,7 +61,7 @@ export default function Header() {
                   height={53}
                   src={logoSm}
                   loading="lazy"
-                  alt={"Sznurkowe Królowe logo"}
+                  alt={"Logo Sznurkowe Królowe"}
                 />
               </Link>
               <div className="flex flex-row gap-6 xs:gap-8 lg:hidden">
@@ -74,7 +75,7 @@ export default function Header() {
                 "lg:visible transition absolute inset-x-0 z-20 w-full px-6 py-4 duration-300 ease-in-out bg-primary-300 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center"
               )}
             >
-              <div className="flex flex-col items-center gap-8 lg:flex-row">
+              <div className="flex flex-col items-center gap-4 lg:flex-row">
                 {links.map(({ id, title, path }) => {
                   const isPathname =
                     (pathname === "/" && path === "/") ||
@@ -86,7 +87,8 @@ export default function Header() {
                       key={id}
                       onClick={() => setIsMenuOpen(false)}
                       className={clsx(
-                        "font-light whitespace-nowrap relative my-2 transition-colors duration-300 transform md:mx-4 md:my-0",
+                        "w-full text-center py-2 font-light whitespace-nowrap relative my-2 transition-colors duration-300 transform md:mx-4 md:my-0",
+                        title === "Koszyk" && "lg:hidden",
                         isPathname
                           ? "text-neutral-800"
                           : "text-neutral-800 hover:text-primary-800"

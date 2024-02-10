@@ -13,7 +13,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer id="Footer" className="bottom-0 w-full py-6 absoltue justify-self-end bg-primary-300">
+    <footer id="Footer" className="bottom-0 w-full py-6 rounded-t-lg absoltue justify-self-end bg-primary-300">
       <div className="container container--sm">
         <div className="max-w-screen-xl mx-auto text-center">
           <Link

@@ -24,7 +24,7 @@ export default function Product({
   category,
   price,
   discountPrice,
-  description,
+  // description,
   isAvailable = true,
   isNew = false,
   isImmediate = false,
@@ -35,7 +35,7 @@ export default function Product({
     query: { title, price, id, category },
   };
   return (
-    <div className="xs:max-w-[300px] w-full mx-auto flex flex-col overflow-hidden transition rounded-md shadow-none group hover:shadow-default">
+    <div className="max-w-[240px] mx-auto xs:max-w-[300px] w-full mx-auto flex flex-col overflow-hidden transition rounded-md shadow-none group hover:shadow-default">
       <Link
         href={href}
         className="relative w-full h-56 overflow-hidden bg-white border cursor-pointer aspect-square"
@@ -69,7 +69,7 @@ export default function Product({
         )}
         <Image
           src={HeadbandImg}
-          alt=""
+          alt={title}
           className={clsx(
             !isAvailable && "opacity-30",
             "object-cover w-full h-auto transition duration-500 bg-gray-200 aspect-square group-hover:scale-110"
@@ -83,13 +83,14 @@ export default function Product({
           <Link href={href}>
             <h3 className="mb-2 text-xl font-medium leading-tight text-center">
               {title}
+              {/* {category} */}
             </h3>
           </Link>
-          {description && description.length > 0 && (
+          {/* {description && description.length > 0 && (
             <p className="mb-2 font-light leading-tight text-center line-clamp-2 text-neutral-500">
               {description}
             </p>
-          )}
+          )} */}
           <div className="flex flex-wrap items-end justify-center space-x-2 text-xs text-neutral-600">
             {discountPrice ? (
               <span className="text-sm line-through text-primary-900">
