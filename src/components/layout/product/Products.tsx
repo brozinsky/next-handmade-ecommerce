@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Product from "./Product";
 import clsx from "clsx";
@@ -9,13 +9,16 @@ import { products } from "@/utils/products";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Dropdown from "@/components/ui/Dropdown";
 import Button from "@/components/ui/Button";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 
 export default function Products({ category = "wszystkie" }) {
-  const pathname = usePathname()
-
-  const currentPath = pathname.split('/').pop().toLowerCase().replace(/^\w/, c => c.toUpperCase())
-  const dropdownName = currentPath === "Sklep" ? "Wszystkie" : currentPath
+  const pathname = usePathname() || "";
+  const segments = pathname.split("/");
+  const lastSegment = segments.pop() || "";
+  const currentPath = lastSegment
+    .toLowerCase()
+    .replace(/^\w/, (c) => c.toUpperCase());
+  const dropdownName = currentPath === "Sklep" ? "Wszystkie" : currentPath;
 
   return (
     <section id="Featured" className="bg-white py-section">
@@ -30,7 +33,11 @@ export default function Products({ category = "wszystkie" }) {
             classes="lg:hidden"
             isCenter
             trigger={
-              <Button icon="arrow-down" variant="outlined-no-hover" shape="rectangle">
+              <Button
+                icon="arrow-down"
+                variant="outlined-no-hover"
+                shape="rectangle"
+              >
                 {dropdownName}
               </Button>
             }
