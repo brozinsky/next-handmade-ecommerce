@@ -6,11 +6,12 @@ import React, { ReactNode } from "react";
 import { cva } from "class-variance-authority";
 import { X, Loader, ArrowUp } from "react-feather";
 import SpinnerSVG from "../svg/SpinnerSVG";
+import ArrowSmSVG from "../svg/ArrowSmSVG";
 
 type Props = {
   onClick?: any;
   children?: ReactNode;
-  variant?: "primary" | "neutral" | "ghost" | "outlined" | null | undefined;
+  variant?: "primary" | "neutral" | "ghost" | "outlined" | "outlined-no-hover" | null | undefined;
   icon?: string;
   className?: string;
   shape?:
@@ -60,7 +61,10 @@ export default function Button({
             "text-white font-regular bg-primary-500 hover:bg-primary-600 ",
           neutral: "bg-neutral-200/70 hover:bg-neutral-200",
           outlined:
-            "text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-500 dark:focus:ring-primary-800",
+            "text-primary-500 hover:text-white border-2 border-primary-500 hover:bg-primary-800",
+          "outlined-no-hover":
+            "text-primary-500 border-2 font-medium border-primary-500",
+
           ghost:
             "group bg-transparent-500 hover:bg-neutral-500 text-neutral-500 hover:text-neutral-500 font-regular",
         },
@@ -110,6 +114,7 @@ export default function Button({
       </LoadingWrapper>
       <LoadingWrapper isLoading={isLoading}>
         <span className="font-regular">{children}</span>
+        {icon === "arrow-down" && <ArrowSmSVG />}
       </LoadingWrapper>
       {isLoading && (
         <div className="absolute -rotate-90 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">

@@ -24,10 +24,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="Hero" className="w-full lg:spt-6">
-      <div className="relative lg:container container--sm">
+    <section id="Hero" className="w-full lg:pt-6">
+      <div className="relative mx-auto container-lg container-lg--sm">
         <Image
-          className="absolute w-11/12 transition transform -translate-x-1/2 -translate-y-1/2 lg:mb-3 object- left-1/2 cover top-1/2 lg:w-full lg:static z-1"
+          className="w-11/12 transition max-lg:absolute max-lg:-translate-y-1/2 max-lg:-translate-x-1/2 lg:transform lg:mb-3 object- left-1/2 cover top-1/2 lg:w-full lg:static z-1"
           src={logoBig}
           priority
           alt="Sznurkowe Królowe"

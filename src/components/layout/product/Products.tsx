@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Product from "./Product";
 import clsx from "clsx";
@@ -6,8 +7,16 @@ import Link from "next/link";
 import { categories } from "@/utils/categories";
 import { products } from "@/utils/products";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import Dropdown from "@/components/ui/Dropdown";
+import Button from "@/components/ui/Button";
+import { usePathname } from 'next/navigation'
 
 export default function Products({ category = "wszystkie" }) {
+  const pathname = usePathname()
+
+  const currentPath = pathname.split('/').pop().toLowerCase().replace(/^\w/, c => c.toUpperCase())
+  const dropdownName = currentPath === "Sklep" ? "Wszystkie" : currentPath
+
   return (
     <section id="Featured" className="bg-white py-section">
       <div className="container mx-auto space-y-8 container--xs">
@@ -17,7 +26,35 @@ export default function Products({ category = "wszystkie" }) {
             Qualisque erroribus usu at, duo te agam soluta mucius.
           </p> */}
           {/* <Separator /> */}
-          <div className="flex flex-row items-center justify-center gap-8 py-4 text-lg">
+          <Dropdown
+            classes="lg:hidden"
+            isCenter
+            trigger={
+              <Button icon="arrow-down" variant="outlined-no-hover" shape="rectangle">
+                {dropdownName}
+              </Button>
+            }
+          >
+            <div className="flex flex-col items-center justify-center gap-8 py-4 mx-auto overflow-hidden text-lg bg-white rounded-md shadow-2xl">
+              {categories.map(({ title, value, id }) => {
+                return (
+                  <Link
+                    href={`/sklep/${value}`}
+                    key={id}
+                    role="button"
+                    className={clsx(
+                      category == value &&
+                        "border-primary-500 text-primary-500 hover:text-primary-500 border-t-2 border-b-2",
+                      "select-none py-1.5 text-neutral-600 cursor-pointer hover:text-black transition"
+                    )}
+                  >
+                    {title}
+                  </Link>
+                );
+              })}
+            </div>
+          </Dropdown>
+          <div className="flex-col items-center justify-center hidden gap-8 py-4 text-lg lg:flex lg:flex-row">
             {categories.map(({ title, value, id }) => {
               return (
                 <Link

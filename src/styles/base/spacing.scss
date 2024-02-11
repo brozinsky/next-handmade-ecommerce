@@ -11,6 +11,21 @@
   }
 }
 
+.container-lg {
+  @include lg {
+    max-width: 1650px;
+    width: 86vw;
+    margin-left: auto;
+    margin-right: auto;
+    &--sm {
+      max-width: 1140px;
+    }
+    &--xs {
+      max-width: 980px;
+    }
+  }
+}
+
 $section-padding: 4rem;
 $section-padding-sm: 3rem;
 
