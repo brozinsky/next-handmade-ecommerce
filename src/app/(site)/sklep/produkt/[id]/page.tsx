@@ -186,7 +186,7 @@ export default function ProductPage({ searchParams }: Props) {
       <div className="py-section">
         <div className="container container--xs">
           <HeadingLine textPosition="center">Podobne produkty</HeadingLine>
-          <div className="flex flex-row flex-wrap justify-center gap-x-4">
+          <div className="flex flex-row flex-wrap justify-center gap-4">
             {[...products]
               .filter(
                 (product) =>
