@@ -1,14 +1,16 @@
-'use client'
 import Hero from "@/components/layout/home/Hero";
-import Footer from "@/components/layout/navigation/Footer";
 import Categories from "@/components/layout/Categories";
 import PageWrapper from "@/components/utils/PageWrapper";
 import Contact from "@/components/layout/contact/Contact";
 import Featured from "@/components/layout/product/Featured";
-import useProductsQuery from "@/stores/useProductsQuery";
+import { getProducts } from "../../../sanity/sanity-utils";
+import React, { useEffect } from "react";
 
-export default function Home() {
-  const {productsData} = useProductsQuery()
+export default async function Home() {
+  const products = await getProducts();
+
+  console.log("to ten log", products[1]);
+
   return (
     <PageWrapper className="overflow-x-hidden">
       <Hero />

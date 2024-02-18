@@ -16,7 +16,7 @@ const links = [
   { id: 1, title: "Sklep", path: "/sklep" },
   { id: 2, title: "O mnie", path: "/o-mnie" },
   { id: 3, title: "Kontakt", path: "/kontakt" },
-  { id: 3, title: "Koszyk", path: "/koszyk" },
+  { id: 4, title: "Koszyk", path: "/koszyk" },
 ];
 
 export default function Header() {
@@ -60,7 +60,7 @@ export default function Header() {
                   width={180}
                   height={53}
                   src={logoSm}
-                  loading="lazy"
+                  priority
                   alt={"Logo Sznurkowe Królowe"}
                 />
               </Link>

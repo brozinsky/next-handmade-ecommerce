@@ -1,19 +1,13 @@
-"use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Product from "./Product";
 import HeadlingLineWithLink from "@/components/ui/HeadlingLineWithLink";
 import { products } from "@/utils/products";
 import useProductsQuery from "@/stores/useProductsQuery";
 import ProductSkeleton from "./ProductSkeleton";
+import { getProducts } from "../../../../sanity/sanity-utils";
 
-export default function Featured() {
-  const { products, isLoadingProducts } = useProductsQuery();
-
-  useEffect(() => {
-    if (products) {
-      products.data.map((item) => console.log(item.attributes.title));
-    }
-  }, [products]);
+export default async function Featured() {
+  const products = await getProducts();
 
   return (
     <section id="Featured" className="bg-white pt-section pb-section-half">
@@ -22,14 +16,14 @@ export default function Featured() {
           <HeadlingLineWithLink>Wybrane produkty</HeadlingLineWithLink>
         </div>
         <div className="lg:min-h-[397px] grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-          {isLoadingProducts &&
-            [...Array(8)].map((_, index) => <ProductSkeleton key={index} />)}
-          {!isLoadingProducts &&
-            products.data
+          {/* {isLoadingProducts &&
+            [...Array(8)].map((_, index) => <ProductSkeleton key={index} />)} */}
+          {products &&
+            products
               .sort((a, b) =>
-                a.attributes.isAvailable === b.attributes.isAvailable
+                a.isAvailable === b.isAvailable
                   ? 0
-                  : a.attributes.isAvailable
+                  : a.isAvailable
                   ? -1
                   : 1
               )
@@ -37,15 +31,26 @@ export default function Featured() {
               .map((product) => {
                 return (
                   <Product
-                    key={product.id}
-                    id={product.id}
-                    title={product.attributes.title}
-                    category={product.attributes.category}
-                    price={product.attributes.price}
-                    discountPrice={product.attributes.discountPrice}
-                    isAvailable={product.attributes.isAvailable}
-                    isNew={product.attributes.isNew}
-                    isImmediate={product.attributes.isImmediate}
+                    // key={product.id}
+                    // id={product.id}
+                    // title={product.attributes.title}
+                    // category={product.attributes.category}
+                    // price={product.attributes.price}
+                    // discountPrice={product.attributes.discountPrice}
+                    // isAvailable={product.attributes.isAvailable}
+                    // isNew={product.attributes.isNew}
+                    // isImmediate={product.attributes.isImmediate}
+                    
+                    key={product._id}
+                    id={product._id}
+                    imageUrl={product.imageUrl}
+                    title={product.name}
+                    category={product.categories[0].title.toLowerCase()}
+                    price={product.price}
+                    discountPrice={product.discountPrice}
+                    isAvailable={product.isAvailable}
+                    isNew={product.isNew}
+                    isImmediate={product.isImmediate}
                   />
                 );
               })}

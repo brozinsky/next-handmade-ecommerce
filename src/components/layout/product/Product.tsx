@@ -8,10 +8,12 @@ import React from "react";
 import HeadbandImg from "@/public/opaski-1.jpg";
 import { products } from "@/utils/products";
 import { Product } from "@/utils/types";
+import NoImageSVG from "@/components/svg/NoImageSVG";
 
 type Props = Product & {
   discountPrice?: number | null;
   isNew?: boolean;
+  imageUrl?: string;
 };
 
 type CartItem = Product & {
@@ -28,11 +30,12 @@ export default function Product({
   isAvailable = true,
   isNew = false,
   isImmediate = false,
+  imageUrl
 }: Props) {
   const { addItem } = useCartStore();
   const href = {
     pathname: `/sklep/produkt/${id}`,
-    query: { title, price, id, category },
+    query: { title, id },
   };
   return (
     <div className="max-w-[240px] xs:max-w-[300px] w-full mx-auto flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default">
@@ -67,8 +70,8 @@ export default function Product({
             Promocja!
           </span>
         )}
-        <Image
-          src={HeadbandImg}
+        {imageUrl ? <Image
+          src={imageUrl}
           alt={title}
           className={clsx(
             !isAvailable && "opacity-30",
@@ -76,7 +79,9 @@ export default function Product({
           )}
           width={261}
           height={261}
-        />
+        /> :  <div className="flex items-center justify-center w-full h-full">
+          <NoImageSVG width={261} height={261}/>
+        </div>}
       </Link>
       <div className="flex flex-col justify-between flex-1 p-6">
         <div>

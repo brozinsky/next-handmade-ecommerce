@@ -59,13 +59,13 @@ export default {
         title: "Name",
         name: "name",
         type: "string",
-        validation: (Rule) => Rule.required()
+        validation: (Rule: any) => Rule.required()
       },
       {
         name: "slug",
         title: "Slug",
         type: "slug",
-        validation: (Rule) => Rule.required(),
+        validation: (Rule: any) => Rule.required(),
         options: {
           source: "name",
           maxLength: 96
@@ -108,7 +108,7 @@ export default {
         title: "Sale Price",
         name: "discountPrice",
         type: "number",
-        hidden: ({ document }) => !document.on_sale
+        hidden: ({ document }: any) => !document.isOnSale
       },
       {
         title: "Promocja",
@@ -130,6 +130,15 @@ export default {
         title: "Nowość",
         name: "isNew",
         type: "boolean"
+      },
+      {
+        title: "Image Gallery",
+        name: "imageGallery",
+        type: "array",
+        of: [{ type: "image" }],
+        options: {
+          layout: "grid"
+        }
       }
     ]
   };
