@@ -1,17 +1,17 @@
 import React from "react";
-import HeadbandImg from "@/public/opaski-1.jpg";
 import Image from "next/image";
 import clsx from "clsx";
 import useCartStore from "@/stores/useCartStore";
 import Link from "next/link";
 import { Product } from "@/utils/types";
 
-type Props = Product & {
+type TProps = Product & {
   imgSrc: string;
   quantity: number;
+  color?: string;
 };
 
-export default function CartProduct({ id, title, price, imgSrc, quantity, category }: Props) {
+export default function CartProduct({ _id, title, price, imgSrc, quantity, category, color }: TProps) {
   const { incrementItemQuantity, decrementItemQuantity, removeItem } =
     useCartStore((state) => ({
       incrementItemQuantity: state.incrementItemQuantity,
@@ -19,15 +19,15 @@ export default function CartProduct({ id, title, price, imgSrc, quantity, catego
       removeItem: state.removeItem,
     }));
   const href = {
-    pathname: `/sklep/produkt/${id}`,
-    query: { title, price, id, category },
+    pathname: `/sklep/produkt/${_id}`,
+    query: { title, price, _id, category },
   };
   return (
     <li className="flex gap-4 py-6">
       <Link href={href} className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md ">
         <Image
-          src={HeadbandImg}
-          alt={title}
+          src={imgSrc}
+          alt={title || ""}
           className={clsx("object-cover object-center w-full h-full")}
           width={94}
           height={94}
@@ -41,12 +41,12 @@ export default function CartProduct({ id, title, price, imgSrc, quantity, catego
             </h3>
             <p className="text-right min-w-20">{price}.00 zł</p>
           </div>
-          <p className="mt-1 text-sm text-gray-500">Dostawa w 2 tygodnie</p>
         </div>
+        {color && <div>Kolor: {color}</div>}
         <div className="flex items-end justify-between flex-1 text-sm">
           <div className="gap-2 flex-center-center">
             <div
-              onClick={() => decrementItemQuantity(id)}
+              onClick={() => decrementItemQuantity(_id)}
               className="w-4 h-4 text-gray-500 transition transform border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
               -
@@ -55,7 +55,7 @@ export default function CartProduct({ id, title, price, imgSrc, quantity, catego
               {quantity} szt
             </p>
             <div
-              onClick={() => incrementItemQuantity(id)}
+              onClick={() => incrementItemQuantity(_id)}
               className="w-4 h-4 text-gray-500 transition border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
               +
@@ -63,7 +63,7 @@ export default function CartProduct({ id, title, price, imgSrc, quantity, catego
           </div>
           <div className="flex">
             <button
-              onClick={() => removeItem(id)}
+              onClick={() => removeItem(color ? `${title} ${color}` : title as string)}
               type="button"
               className="font-medium text-red-600 hover:text-red-500"
             >

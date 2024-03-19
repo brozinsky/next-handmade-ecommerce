@@ -56,7 +56,7 @@ export default {
     type: "document",
     fields: [
       {
-        title: "Name",
+        title: "Nazwa",
         name: "name",
         type: "string",
         validation: (Rule: any) => Rule.required()
@@ -72,13 +72,13 @@ export default {
         }
       },
       {
-        title: "Description",
+        title: "Opis",
         name: "description",
         type: "blockContent"
       },
       {
+        title: "Kategoria",
         name: "categories",
-        title: "Categories",
         type: "array",
         of: [
           {
@@ -88,24 +88,24 @@ export default {
         ]
       },
       {
-        title: "Featured Image",
+        title: "Główne zdjęcie",
         name: "featured_image",
         type: "image"
       },
       {
-        title: "Price",
+        title: "Cena",
         name: "price",
         type: "number"
       },
       {
-        title: "Currency",
+        title: "Waluta",
         name: "currency",
         type: "string",
-        initialValue: "USD",
+        initialValue: "PLN",
         hidden: true
       },
       {
-        title: "Sale Price",
+        title: "Cena promocyjna",
         name: "discountPrice",
         type: "number",
         hidden: ({ document }: any) => !document.isOnSale
@@ -132,7 +132,12 @@ export default {
         type: "boolean"
       },
       {
-        title: "Image Gallery",
+        title: "Wybór koloru",
+        name: "isColorSelect",
+        type: "boolean"
+      },
+      {
+        title: "Galeria",
         name: "imageGallery",
         type: "array",
         of: [{ type: "image" }],

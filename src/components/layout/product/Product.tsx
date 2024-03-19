@@ -1,12 +1,9 @@
 "use client";
-import Button from "@/components/ui/Button";
 import useCartStore from "@/stores/useCartStore";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import HeadbandImg from "@/public/opaski-1.jpg";
-import { products } from "@/utils/products";
 import { Product } from "@/utils/types";
 import NoImageSVG from "@/components/svg/NoImageSVG";
 
@@ -14,10 +11,6 @@ type Props = Product & {
   discountPrice?: number | null;
   isNew?: boolean;
   imageUrl?: string;
-};
-
-type CartItem = Product & {
-  quantity: number;
 };
 
 export default function Product({
@@ -30,7 +23,7 @@ export default function Product({
   isAvailable = true,
   isNew = false,
   isImmediate = false,
-  imageUrl
+  imageUrl,
 }: Props) {
   const { addItem } = useCartStore();
   const href = {
@@ -70,18 +63,22 @@ export default function Product({
             Promocja!
           </span>
         )}
-        {imageUrl ? <Image
-          src={imageUrl}
-          alt={title}
-          className={clsx(
-            !isAvailable && "opacity-30",
-            "object-cover w-full h-auto transition duration-500 bg-gray-200 aspect-square group-hover:scale-110"
-          )}
-          width={261}
-          height={261}
-        /> :  <div className="flex items-center justify-center w-full h-full">
-          <NoImageSVG width={261} height={261}/>
-        </div>}
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={title ? title : ""}
+            className={clsx(
+              !isAvailable && "opacity-30",
+              "object-cover w-full h-auto transition duration-500 bg-gray-200 aspect-square group-hover:scale-110"
+            )}
+            width={261}
+            height={261}
+          />
+        ) : (
+          <div className="flex items-center justify-center w-full h-full">
+            <NoImageSVG width={261} height={261} />
+          </div>
+        )}
       </Link>
       <div className="flex flex-col justify-between flex-1 p-6">
         <div>
@@ -113,7 +110,7 @@ export default function Product({
             )}
           </div>
         </div>
-        <div className="mx-auto mt-4">
+        {/* <div className="mx-auto mt-4">
           <Button
             onClick={() => {
               const productToAdd = products.find(
@@ -128,7 +125,7 @@ export default function Product({
           >
             Dodaj do koszyka
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

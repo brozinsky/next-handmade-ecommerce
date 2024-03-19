@@ -23,19 +23,19 @@ export default function CartSection() {
                 Twój koszyk
               </h1>
               <ul role="list" className="w-full divide-y divide-gray-200">
-                {items.map((item) => (
+                {items.map((item) => {
+                  return(
                   <CartProduct
-                    key={item.id}
-                    id={item.id}
+                    color={item.color}
+                    key={item._id}
+                    _id={item._id}
                     category={item.category}
-                    title={item.title}
+                    title={item.name}
                     price={item.price}
                     quantity={item.quantity}
-                    imgSrc={
-                      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                    }
+                    imgSrc={item.imageUrl || ""}
                   />
-                ))}
+                )})}
               </ul>
             </div>
           </div>

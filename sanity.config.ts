@@ -4,6 +4,8 @@ import {deskTool} from 'sanity/desk'
 import product from './sanity/schemas/product'
 import category from './sanity/schemas/category'
 import blockContent from './sanity/schemas/blockContent'
+import color from './sanity/schemas/color'
+import content from './sanity/schemas/content'
 
 export default defineConfig({
 
@@ -18,7 +20,7 @@ export default defineConfig({
   plugins: [deskTool()],
 
   schema: {
-    types: [product, category, blockContent],
+    types: [product, category, blockContent, color, content],
   },
 })
 

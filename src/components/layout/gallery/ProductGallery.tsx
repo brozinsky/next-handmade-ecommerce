@@ -18,9 +18,10 @@ type ImageType = {
   src: string;
   width: number;
   height: number;
+  title: string;
 };
 
-export default function ProductGallery({featuredImage, images}) {
+export default function ProductGallery({title, featuredImage, images}) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const [lightbox, setLightbox] = useState<PhotoSwipeLightbox | null>(null);
 
@@ -77,7 +78,7 @@ export default function ProductGallery({featuredImage, images}) {
                   className="w-full object-cover rounded-lg max-h-[300px] xs:max-h-[400px] aspect-square"
                   width={1300}
                   height={1300}
-                  alt=""
+                  alt={title ? title : ""}
                   src={image}
                 />
               </a>
@@ -100,7 +101,7 @@ export default function ProductGallery({featuredImage, images}) {
               className="w-full h-[67.5px] xs:h-[92px] transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
               width="133"
               height="133"
-              alt=""
+              alt={title ? title : ""}
               src={image}
             />
           </SwiperSlide>

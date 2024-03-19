@@ -9,8 +9,6 @@ import React, { useEffect } from "react";
 export default async function Home() {
   const products = await getProducts();
 
-  console.log("to ten log", products[1]);
-
   return (
     <PageWrapper className="overflow-x-hidden">
       <Hero />

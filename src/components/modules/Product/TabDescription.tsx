@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TabDescription({ product }) {
   return (
-    <p className="font-light">
+    <div className="font-light">
       {/* Torba została wykonana z wysokiej jakości tkaniny imitującej len. */}
       {product.description &&
         product.description.map((block, blockIndex) => (
@@ -12,6 +12,6 @@ export default function TabDescription({ product }) {
             ))}
           </React.Fragment>
         ))}
-    </p>
+    </div>
   );
 }
