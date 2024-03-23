@@ -1,4 +1,4 @@
-export type Product = {
+export type TProduct = {
   _id: string;
   title?: string;
   name?: string;
@@ -11,14 +11,14 @@ export type Product = {
   isImmediate?: boolean;
 };
 
-export type Category = {
+export type TCategory = {
     id: number;
     value: string;
     title: string;
 };
 
 
-export interface ICartItem extends Product {
+export interface ICartItem extends TProduct {
   key: string;
   quantity: number;
   color?: string;

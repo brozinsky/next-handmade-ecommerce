@@ -6,8 +6,7 @@ import Featured from "@/components/layout/product/Featured";
 import { getProducts } from "../../../sanity/sanity-utils";
 import React, { useEffect } from "react";
 
-export default async function Home() {
-  const products = await getProducts();
+export default function Home() {
 
   return (
     <PageWrapper className="overflow-x-hidden">

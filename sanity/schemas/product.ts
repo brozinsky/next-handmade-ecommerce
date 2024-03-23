@@ -144,6 +144,16 @@ export default {
         options: {
           layout: "grid"
         }
+      },
+      {
+        title: "Podobne produkty",
+        name: "similarProducts",
+        type: "array",
+        of: [{ type: "reference", to: [{ type: "product" }] }],
+        options: {
+            layout: "tags"
+        },
+        validation: (Rule: any) => Rule.max(3).unique().error("Możesz wybrać maksymalnie 3 podobne produkty."),
       }
     ]
   };

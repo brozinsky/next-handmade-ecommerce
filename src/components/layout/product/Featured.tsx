@@ -15,7 +15,7 @@ export default async function Featured() {
         <div className="space-y-2 text-center">
           <HeadlingLineWithLink>Wybrane produkty</HeadlingLineWithLink>
         </div>
-        <div className="lg:min-h-[397px] grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
           {/* {isLoadingProducts &&
             [...Array(8)].map((_, index) => <ProductSkeleton key={index} />)} */}
           {products &&

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CartProduct from "./CartProduct";
 import Button from "@/components/ui/Button";
-import PageWrapper from "@/components/utils/PageWrapper";
 import useCartStore from "@/stores/useCartStore";
-import EmptyCartSVG from "@/public/empty-cart.svg";
-import Image from "next/image";
-import Link from "next/link";
+
+function calculateTotalCost(items: any[]) {
+  return items.reduce((total, item) => {
+    const quantity = typeof item.quantity === "number" ? item.quantity : 0;
+    const price = typeof item.price === "number" ? item.price : 0;
+
+    return total + quantity * price;
+  }, 0);
+}
 
 export default function CartSection() {
   const { items } = useCartStore();
+  const totalCost = useMemo(() => calculateTotalCost(items), [items]);
 
   return (
     <section className="py-section min-h-screen-footer">
@@ -24,18 +30,19 @@ export default function CartSection() {
               </h1>
               <ul role="list" className="w-full divide-y divide-gray-200">
                 {items.map((item) => {
-                  return(
-                  <CartProduct
-                    color={item.color}
-                    key={item._id}
-                    _id={item._id}
-                    category={item.category}
-                    title={item.name}
-                    price={item.price}
-                    quantity={item.quantity}
-                    imgSrc={item.imageUrl || ""}
-                  />
-                )})}
+                  return (
+                    <CartProduct
+                      color={item.color}
+                      key={item._id + item.color + item.name}
+                      _id={item._id}
+                      category={item.category}
+                      title={item.name}
+                      price={item.price}
+                      quantity={item.quantity}
+                      imgSrc={item.imageUrl || ""}
+                    />
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -58,7 +65,7 @@ export default function CartSection() {
                 <div className="py-6 border-t border-gray-200">
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <p>Suma</p>
-                    <p>262.00 zł</p>
+                    <p>{totalCost},00 zł</p>
                   </div>
                   {/* <p className="mt-0.5 text-sm text-gray-500">
                             Shipping and taxes calculated at checkout.

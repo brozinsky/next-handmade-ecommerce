@@ -2,7 +2,7 @@
 import Button from "@/components/ui/Button";
 import useCartStore from "@/stores/useCartStore";
 import React, { Fragment, useEffect, useState } from "react";
-import { ICartItem, Product } from "@/utils/types";
+import { ICartItem, TProduct } from "@/utils/types";
 import Select from "@/components/ui/Select/Select";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import Image from "next/image";
@@ -16,7 +16,7 @@ type InputOptionType = {
 };
 
 type TProps = {
-  products: Product[];
+  products: TProduct[];
   productId: string;
   price: string;
   isColorSelect: boolean;

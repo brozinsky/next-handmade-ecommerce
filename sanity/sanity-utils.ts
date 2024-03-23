@@ -70,6 +70,7 @@ export async function getProductById(productId: string) {
         "imageGallery": imageGallery[].asset->url,
         price,
         currency,
+        similarProducts,
         discountPrice,
         isOnSale,
         isColorSelect,
@@ -83,6 +84,39 @@ export async function getProductById(productId: string) {
     return products.length > 0 ? products[0] : null;
   } catch (error) {
     console.error("Failed to fetch product:", error);
+    throw error;
+  }
+}
+
+export async function getProductsByIds(productIds: string[]) {
+  const query = `
+    *[_type == "product" && _id in $productIds]{
+      _id,
+      name,
+      "slug": slug.current,
+      description,
+      "categories": categories[]->{
+        _id,
+        title
+      },
+      "imageUrl": featured_image.asset->url,
+      "imageGallery": imageGallery[].asset->url,
+      price,
+      currency,
+      similarProducts,
+      discountPrice,
+      isOnSale,
+      isColorSelect,
+      isImmediate,
+      isAvailable,
+      isNew
+    }`;
+
+  try {
+    const products = await client.fetch(query, { productIds });
+    return products;
+  } catch (error) {
+    console.error("Failed to fetch products by IDs:", error);
     throw error;
   }
 }

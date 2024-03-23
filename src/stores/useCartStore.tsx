@@ -1,4 +1,4 @@
-import { Product, TCartStore } from "@/utils/types";
+import { TCartStore } from "@/utils/types";
 import { toast } from "react-toastify";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
@@ -50,18 +50,16 @@ const createStore: StateCreator<
       items: state.items.filter((item) => item.key !== key),
     })),
   clearCart: () => set({ items: [] }),
-  incrementItemQuantity: (itemId) =>
+  incrementItemQuantity: (key) =>
     set((state) => ({
       items: state.items.map((item) =>
-        item._id === itemId.toString()
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
+        item.key === key ? { ...item, quantity: item.quantity + 1 } : item
       ),
     })),
-  decrementItemQuantity: (itemId) =>
+  decrementItemQuantity: (key) =>
     set((state) => ({
       items: state.items.map((item) =>
-        item._id === itemId.toString()
+        item.key === key
           ? { ...item, quantity: Math.max(1, item.quantity - 1) }
           : item
       ),

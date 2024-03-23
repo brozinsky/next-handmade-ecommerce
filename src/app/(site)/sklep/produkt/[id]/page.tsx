@@ -1,17 +1,17 @@
 import PageWrapper from "@/components/utils/PageWrapper";
 import Separator from "@/components/utils/Separator";
-import Product from "@/components/layout/product/Product";
-import HeadingLine from "@/components/ui/HeadingLine";
 import ProductGallery from "@/components/layout/gallery/ProductGallery";
 import {
   getColors,
   getProductById,
   getProducts,
+  getProductsByIds,
 } from "../../../../../../sanity/sanity-utils";
 import TabsProducts from "@/components/modules/Product/TabsProducts";
 import ProductAddToCart from "@/components/modules/Product/ProductAddToCart";
 import Link from "next/link";
 import { ArrowLeft } from "react-feather";
+import ProductsSimilar from "@/components/modules/Product/ProductsSimilar";
 
 type SearchParams = {
   id: string;
@@ -29,6 +29,12 @@ export default async function ProductPage({
   const products = await getProducts();
   const colors = await getColors();
 
+  const similarProductIds = product.similarProducts?.map((sp: any) => sp._ref);
+  let similarProducts = []
+  if (similarProductIds) {
+    similarProducts = await getProductsByIds(similarProductIds);
+  }
+
   const convertToInputOptionType = (array: string[]) => {
     return array.map((title: string, index: number) => {
       return {
@@ -41,10 +47,9 @@ export default async function ProductPage({
 
   const inputOptions = convertToInputOptionType(colors[0].colorOptions);
 
-
   return (
     <PageWrapper className="bg-light-ivory">
-      <div className="py-section">
+      <div className="py-section min-h-screen-footer ">
         <div className="container container--xs">
           <div className="flex flex-col items-center gap-16 lg:flex-row">
             <ProductGallery
@@ -98,25 +103,7 @@ export default async function ProductPage({
         </div>
       </div>
 
-      <div className="py-section">
-        <div className="container container--xs">
-          <HeadingLine textPosition="center">Podobne produkty</HeadingLine>
-          <div className="flex flex-row flex-wrap justify-center gap-4">
-            {[...products]
-              .filter((item) => item.category === product.category)
-              .sort((a, b) =>
-                a.isAvailable === b.isAvailable ? 0 : a.isAvailable ? -1 : 1
-              )
-              .map((product) => {
-                return (
-                  <div key={product.id} className="max-w-[250px]">
-                    <Product {...product} />
-                  </div>
-                );
-              })}
-          </div>
-        </div>
-      </div>
+      <ProductsSimilar products={similarProducts} />
     </PageWrapper>
   );
 }

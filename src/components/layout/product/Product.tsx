@@ -4,10 +4,10 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Product } from "@/utils/types";
+import { TProduct } from "@/utils/types";
 import NoImageSVG from "@/components/svg/NoImageSVG";
 
-type Props = Product & {
+type Props = TProduct & {
   discountPrice?: number | null;
   isNew?: boolean;
   imageUrl?: string;
@@ -31,7 +31,7 @@ export default function Product({
     query: { title, id },
   };
   return (
-    <div className="max-w-[240px] xs:max-w-[300px] w-full mx-auto flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default">
+    <div className="max-w-[240px] xs:max-w-[300px] w-full flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default">
       <Link
         href={href}
         className="relative w-full h-56 overflow-hidden bg-white border cursor-pointer aspect-square"
