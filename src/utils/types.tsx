@@ -17,7 +17,7 @@ export type TCategory = {
     title: string;
 };
 
-
+export type TTextMark = "strong" | "em";
 export interface ICartItem extends TProduct {
   key: string;
   quantity: number;

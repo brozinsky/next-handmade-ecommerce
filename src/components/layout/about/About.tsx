@@ -3,22 +3,8 @@ import Image from "next/image";
 import Image1 from "@/public/about/about-1.jpg";
 import HeadingLine from "@/components/ui/HeadingLine";
 import { getDescription } from "../../../../sanity/sanity-utils";
-
-type TTextMark = "strong" | "em";
-
-const renderText = (text: string, marks: TTextMark[]): JSX.Element | string => {
-  if (!marks || marks.length === 0) return text;
-  return marks.reduce<JSX.Element | string>((acc, mark) => {
-    switch (mark) {
-      case "strong":
-        return <strong className="font-bold" key={mark}>{acc}</strong>;
-      case "em":
-        return <em key={mark}>{acc}</em>;
-      default:
-        return acc;
-    }
-  }, text);
-};
+import renderText from "@/utils/renderText";
+import { TTextMark } from "@/utils/types";
 
 export default async function About() {
   const aboutDescription = await getDescription("o-mnie");

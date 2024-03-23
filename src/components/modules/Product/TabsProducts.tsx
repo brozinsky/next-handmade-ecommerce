@@ -2,8 +2,10 @@
 import clsx from "clsx";
 import React, { useState } from "react";
 import TabDescription from "./TabDescription";
+import TabMeasurements from "./TabMeasurements";
+import TabShipping from "./TabShipping";
 
-export default function TabsProducts({product, products, searchParams}) {
+export default function TabsProducts({product, products, searchParams, shipping}) {
   const [tab, setTab] = useState(0);
 
   return (
@@ -51,23 +53,10 @@ export default function TabsProducts({product, products, searchParams}) {
           <TabDescription product={product}/>
         )}
         {tab == 1 && (
-          <div>
-            <p className="font-light">
-              <strong className="font-semibold">Wysokość:</strong> 40 cm
-            </p>
-            <p className="font-light">
-              <strong className="font-semibold">Szerokość:</strong> 40cm
-            </p>
-            <p className="font-light">
-              <strong className="font-semibold">Szerokość boku:</strong> 12 cm
-            </p>
-          </div>
+          <TabMeasurements />
         )}
         {tab == 2 && (
-        <div className="product-shipping-info">
-          <div className="font-light">Paczkomaty inPost: 18 zł</div>
-          <div className="font-light">Poczta Polska - priorytet: 17 zł</div>
-        </div>
+        <TabShipping shipping={shipping}/>
       )}
       </div>
   );

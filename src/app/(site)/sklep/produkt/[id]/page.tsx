@@ -3,6 +3,7 @@ import Separator from "@/components/utils/Separator";
 import ProductGallery from "@/components/layout/gallery/ProductGallery";
 import {
   getColors,
+  getDescription,
   getProductById,
   getProducts,
   getProductsByIds,
@@ -28,6 +29,7 @@ export default async function ProductPage({
   const product = await getProductById(searchParams.id);
   const products = await getProducts();
   const colors = await getColors();
+  const shippingInfo = await getDescription("koszty-wysylki");
 
   const similarProductIds = product.similarProducts?.map((sp: any) => sp._ref);
   let similarProducts = []
@@ -95,6 +97,7 @@ export default async function ProductPage({
                 <TabsProducts
                   product={product}
                   products={products}
+                  shipping={shippingInfo}
                   searchParams={searchParams}
                 />
               </div>
