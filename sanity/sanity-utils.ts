@@ -121,7 +121,15 @@ export async function getProductsByIds(productIds: string[]) {
   }
 }
 
-// "slug": slug.current,
-// "image": image.asset->url,
-// url,
-// content
+export async function getDescription(slug: "o-mnie" | "koszty-wysylki") {
+  const query = `*[slug.current == $slug][0]`
+  const params = { slug }
+
+  try {
+    const document = await client.fetch(query, params)
+    return document
+  } catch (error) {
+    console.error("Failed to fetch document:", error)
+    return null
+  }
+}
