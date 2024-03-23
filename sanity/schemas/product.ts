@@ -77,6 +77,11 @@ export default {
         type: "blockContent"
       },
       {
+        title: "Wymiary",
+        name: "measurements",
+        type: "blockContent"
+      },
+      {
         title: "Kategoria",
         name: "categories",
         type: "array",

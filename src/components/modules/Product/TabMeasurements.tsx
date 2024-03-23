@@ -1,19 +1,27 @@
 import React from "react";
-import { getDescription } from "../../../../sanity/sanity-utils";
+import { TTextMark } from "@/utils/types";
+import renderText from "@/utils/renderText";
 
-const TabMeasurements = () => {
-
+const TabMeasurements = ({ measurements }) => {
   return (
     <div>
-      <p className="font-light">
-        <strong className="font-semibold">Wysokość:</strong> 40 cm
-      </p>
-      <p className="font-light">
-        <strong className="font-semibold">Szerokość:</strong> 40cm
-      </p>
-      <p className="font-light">
-        <strong className="font-semibold">Szerokość boku:</strong> 12 cm
-      </p>
+      {measurements &&
+        measurements.map((block: any, blockIndex: number) => {
+          return (
+            <React.Fragment key={blockIndex}>
+              {block.children.map(
+                (
+                  child: { text: string; marks: TTextMark[] },
+                  childIndex: string
+                ) => (
+                  <p key={childIndex} className="font-light">
+                    {renderText(child.text, child.marks)}
+                  </p>
+                )
+              )}
+            </React.Fragment>
+          );
+        })}
     </div>
   );
 };

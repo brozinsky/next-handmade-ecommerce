@@ -1,11 +1,11 @@
 'use client'
 import clsx from "clsx";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TabDescription from "./TabDescription";
 import TabMeasurements from "./TabMeasurements";
 import TabShipping from "./TabShipping";
 
-export default function TabsProducts({product, products, searchParams, shipping}) {
+export default function TabsProducts({product, shipping}) {
   const [tab, setTab] = useState(0);
 
   return (
@@ -22,7 +22,7 @@ export default function TabsProducts({product, products, searchParams, shipping}
           >
             <span className={"text-lg font-medium cursor-pointer"}>Opis</span>
           </button>
-          <button
+          {product.measurements && <button
             className={clsx(
               tab == 1
                 ? "bg-gray-100 text-neutral-900"
@@ -34,7 +34,7 @@ export default function TabsProducts({product, products, searchParams, shipping}
             <span className={"text-lg font-medium cursor-pointer"}>
               Wymiary
             </span>
-          </button>
+          </button>}
           <button
             className={clsx(
               tab == 2
@@ -53,7 +53,7 @@ export default function TabsProducts({product, products, searchParams, shipping}
           <TabDescription product={product}/>
         )}
         {tab == 1 && (
-          <TabMeasurements />
+          <TabMeasurements measurements={product.measurements}/>
         )}
         {tab == 2 && (
         <TabShipping shipping={shipping}/>

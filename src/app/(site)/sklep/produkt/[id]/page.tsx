@@ -96,9 +96,7 @@ export default async function ProductPage({
                 <Separator />
                 <TabsProducts
                   product={product}
-                  products={products}
                   shipping={shippingInfo}
-                  searchParams={searchParams}
                 />
               </div>
             </div>

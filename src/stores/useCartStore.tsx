@@ -16,7 +16,7 @@ const createStore: StateCreator<
         const updatedItems = state.items.map((i, index) => {
           if (index === itemIndex) {
             toast.success(
-              `Produkt dodany do koszyka. ${item.title} x${quantity}`,
+              `Produkt dodany do koszyka. ${item.name} - ${quantity}szt`,
               {
                 position: "bottom-right",
                 autoClose: 3000,
@@ -33,7 +33,7 @@ const createStore: StateCreator<
         });
         return { items: updatedItems };
       } else {
-        toast.success(`Produkt dodany do koszyka. ${item.title}`, {
+        toast.success(`Produkt dodany do koszyka. ${item.name}`, {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,

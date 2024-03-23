@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TabDescription({ product }) {
   return (
-    <div className="font-light">
+    <div className="space-y-2 font-light">
       {/* Torba została wykonana z wysokiej jakości tkaniny imitującej len. */}
       {product.description &&
         product.description.map((block, blockIndex) => (
