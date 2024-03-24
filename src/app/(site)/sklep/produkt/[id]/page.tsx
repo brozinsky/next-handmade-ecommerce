@@ -16,7 +16,7 @@ import { ArrowLeft } from "react-feather";
 import ProductsSimilar from "@/components/modules/Product/ProductsSimilar";
 
 type SearchParams = {
-  id: string;
+  _id: string;
   title: string;
 };
 
@@ -25,9 +25,10 @@ type Props = {
 };
 
 export default async function ProductPage({
-  searchParams = { id: "", title: "" },
+  searchParams = { _id: "", title: "" },
 }: Props) {
-  const product = await getProductById(searchParams.id);
+  console.log(searchParams._id);
+  const product = await getProductById(searchParams._id);
   const products = await getProducts();
   const colors = await getColors();
   const shippingInfo = await getShippingInfo()
@@ -93,7 +94,7 @@ export default async function ProductPage({
                   price={product.price}
                   discountPrice={product.discountPrice}
                   products={products}
-                  productId={searchParams.id}
+                  productId={searchParams._id}
                 />
                 <Separator />
                 <TabsProducts

@@ -59,9 +59,9 @@ export default function Select({
         leaveTo="transform scale-95 opacity-0"
       >
         <Listbox.Options className="select-input__list">
-          {options && options.map(({ id, title, value }) => (
+          {options && options.map(({ title, value }, index) => (
             <Listbox.Option
-              key={id}
+              key={index}
               className={({ active }: any) =>
                 `select-input__option ${
                   active && "select-input__option--active"
