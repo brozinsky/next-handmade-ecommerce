@@ -1,16 +1,15 @@
-"use client";
-import CartDrawer from "@/components/layout/Cart/CartDrawer";
 import CartEmpty from "@/components/layout/Cart/CartEmpty";
 import CartSection from "@/components/layout/Cart/CartSection";
 import PageWrapper from "@/components/utils/PageWrapper";
 import useCartStore from "@/stores/useCartStore";
+import { getShippingInfo } from "../../../../sanity/sanity-utils";
 
-export default function CartPage() {
-  const { items } = useCartStore();
+export default async function CartPage() {
+  const shippingInfo = await getShippingInfo();
 
   return (
     <PageWrapper className="bg-light-ivory">
-      <div>{items.length !== 0 ? <CartSection /> : <CartEmpty />}</div>
+      <CartSection shippingInfo={shippingInfo}/>
     </PageWrapper>
   );
 }

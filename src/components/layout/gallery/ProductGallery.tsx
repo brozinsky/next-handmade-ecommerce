@@ -12,54 +12,20 @@ import Image from "next/image";
 import { ZoomIn } from "react-feather";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 type ImageType = {
   src: string;
   width: number;
   height: number;
+  title: string;
 };
 
-export default function ProductGallery() {
+export default function ProductGallery({title, featuredImage, images}) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const [lightbox, setLightbox] = useState<PhotoSwipeLightbox | null>(null);
 
-  const images: ImageType[] = [
-    {
-      src: "https://swiperjs.com/demos/images/nature-1.jpg",
-      width: 532,
-      height: 532,
-    },
-    {
-      src: "https://swiperjs.com/demos/images/nature-2.jpg",
-      width: 532,
-      height: 532,
-    },
-    {
-      src: "https://swiperjs.com/demos/images/nature-3.jpg",
-      width: 532,
-      height: 532,
-    },
-    {
-      src: "https://swiperjs.com/demos/images/nature-4.jpg",
-      width: 532,
-      height: 532,
-    },
-    {
-      src: "https://swiperjs.com/demos/images/nature-5.jpg",
-      width: 532,
-      height: 532,
-    },
-    {
-      src: "https://swiperjs.com/demos/images/nature-6.jpg",
-      width: 532,
-      height: 532,
-    },
-    {
-      src: "https://swiperjs.com/demos/images/nature-7.jpg",
-      width: 532,
-      height: 532,
-    },
-  ];
+  const imagesGallery = images && images.length > 0 ? [featuredImage, ...images] : [featuredImage];
 
   useEffect(() => {
     const lightbox = new PhotoSwipeLightbox({
@@ -80,10 +46,7 @@ export default function ProductGallery() {
   };
 
   return (
-    <div>
-      <div className="max-w-[250px] xs:max-w-[400px]">
-        {/* Conditional rendering of SimpleGallery */}
-
+      <div className="w-full xs:w-[400px] sm:w-[600px] lg:w-[400px]">
         <Swiper
           loop={true}
           spaceBetween={10}
@@ -96,31 +59,32 @@ export default function ProductGallery() {
             <ZoomIn width="16" className="text-neutral-700" />
             <div className="text-sm text-neutral-800">Powiększ</div>
           </div>
-          {images.map((image, index) => (
+          {imagesGallery.map((image, index) => (
             <SwiperSlide key={`slide-${index}`}>
-              <a // Ensure this <a> tag has the correct attributes for PhotoSwipe
-                href={image.src} // Large image URL
-                data-pswp-width={image.width}
-                data-pswp-height={image.height}
+              <a
+                className="rounded-lg bg-neutral-200"
+                href={image}
+                data-pswp-width={1300}
+                data-pswp-height={1300}
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => {
-                  e.preventDefault(); // Prevent default to stop navigation
+                  e.preventDefault();
                   handleImageClick(index);
                 }}
               >
                 <Image
-                  className="w-full rounded-lg"
-                  width={image.width}
-                  height={image.height}
-                  alt=""
-                  src={image.src}
+                  className="w-full object-cover rounded-lg max-h-[300px] xs:max-h-[400px] sm:max-h-[600px] lg:max-h-[400px] aspect-square"
+                  width={1300}
+                  height={1300}
+                  alt={title ? title : ""}
+                  src={image}
                 />
               </a>
             </SwiperSlide>
           ))}
         </Swiper>
-        <Swiper
+        {imagesGallery && imagesGallery.length > 1 && <Swiper
           onSwiper={(swiper: SwiperType) => setThumbsSwiper(swiper)}
           loop={true}
           spaceBetween={10}
@@ -130,98 +94,18 @@ export default function ProductGallery() {
           modules={[FreeMode, Navigation, Thumbs]}
           className="slider-gallery-thumbs"
         >
-          <SwiperSlide>
+          {imagesGallery.map((image, index) => (
+            <SwiperSlide key={`slide-sm-${index}`}>
             <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
+              className="w-full h-auto transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
               width="133"
               height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-1.jpg"
+              alt={title ? title : ""}
+              src={image}
             />
           </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-2.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-3.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-4.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-5.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-6.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-7.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-8.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-9.jpg"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              className="w-full transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
-              width="133"
-              height="133"
-              alt=""
-              src="https://swiperjs.com/demos/images/nature-10.jpg"
-            />
-          </SwiperSlide>
-        </Swiper>
+          ))}
+        </Swiper>}
       </div>
-    </div>
   );
 }

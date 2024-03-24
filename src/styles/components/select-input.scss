@@ -1,0 +1,27 @@
+.select-input {
+  @apply relative z-10;
+  &__button {
+    @apply tracking-wider relative flex w-full items-center justify-between gap-2 cursor-pointer text-neutral-800 border-2 font-medium border-primary-500 rounded-xl px-6 py-3;
+  }
+  &__option {
+    @apply py-2 px-3 relative cursor-default select-none;
+    &--active {
+      @apply bg-primary-300 text-primary-900;
+    }
+  }
+  &__list {
+    @apply w-full absolute overflow-auto rounded-lg mt-2;
+    max-height: 15rem;
+    min-width: 5rem;
+  }
+  &__label {
+    @apply mb-2 text-neutral-800 font-medium;
+  }
+  &__button {
+    @apply py-2 text-base px-4 rounded-lg bg-white;
+    transition: 0.25s ease all;
+  }
+  &__list {
+    @apply bg-white border  shadow-md;
+  }
+}

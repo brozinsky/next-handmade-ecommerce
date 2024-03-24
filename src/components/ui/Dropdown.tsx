@@ -15,12 +15,8 @@ export default function Dropdown({ children, trigger, isCenter = false, classes 
     <div id="Dropdown" className={classes}>
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button>
-            {trigger ? (
-              trigger
-            ) : (
-              <button className="cursor-pointer">Dropdown</button>
-            )}
+          <Menu.Button as={"div"}>
+            {trigger}
           </Menu.Button>
         </div>
         <Transition
