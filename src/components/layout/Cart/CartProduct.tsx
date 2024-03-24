@@ -64,7 +64,7 @@ export default function CartProduct({
             <h3>
               <Link href={href}>{title}</Link>
             </h3>
-            <p className="text-right min-w-20">{price}.00 zł</p>
+            <p className="text-right min-w-20">{`${price.toFixed(2).replace('.', ',')} zł`}</p>
           </div>
         </div>
         {color && <div>Kolor: {color}</div>}

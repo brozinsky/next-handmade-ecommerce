@@ -7,6 +7,7 @@ import {
   getProductById,
   getProducts,
   getProductsByIds,
+  getShippingInfo,
 } from "../../../../../../sanity/sanity-utils";
 import TabsProducts from "@/components/modules/Product/TabsProducts";
 import ProductAddToCart from "@/components/modules/Product/ProductAddToCart";
@@ -29,7 +30,7 @@ export default async function ProductPage({
   const product = await getProductById(searchParams.id);
   const products = await getProducts();
   const colors = await getColors();
-  const shippingInfo = await getDescription("koszty-wysylki");
+  const shippingInfo = await getShippingInfo()
 
   const similarProductIds = product.similarProducts?.map((sp: any) => sp._ref);
   let similarProducts = []
@@ -51,9 +52,9 @@ export default async function ProductPage({
 
   return (
     <PageWrapper className="bg-light-ivory">
-      <div className="py-section min-h-screen-footer ">
+      <div className="py-section min-h-screen-footer">
         <div className="container container--xs">
-          <div className="flex flex-col items-center gap-16 lg:flex-row">
+          <div className="flex flex-col-reverse items-center gap-16 lg:items-start lg:flex-row">
             <ProductGallery
               title={product.name}
               featuredImage={product.imageUrl}
@@ -90,6 +91,7 @@ export default async function ProductPage({
                   colors={inputOptions}
                   isColorSelect={product.isColorSelect}
                   price={product.price}
+                  discountPrice={product.discountPrice}
                   products={products}
                   productId={searchParams.id}
                 />

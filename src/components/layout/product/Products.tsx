@@ -11,7 +11,7 @@ export default async function Products({ category = "wszystkie" }) {
   const products = await getProducts();
 
   return (
-    <section id="Featured" className="bg-white py-section">
+    <section id="Featured" className="bg-white py-section min-h-screen-footer">
       <div className="container mx-auto space-y-8 container--xs">
         <div className="space-y-2 text-center">
           <HeadingLine textPosition="center">Produkty</HeadingLine>

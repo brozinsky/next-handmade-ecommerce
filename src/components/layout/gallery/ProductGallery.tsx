@@ -46,8 +46,7 @@ export default function ProductGallery({title, featuredImage, images}) {
   };
 
   return (
-    <div>
-      <div className="w-[300px] xs:w-[400px]">
+      <div className="w-full xs:w-[400px] sm:w-[600px] lg:w-[400px]">
         <Swiper
           loop={true}
           spaceBetween={10}
@@ -75,7 +74,7 @@ export default function ProductGallery({title, featuredImage, images}) {
                 }}
               >
                 <Image
-                  className="w-full object-cover rounded-lg max-h-[300px] xs:max-h-[400px] aspect-square"
+                  className="w-full object-cover rounded-lg max-h-[300px] xs:max-h-[400px] sm:max-h-[600px] lg:max-h-[400px] aspect-square"
                   width={1300}
                   height={1300}
                   alt={title ? title : ""}
@@ -98,7 +97,7 @@ export default function ProductGallery({title, featuredImage, images}) {
           {imagesGallery.map((image, index) => (
             <SwiperSlide key={`slide-sm-${index}`}>
             <Image
-              className="w-full h-[67.5px] xs:h-[92px] transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
+              className="w-full h-auto transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
               width="133"
               height="133"
               alt={title ? title : ""}
@@ -108,6 +107,5 @@ export default function ProductGallery({title, featuredImage, images}) {
           ))}
         </Swiper>}
       </div>
-    </div>
   );
 }

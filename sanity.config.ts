@@ -6,6 +6,7 @@ import category from './sanity/schemas/category'
 import blockContent from './sanity/schemas/blockContent'
 import color from './sanity/schemas/color'
 import content from './sanity/schemas/content'
+import shipping from './sanity/schemas/shipping'
 
 export default defineConfig({
 
@@ -20,7 +21,7 @@ export default defineConfig({
   plugins: [deskTool()],
 
   schema: {
-    types: [product, category, blockContent, color, content],
+    types: [product, category, blockContent, color, content, shipping],
   },
 })
 

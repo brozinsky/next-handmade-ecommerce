@@ -19,6 +19,7 @@ type TProps = {
   products: TProduct[];
   productId: string;
   price: string;
+  discountPrice?: string;
   isColorSelect: boolean;
   colors: InputOptionType[];
   colorsGallery: { url: string }[];
@@ -28,6 +29,7 @@ export default function ProductAddToCart({
   products,
   productId,
   price,
+  discountPrice,
   colors,
   colorsGallery,
   isColorSelect,
@@ -42,7 +44,7 @@ export default function ProductAddToCart({
 
   if (isColorSelect) {
     validationSchema = validationSchema.shape({
-      color: Yup.string().required("Pole wymagane"),
+      color: Yup.string().required("Wybierz kolor produktu"),
     });
   }
 
@@ -50,10 +52,17 @@ export default function ProductAddToCart({
     initialValues: { color: "", quantity: 1 },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      const productToAdd = products.find((product) => product._id === productId);
+      const productToAdd = products.find(
+        (product) => product._id === productId
+      );
       if (productToAdd) {
         if (values.color) {
-          addItem(`${productToAdd.name} ${values.color}`, productToAdd as ICartItem, counter, values.color);
+          addItem(
+            `${productToAdd.name} ${values.color}`,
+            productToAdd as ICartItem,
+            counter,
+            values.color
+          );
         } else {
           addItem(`${productToAdd.name}`, productToAdd as ICartItem, counter);
         }
@@ -102,7 +111,7 @@ export default function ProductAddToCart({
 
   return (
     <Fragment>
-      <form className="grid grid-cols-2 gap-4">
+      <form className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {isColorSelect && (
           // <ColorSelect
           //   colors={colors}
@@ -147,8 +156,18 @@ export default function ProductAddToCart({
       </form>
 
       <div className="flex flex-col items-center justify-between gap-8 sm:flex-row xl:flex-row">
-        <div className="text-3xl font-semibold text-primary-800">
-          {parseFloat(price).toFixed(2).replace(".", ",")} zł
+        <div className="flex flex-col ">
+          {discountPrice && (
+            <div className="line-through text-primary-800 opacity-70">
+              {parseFloat(price).toFixed(2).replace(".", ",")} zł
+            </div>
+          )}
+          <div className="text-3xl font-semibold whitespace-nowrap text-primary-800">
+            {discountPrice
+              ? parseFloat(discountPrice).toFixed(2).replace(".", ",")
+              : parseFloat(price).toFixed(2).replace(".", ",")}{" "}
+            zł
+          </div>
         </div>
         <div className="flex flex-col items-center justify-end gap-4 xs:flex-row">
           <div className="flex h-10 border border-neutral-400/60 rounded-xl">

@@ -35,6 +35,21 @@ export async function getProducts() {
   }
 }
 
+export async function getShippingInfo() {
+  try {
+    return await client.fetch(
+      `*[_type == "shipping"] {
+        name,
+        slug,
+        price
+      }`
+    );
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+    throw error;
+  }
+}
+
 export async function getColors() {
   try {
     return await client.fetch(
@@ -124,14 +139,14 @@ export async function getProductsByIds(productIds: string[]) {
 }
 
 export async function getDescription(slug: "o-mnie" | "koszty-wysylki") {
-  const query = `*[slug.current == $slug][0]`
-  const params = { slug }
+  const query = `*[slug.current == $slug][0]`;
+  const params = { slug };
 
   try {
-    const document = await client.fetch(query, params)
-    return document
+    const document = await client.fetch(query, params);
+    return document;
   } catch (error) {
-    console.error("Failed to fetch document:", error)
-    return null
+    console.error("Failed to fetch document:", error);
+    return null;
   }
 }

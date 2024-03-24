@@ -1,20 +1,34 @@
+"use client";
 import React, { useEffect, useMemo, useState } from "react";
 import CartProduct from "./CartProduct";
 import Button from "@/components/ui/Button";
 import useCartStore from "@/stores/useCartStore";
+import Select from "@/components/ui/Select/Select";
+import CartEmpty from "./CartEmpty";
+import { calculateTotalCost, transformShippingOptions } from "@/utils/function";
 
-function calculateTotalCost(items: any[]) {
-  return items.reduce((total, item) => {
-    const quantity = typeof item.quantity === "number" ? item.quantity : 0;
-    const price = typeof item.price === "number" ? item.price : 0;
-
-    return total + quantity * price;
-  }, 0);
-}
-
-export default function CartSection() {
+export default function CartSection({ shippingInfo }) {
   const { items } = useCartStore();
-  const totalCost = useMemo(() => calculateTotalCost(items), [items]);
+
+  const shippingOptions = transformShippingOptions(shippingInfo);
+  const [shipping, setShipping] = useState<string>(shippingOptions[0].value);
+  const [shippingPrice, setShippingPrice] = useState<number>(
+    shippingOptions.length > 0 ? shippingOptions[0].price : 0
+  );
+  const totalCost = useMemo(() => calculateTotalCost(items, shippingPrice), [items, shippingPrice]);
+
+  useEffect(() => {
+    const newPrice = shippingOptions.find(
+      (option: any) => option.value === shipping
+    )?.price;
+    if (newPrice !== undefined) {
+      setShippingPrice(newPrice);
+    }
+  }, [shipping, shippingOptions]);
+
+  if (!items || items.length === 0) {
+    return <CartEmpty />;
+  }
 
   return (
     <section className="py-section min-h-screen-footer">
@@ -37,7 +51,7 @@ export default function CartSection() {
                       _id={item._id}
                       category={item.category}
                       title={item.name}
-                      price={item.price}
+                      price={item.price * item.quantity}
                       quantity={item.quantity}
                       imgSrc={item.imageUrl || ""}
                     />
@@ -54,22 +68,23 @@ export default function CartSection() {
               >
                 Podsumowanie
               </h2>
-              <div className="flex flex-col h-full bg-white">
+              <div className="flex flex-col w-full h-full bg-white">
                 <div className="py-6">
-                  <div className="flex justify-between text-base font-medium text-gray-900">
+                  <div className="flex justify-between mb-2 text-base font-medium text-gray-900">
                     <p>Dostawa</p>
-                    <p>15.00 zł</p>
+                    <p>{`${shippingPrice.toFixed(2).replace(".", ",")} zł`}</p>
                   </div>
-                  <p className="mt-0.5 text-sm text-gray-500">Kurier DHL</p>
+                  <Select
+                    options={shippingOptions}
+                    state={shipping}
+                    setState={setShipping}
+                  />
                 </div>
                 <div className="py-6 border-t border-gray-200">
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <p>Suma</p>
-                    <p>{totalCost},00 zł</p>
+                    <p>{`${totalCost.toFixed(2).replace(".", ",")} zł`}</p>
                   </div>
-                  {/* <p className="mt-0.5 text-sm text-gray-500">
-                            Shipping and taxes calculated at checkout.
-                          </p> */}
                   <div className="mt-6">
                     <Button isFullWidth variant="primary" shape="rectangle">
                       Złóż zamówienie

@@ -7,13 +7,13 @@ export default {
         name: 'title',
         title: 'Tytuł',
         type: 'string',
-        validation: (Rule) => Rule.required(),
+        validation: (Rule: any) => Rule.required(),
       },
       {
         name: 'slug',
         title: 'Slug',
         type: 'slug',
-        validation: (Rule) => Rule.required(),
+        validation: (Rule: any) => Rule.required(),
         options: {
           source: 'title',
           maxLength: 96,
