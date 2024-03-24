@@ -1,10 +1,15 @@
 import React from "react";
 import Product from "./Product";
 import HeadlingLineWithLink from "@/components/ui/HeadlingLineWithLink";
-import { products } from "@/utils/products";
-import useProductsQuery from "@/stores/useProductsQuery";
-import ProductSkeleton from "./ProductSkeleton";
 import { getProducts } from "../../../../sanity/sanity-utils";
+import { TProduct } from "@/utils/types";
+
+type TProductFeatured = TProduct & {
+  discountPrice?: number | null;
+  isNew?: boolean;
+  imageUrl?: string;
+  categories?: any;
+};
 
 export default async function Featured() {
   const products = await getProducts();
@@ -16,33 +21,17 @@ export default async function Featured() {
           <HeadlingLineWithLink>Wybrane produkty</HeadlingLineWithLink>
         </div>
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* {isLoadingProducts &&
-            [...Array(8)].map((_, index) => <ProductSkeleton key={index} />)} */}
           {products &&
             products
-              .sort((a, b) =>
-                a.isAvailable === b.isAvailable
-                  ? 0
-                  : a.isAvailable
-                  ? -1
-                  : 1
+              .sort((a: TProduct, b: TProduct) =>
+                a.isAvailable === b.isAvailable ? 0 : a.isAvailable ? -1 : 1
               )
               .slice(0, 4)
-              .map((product) => {
+              .map((product: TProductFeatured) => {
                 return (
                   <Product
-                    // key={product.id}
-                    // id={product.id}
-                    // title={product.attributes.title}
-                    // category={product.attributes.category}
-                    // price={product.attributes.price}
-                    // discountPrice={product.attributes.discountPrice}
-                    // isAvailable={product.attributes.isAvailable}
-                    // isNew={product.attributes.isNew}
-                    // isImmediate={product.attributes.isImmediate}
-                    
                     key={product._id}
-                    id={product._id}
+                    _id={product._id}
                     imageUrl={product.imageUrl}
                     title={product.name}
                     category={product.categories[0].title.toLowerCase()}

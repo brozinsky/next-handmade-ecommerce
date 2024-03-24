@@ -1,12 +1,12 @@
 import HeadingLine from "@/components/ui/HeadingLine";
-import { TProduct } from "@/utils/types";
+import { TProductSchema } from "@/utils/types";
 import React from "react";
 import Product from "@/components/layout/product/Product";
 
-const ProductsSimilar = ({ products }: { products: TProduct[] }) => {
-    if (products.length === 0) {
-        return null
-    }
+const ProductsSimilar = ({ products }: { products: TProductSchema[] }) => {
+  if (products.length === 0) {
+    return null;
+  }
   return (
     <div className="py-section">
       <div className="container container--xs">
@@ -26,8 +26,8 @@ const ProductsSimilar = ({ products }: { products: TProduct[] }) => {
             }) => {
               return (
                 <Product
-                  id={_id}
                   key={_id}
+                  _id={_id}
                   imageUrl={imageUrl}
                   title={name}
                   category={categories[0].title.toLowerCase()}

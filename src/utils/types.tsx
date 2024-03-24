@@ -11,10 +11,57 @@ export type TProduct = {
   isImmediate?: boolean;
 };
 
+export type TBlockContent = any;
+export type TSanityImage = {
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+};
+
+export type TCategoryReference = {
+  _type: "reference";
+  _ref: string;
+  id: number;
+  value: string;
+  title: string;
+};
+
 export type TCategory = {
-    id: number;
-    value: string;
-    title: string;
+  id: number;
+  value: string;
+  title: string;
+};
+
+export type TShipping = {
+  name: string;
+  slug: string;
+  price: number;
+};
+
+export type TProductSchema = {
+  _id: string;
+  name: string;
+  slug: {
+    _type: "slug";
+    current: string;
+  };
+  description?: TBlockContent;
+  measurements?: TBlockContent;
+  categories: TCategoryReference[];
+  featured_image?: TSanityImage;
+  price: number;
+  currency: "PLN";
+  discountPrice?: number;
+  isOnSale: boolean;
+  isImmediate: boolean;
+  isAvailable: boolean;
+  isNew: boolean;
+  isColorSelect: boolean;
+  imageGallery?: TSanityImage[];
+  imageUrl?: string;
+  similarProducts?: TCategoryReference[];
 };
 
 export type TTextMark = "strong" | "em";

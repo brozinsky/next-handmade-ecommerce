@@ -30,9 +30,8 @@ export default function CartProduct({
   const handleCartItem = (
     variant: "increment" | "decrement" | "remove",
     title: string,
-    color: string
+    color?: string
   ) => {
-    console.log(`variant: ${variant}, title:${title}, color:${color}`);
     variant === "increment" &&
       incrementItemQuantity(color ? `${title} ${color}` : (title as string));
     variant === "decrement" &&
@@ -71,7 +70,7 @@ export default function CartProduct({
         <div className="flex items-end justify-between flex-1 text-sm">
           <div className="gap-2 flex-center-center">
             <div
-              onClick={() => handleCartItem("decrement", title, color)}
+              onClick={() => handleCartItem("decrement", title as string, color)}
               className="w-4 h-4 text-gray-500 transition transform border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
               -
@@ -80,7 +79,7 @@ export default function CartProduct({
               {quantity} szt
             </p>
             <div
-              onClick={() => handleCartItem("increment", title, color)}
+              onClick={() => handleCartItem("increment", title as string, color)}
               className="w-4 h-4 text-gray-500 transition border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
               +
@@ -88,7 +87,7 @@ export default function CartProduct({
           </div>
           <div className="flex">
             <button
-              onClick={() => handleCartItem("remove", title, color)}
+              onClick={() => handleCartItem("remove", title as string, color)}
               type="button"
               className="font-medium text-red-600 hover:text-red-500"
             >

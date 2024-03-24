@@ -7,28 +7,26 @@ import React from "react";
 import { TProduct } from "@/utils/types";
 import NoImageSVG from "@/components/svg/NoImageSVG";
 
-type Props = TProduct & {
+type TProps = TProduct & {
   discountPrice?: number | null;
   isNew?: boolean;
   imageUrl?: string;
 };
 
 export default function Product({
-  id,
+  _id,
   title,
-  category,
   price,
   discountPrice,
-  // description,
   isAvailable = true,
   isNew = false,
   isImmediate = false,
   imageUrl,
-}: Props) {
+}: TProps) {
   const { addItem } = useCartStore();
   const href = {
-    pathname: `/sklep/produkt/${id}`,
-    query: { title, id },
+    pathname: `/sklep/produkt/${_id}`,
+    query: { title, _id },
   };
   return (
     <div className="max-w-[240px] xs:max-w-[300px] w-full flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default">
@@ -48,11 +46,11 @@ export default function Product({
             Wyprzedane
           </div>
         )}
-        {isImmediate && isAvailable && (
+        {/* {isImmediate && isAvailable && (
           <span className="absolute z-10 px-6 py-1 text-yellow-900 bg-yellow-200 rounded-md font-regular text-md top-1 left-1">
             Dostępne od ręki
           </span>
-        )}
+        )} */}
         {isNew && isAvailable && (
           <span className="absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-sky-200 text-sky-900 top-2 left-2">
             Nowość

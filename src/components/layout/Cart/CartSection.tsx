@@ -7,7 +7,17 @@ import Select from "@/components/ui/Select/Select";
 import CartEmpty from "./CartEmpty";
 import { calculateTotalCost, transformShippingOptions } from "@/utils/function";
 
-export default function CartSection({ shippingInfo }) {
+type TShippingInfo = {
+  name: string;
+  slug: string;
+  price: number;
+};
+
+export default function CartSection({
+  shippingInfo,
+}: {
+  shippingInfo: TShippingInfo;
+}) {
   const { items } = useCartStore();
 
   const shippingOptions = transformShippingOptions(shippingInfo);
@@ -15,7 +25,10 @@ export default function CartSection({ shippingInfo }) {
   const [shippingPrice, setShippingPrice] = useState<number>(
     shippingOptions.length > 0 ? shippingOptions[0].price : 0
   );
-  const totalCost = useMemo(() => calculateTotalCost(items, shippingPrice), [items, shippingPrice]);
+  const totalCost = useMemo(
+    () => calculateTotalCost(items, shippingPrice),
+    [items, shippingPrice]
+  );
 
   useEffect(() => {
     const newPrice = shippingOptions.find(

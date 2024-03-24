@@ -12,16 +12,14 @@ import Image from "next/image";
 import { ZoomIn } from "react-feather";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-type ImageType = {
-  src: string;
-  width: number;
-  height: number;
+type TProps = {
   title: string;
-};
+  featuredImage: string;
+  images: string[];
+}
 
-export default function ProductGallery({title, featuredImage, images}) {
+export default function ProductGallery({title, featuredImage, images}: TProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const [lightbox, setLightbox] = useState<PhotoSwipeLightbox | null>(null);
 

@@ -1,12 +1,12 @@
 import React from "react";
-import { TTextMark } from "@/utils/types";
+import { TBlockContent, TTextMark } from "@/utils/types";
 import renderText from "@/utils/renderText";
 
-const TabMeasurements = ({ measurements }) => {
+const TabMeasurements = ({ measurements }: {measurements: TBlockContent}) => {
   return (
     <div>
       {measurements &&
-        measurements.map((block: any, blockIndex: number) => {
+        measurements.map((block: TBlockContent, blockIndex: number) => {
           return (
             <React.Fragment key={blockIndex}>
               {block.children.map(

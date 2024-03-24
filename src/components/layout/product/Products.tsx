@@ -50,7 +50,7 @@ export default async function Products({ category = "wszystkie" }) {
               return (
                 <Product
                   key={product._id}
-                  id={product._id}
+                  _id={product._id}
                   imageUrl={product.imageUrl}
                   title={product.name}
                   category={product.categories[0].title.toLowerCase()}
