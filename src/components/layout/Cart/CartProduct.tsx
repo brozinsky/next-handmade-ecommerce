@@ -4,6 +4,7 @@ import clsx from "clsx";
 import useCartStore from "@/stores/useCartStore";
 import Link from "next/link";
 import { TProduct } from "@/utils/types";
+import { FiTrash } from "react-icons/fi";
 
 type TProps = TProduct & {
   imgSrc: string;
@@ -63,14 +64,18 @@ export default function CartProduct({
             <h3>
               <Link href={href}>{title}</Link>
             </h3>
-            <p className="text-right min-w-20">{`${price.toFixed(2).replace('.', ',')} zł`}</p>
+            <p className="text-right min-w-20">{`${price
+              .toFixed(2)
+              .replace(".", ",")} zł`}</p>
           </div>
         </div>
         {color && <div>Kolor: {color}</div>}
         <div className="flex items-end justify-between flex-1 text-sm">
           <div className="gap-2 flex-center-center">
             <div
-              onClick={() => handleCartItem("decrement", title as string, color)}
+              onClick={() =>
+                handleCartItem("decrement", title as string, color)
+              }
               className="w-4 h-4 text-gray-500 transition transform border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
               -
@@ -79,7 +84,9 @@ export default function CartProduct({
               {quantity} szt
             </p>
             <div
-              onClick={() => handleCartItem("increment", title as string, color)}
+              onClick={() =>
+                handleCartItem("increment", title as string, color)
+              }
               className="w-4 h-4 text-gray-500 transition border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
               +
@@ -88,10 +95,12 @@ export default function CartProduct({
           <div className="flex">
             <button
               onClick={() => handleCartItem("remove", title as string, color)}
-              type="button"
-              className="font-medium text-red-600 hover:text-red-500"
+              className="relative inline-flex items-center justify-center h-12 px-6 overflow-hidden font-medium rounded-md hover:bg-red-100/40 group"
             >
-              Usuń
+              <div className="text-red-600 mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+                <FiTrash />
+              </div>
+              <span className="text-red-600">Usuń</span>
             </button>
           </div>
         </div>
