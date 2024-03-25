@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SocialLink from "../../ui/SocialLink";
 import Link from "next/link";
@@ -8,19 +9,23 @@ import contact1 from "@/public/contact/contact-1.jpg";
 import contact2 from "@/public/contact/contact-2.jpg";
 import HeadingLine from "@/components/ui/HeadingLine";
 
-export default function Contact() {
+export default function Contact({ page }: { page: "home" | "contact" }) {
+  const isMobile = useMediaQuery(`(max-width: 1023px)`);
+
   return (
     <section id="Contact" className="py-section">
       <ScrollAnimated className="container container--sm">
         <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3">
-          <div className="hidden w-full h-full overflow-hidden rounded-md lg:block bg-primary-300">
-            <Image
-              className="object-cover w-full h-full transition z-1"
-              src={contact1}
-              priority
-              alt="Sznurkowe Królowe"
-            />
-          </div>
+          {!isMobile && (
+            <div className="hidden w-full h-full overflow-hidden rounded-md lg:block bg-primary-300">
+              <Image
+                className="object-cover w-full h-full transition z-1 bg-neutral-200/50"
+                src={contact1}
+                priority={page === "contact" ? true : false}
+                alt="Torebka ręcznie robiona okrągła z T-shirt Yarn Premium - kolor beżowy"
+              />
+            </div>
+          )}
           <div className="flex flex-col items-center justify-center px-8 pb-8 space-y-8 lg:py-section">
             <h2 className="text-center heading-second text-primary-800">
               Skontaktuj się
@@ -72,7 +77,9 @@ export default function Contact() {
               </Link>
             </div>
             <section className="mt-6 ">
-              <p className="mb-2 font-light text-center text-neutral-600">Obserwuj nas:</p>
+              <p className="mb-2 font-light text-center text-neutral-600">
+                Obserwuj nas:
+              </p>
               <div className="flex items-center justify-center gap-2 lg:justify-start">
                 <SocialLink variant="facebook" url="https://facebook.com/" />
                 <SocialLink variant="instagram" url="https://instagram.com/" />
@@ -81,17 +88,19 @@ export default function Contact() {
           </div>
           <div className="grid w-full h-full gap-8 overflow-hidden rounded-md xs:grid-cols-2 lg:block lg:bg-primary-300">
             <Image
-              className="object-cover w-full h-full transition z-1"
+              className="object-cover w-full h-full transition z-1 bg-neutral-200/50"
               src={contact2}
-              priority
-              alt="Sznurkowe Królowe"
+              priority={page === "contact" ? true : false}
+              alt="Ręcznie pleciona Jasnobłękitna Torebka z T-shirt Yarn Premium"
             />
-             <Image
-              className="object-cover w-full h-full transition z-1 lg:hidden"
-              src={contact1}
-              priority
-              alt="Sznurkowe Królowe"
-            />
+            {isMobile && (
+              <Image
+                className="object-cover w-full h-full transition z-1 lg:hidden bg-neutral-200/50"
+                src={contact1}
+                priority={page === "contact" ? true : false}
+                alt="Torebka ręcznie robiona okrągła z T-shirt Yarn Premium - kolor beżowy"
+              />
+            )}
           </div>
         </div>
       </ScrollAnimated>

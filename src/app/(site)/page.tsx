@@ -16,7 +16,7 @@ export default function Home() {
       {/* <About /> */}
       {/* <Banner /> */}
       {/* <Features /> */}
-      <Contact />
+      <Contact page="home"/>
     </PageWrapper>
   );
 }

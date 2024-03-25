@@ -72,11 +72,12 @@ export default function ProductGallery({title, featuredImage, images}: TProps) {
                 }}
               >
                 <Image
-                  className="w-full object-cover rounded-lg max-h-[300px] xs:max-h-[400px] sm:max-h-[600px] lg:max-h-[400px] aspect-square"
+                  className="bg-neutral-200/50 w-full object-cover rounded-lg max-h-[300px] xs:max-h-[400px] sm:max-h-[600px] lg:max-h-[400px] aspect-square"
                   width={1300}
                   height={1300}
                   alt={title ? title : ""}
                   src={image}
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
               </a>
             </SwiperSlide>
@@ -95,11 +96,12 @@ export default function ProductGallery({title, featuredImage, images}: TProps) {
           {imagesGallery.map((image, index) => (
             <SwiperSlide key={`slide-sm-${index}`}>
             <Image
-              className="w-full h-auto transition duration-200 rounded-lg cursor-pointer hover:brightness-110"
+              className="w-full h-auto transition duration-200 rounded-lg cursor-pointer bg-neutral-200/50 hover:brightness-110"
               width="133"
               height="133"
               alt={title ? title : ""}
               src={image}
+              loading="lazy"
             />
           </SwiperSlide>
           ))}

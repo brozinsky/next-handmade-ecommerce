@@ -26,7 +26,7 @@ export default function CategoryTile({
     >
       <div className="overflow-hidden rounded-xl aspect-square lg:aspect-4/3">
         <Image
-          className="object-cover w-full h-full transition duration-500 group-hover:scale-110"
+          className="object-cover w-full h-full transition duration-500 group-hover:scale-110 bg-neutral-200/50"
           width={width}
           height={height}
           src={imgSrc}

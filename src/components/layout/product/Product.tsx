@@ -67,7 +67,7 @@ export default function Product({
             alt={title ? title : ""}
             className={clsx(
               !isAvailable && "opacity-30",
-              "object-cover w-full h-auto transition duration-500 bg-gray-200 aspect-square group-hover:scale-110"
+              "object-cover w-full h-auto transition duration-500 bg-neutral-200/50 aspect-square group-hover:scale-110"
             )}
             width={261}
             height={261}

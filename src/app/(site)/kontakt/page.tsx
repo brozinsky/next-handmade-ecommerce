@@ -5,7 +5,7 @@ export default function ContactPage() {
   return (
     <PageWrapper className="bg-light-ivory">
       <div className="min-h-screen-footer flex-center-center">
-        <Contact />
+        <Contact page="contact"/>
       </div>
     </PageWrapper>
   );
