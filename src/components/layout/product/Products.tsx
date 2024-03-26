@@ -22,6 +22,7 @@ export default async function Products({ category = "wszystkie" }) {
                 <Link
                   href={`/sklep/${value}`}
                   key={id}
+                  prefetch={false}
                   role="button"
                   className={clsx(
                     category == value &&
@@ -59,6 +60,7 @@ export default async function Products({ category = "wszystkie" }) {
                   isAvailable={product.isAvailable}
                   isNew={product.isNew}
                   isImmediate={product.isImmediate}
+                  isCentered
                 />
               );
             })}

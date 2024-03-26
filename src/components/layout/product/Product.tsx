@@ -11,6 +11,7 @@ type TProps = TProduct & {
   discountPrice?: number | null;
   isNew?: boolean;
   imageUrl?: string;
+  isCentered?: boolean;
 };
 
 export default function Product({
@@ -22,6 +23,7 @@ export default function Product({
   isNew = false,
   isImmediate = false,
   imageUrl,
+  isCentered
 }: TProps) {
   const { addItem } = useCartStore();
   const href = {
@@ -29,8 +31,9 @@ export default function Product({
     query: { title, _id },
   };
   return (
-    <div className="max-w-[240px] xs:max-w-[300px] w-full flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default">
+    <div className={clsx(isCentered && "mx-auto","max-w-[240px] xs:max-w-[300px] w-full flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default")}>
       <Link
+        prefetch={false}
         href={href}
         className="relative w-full h-56 overflow-hidden bg-white border cursor-pointer aspect-square"
       >

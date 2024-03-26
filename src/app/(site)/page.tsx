@@ -3,8 +3,7 @@ import Categories from "@/components/layout/Categories";
 import PageWrapper from "@/components/utils/PageWrapper";
 import Contact from "@/components/layout/contact/Contact";
 import Featured from "@/components/layout/product/Featured";
-import { getProducts } from "../../../sanity/sanity-utils";
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function Home() {
 
@@ -13,9 +12,6 @@ export default function Home() {
       <Hero />
       <Featured />
       <Categories />
-      {/* <About /> */}
-      {/* <Banner /> */}
-      {/* <Features /> */}
       <Contact page="home"/>
     </PageWrapper>
   );

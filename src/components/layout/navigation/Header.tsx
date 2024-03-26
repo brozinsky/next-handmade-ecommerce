@@ -85,6 +85,7 @@ export default function Header() {
                   return (
                     <Link
                       key={id}
+                      prefetch={false}
                       onClick={() => setIsMenuOpen(false)}
                       className={clsx(
                         "w-full text-center py-2 font-light whitespace-nowrap relative my-2 transition-colors duration-300 transform md:mx-4 md:my-0",
