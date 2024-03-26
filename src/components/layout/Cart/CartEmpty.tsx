@@ -1,5 +1,4 @@
 import React from "react";
-import CartProduct from "./CartProduct";
 import Button from "@/components/ui/Button";
 import EmptyCartSVG from "@/public/empty-cart.svg";
 import Image from "next/image";

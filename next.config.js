@@ -8,7 +8,6 @@ const nextConfig = {
         port: '',
       },
     ],
-    domains: ["swiperjs.com", "localhost", "flowbite.s3.amazonaws.com", "images.unsplash.com"],
   },
   eslint: {
     ignoreDuringBuilds: true,

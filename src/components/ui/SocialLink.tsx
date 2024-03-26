@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
 
-type Props = {
+type TProps = {
   variant: "facebook" | "twitter" | "instagram";
   url: string;
 };
 
-export default function SocialLink({ variant, url }: Props) {
+export default function SocialLink({ variant, url }: TProps) {
   return (
     <Link
       className="justify-center w-10 h-10 transition-colors duration-300 transform flex-center-center rounded-custom text-neutral-400 hover:text-primary-800 hover:bg-primary-300/50"

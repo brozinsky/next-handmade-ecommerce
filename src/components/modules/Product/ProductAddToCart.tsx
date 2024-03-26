@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-type InputOptionType = {
+type TInputOption = {
   id: number;
   value: string;
   title: string;
@@ -21,7 +21,7 @@ type TProps = {
   price: string;
   discountPrice?: string;
   isColorSelect: boolean;
-  colors: InputOptionType[];
+  colors: TInputOption[];
   colorsGallery: { url: string }[];
 };
 

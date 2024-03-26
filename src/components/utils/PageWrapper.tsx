@@ -3,12 +3,12 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import React, { ReactNode } from "react";
 
-type Props = {
+type TProps = {
   className?: string;
   children?: ReactNode;
 };
 
-export default function PageWrapper({ children, className }: Props) {
+export default function PageWrapper({ children, className }: TProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}

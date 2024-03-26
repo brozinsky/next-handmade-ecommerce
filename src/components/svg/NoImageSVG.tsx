@@ -1,11 +1,7 @@
+import { TSVG } from "@/utils/types";
 import React from "react";
 
-type Props = {
-  width: number;
-  height: number;
-};
-
-export default function NoImageSVG({ width, height }: Props) {
+export default function NoImageSVG({ width, height }: TSVG) {
   return (
     <svg
       width={width}

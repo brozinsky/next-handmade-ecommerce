@@ -15,18 +15,18 @@ import Link from "next/link";
 import { ArrowLeft } from "react-feather";
 import ProductsSimilar from "@/components/modules/Product/ProductsSimilar";
 
-type SearchParams = {
+type TSearchParams = {
   _id: string;
   title: string;
 };
 
-type Props = {
-  searchParams: SearchParams;
+type TProps = {
+  searchParams: TSearchParams;
 };
 
 export default async function ProductPage({
   searchParams = { _id: "", title: "" },
-}: Props) {
+}: TProps) {
   console.log(searchParams._id);
   const product = await getProductById(searchParams._id);
   const products = await getProducts();

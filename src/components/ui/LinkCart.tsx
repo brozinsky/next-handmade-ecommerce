@@ -5,18 +5,18 @@ import clsx from "clsx";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-type Props = {
+type TProps = {
   setIsOpen: (isOpen: boolean) => void;
   classes?: string;
 };
 
-type AnimationInstance = {
+type TAnimationInstance = {
   id: number;
 };
 
-const LinkCart = ({ setIsOpen, classes }: Props) => {
+const LinkCart = ({ setIsOpen, classes }: TProps) => {
   const [animationInstances, setAnimationInstances] = useState<
-    AnimationInstance[]
+  TAnimationInstance[]
   >([]);
   const { items } = useCartStore();
 

@@ -28,7 +28,7 @@ const variants = {
   },
 };
 
-type Props = {
+type TProps = {
   className?: string;
   children?: ReactNode;
   variant?: keyof typeof variants;
@@ -46,7 +46,7 @@ export default function Animated({
   as = "div",
   duration = 0.65,
   type = "tween",
-}: Props) {
+}: TProps) {
   const CustomMotionComponent = motion[
     as as keyof typeof motion
   ] as ElementType;

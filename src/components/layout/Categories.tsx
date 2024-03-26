@@ -7,13 +7,12 @@ import ScrollAnimated from "../utils/ScrollAnimated";
 import CategoryTile from "../ui/CategoryTile";
 import HeadingLine from "../ui/HeadingLine";
 
-type Props = {
+type TProps = {
   pb?: "md" | "xl";
   pt?: "md" | "xl";
 };
 
-export default function Categories({ pb = "md", pt = "md" }: Props) {
-
+export default function Categories({ pb = "md", pt = "md" }: TProps) {
   return (
     <section id="Categories" className={"pt-section-half"}>
       <ScrollAnimated className={clsx("container container--xs")}>

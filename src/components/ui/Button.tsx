@@ -7,33 +7,9 @@ import { cva } from "class-variance-authority";
 import { X, Loader, ArrowUp } from "react-feather";
 import SpinnerSVG from "../svg/SpinnerSVG";
 import ArrowSmSVG from "../svg/ArrowSmSVG";
+import { TButton, TLoadingWrapper } from "@/utils/types";
 
-type Props = {
-  onClick?: any;
-  children?: ReactNode;
-  variant?: "primary" | "neutral" | "ghost" | "outlined" | "outlined-no-hover" | null | undefined;
-  icon?: string;
-  className?: string;
-  shape?:
-    | "rectangle"
-    | "circle"
-    | "square"
-    | "custom"
-    | "custom-reversed"
-    | null
-    | undefined;
-  size?: "md" | "sm" | null | undefined;
-  isLoading?: boolean;
-  label?: string;
-  isFullWidth?: boolean;
-};
-
-type LoadingWrapperProps = {
-  children?: ReactNode;
-  isLoading?: boolean;
-};
-
-const LoadingWrapper = ({ isLoading, children }: LoadingWrapperProps) => {
+const LoadingWrapper = ({ isLoading, children }: TLoadingWrapper) => {
   return isLoading ? <div className="opacity-0">{children}</div> : children;
 };
 
@@ -48,7 +24,7 @@ export default function Button({
   size = "md",
   label,
   isFullWidth,
-}: Props) {
+}: TButton) {
   const classes = cva(
     [
       className,

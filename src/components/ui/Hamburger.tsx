@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-type Props = {
+type TProps = {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 };
 
-export default function Hamburger({ isOpen, setIsOpen }: Props) {
+export default function Hamburger({ isOpen, setIsOpen }: TProps) {
   return (
     <div className="flex lg:hidden">
       <button

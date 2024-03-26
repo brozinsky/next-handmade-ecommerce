@@ -3,21 +3,21 @@ import { Listbox, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import ArrowSmSVG from "../../svg/ArrowSmSVG";
 
-type State = string;
-type SetState = (value: string) => void;
-type InputOptionType = {
+type TState = string;
+type TSetState = (value: string) => void;
+type TInputOption = {
   id: number;
   value: string;
   title: string;
 };
 
-type Props = {
+type TProps = {
   label?: string;
-  options: InputOptionType[];
+  options: TInputOption[];
   defaultValue?: string;
   variant?: "base" | "ghost";
-  state: State;
-  setState: SetState;
+  state: TState;
+  setState: TSetState;
   displayValue?: string;
 };
 
@@ -28,7 +28,7 @@ export default function Select({
   state,
   setState,
   displayValue,
-}: Props) {
+}: TProps) {
 
   return (
     <Listbox

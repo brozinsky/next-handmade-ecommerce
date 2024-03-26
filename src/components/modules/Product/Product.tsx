@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 
-type Props = {
+type TProps = {
   title: string;
   category?: string;
   description: string;
@@ -15,7 +15,7 @@ export default function Product({
   imgSrc,
   description,
   price,
-}: Props) {
+}: TProps) {
   return (
     <section className="gap-8 lg:gap-16 lg:flex lg:items-center">
       <div className="lg:w-1/2 ">

@@ -3,14 +3,14 @@ import { Menu, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { Fragment, ReactNode } from "react";
 
-interface Props {
+type TProps = {
   children: ReactNode;
   trigger?: ReactNode;
   isCenter?: boolean;
   classes?: string;
 }
 
-export default function Dropdown({ children, trigger, isCenter = false, classes }: Props) {
+export default function Dropdown({ children, trigger, isCenter = false, classes }: TProps) {
   return (
     <div id="Dropdown" className={classes}>
       <Menu as="div" className="relative inline-block text-left">

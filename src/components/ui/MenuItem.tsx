@@ -1,12 +1,12 @@
 import React from "react";
 
-type Props = {
+type TProps = {
   price: number;
   title: string;
   description: string;
 };
 
-export default function MenuItem({ price, title, description }: Props) {
+export default function MenuItem({ price, title, description }: TProps) {
   return (
     <div className="flex items-center justify-between gap-16 py-8 border-b text-neutral-900 border-b-neutral-300">
       <div>

@@ -3,12 +3,12 @@ import Link from "next/link";
 import React from "react";
 import { ArrowUpRight } from "react-feather";
 
-type Props = {
+type TProps = {
   children: React.ReactNode;
   textPosition?: "left" | "right" | "center";
 };
 
-export default function HeadlingLineWithLink({ children }: Props) {
+export default function HeadlingLineWithLink({ children }: TProps) {
   return (
     <div className="flex flex-col items-center gap-2 mb-8 sm:gap-8 sm:flex-row">
       <h2 className={clsx("left heading-second text-primary-800")}>

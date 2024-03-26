@@ -6,20 +6,20 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
 
-interface CategoryType {
+type TCategory = {
   title: string;
   slug: { current: string };
 }
 
-interface PropsType {
-  categories: CategoryType[];
+type TProps = {
+  categories: TCategory[];
   category: string;
 }
 
 export default function DropdownCategories({
   categories,
   category,
-}: PropsType) {
+}: TProps) {
   const pathname = usePathname();
 
   const currentPath =

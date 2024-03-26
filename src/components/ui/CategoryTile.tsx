@@ -3,14 +3,7 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "react-feather";
-
-type Props = {
-  imgSrc: StaticImageData;
-  title: string;
-  value: string;
-  width?: number;
-  height?: number;
-};
+import { TCategoryTile } from "@/utils/types";
 
 export default function CategoryTile({
   imgSrc,
@@ -18,7 +11,7 @@ export default function CategoryTile({
   value,
   width = 474,
   height = 355,
-}: Props) {
+}: TCategoryTile) {
   return (
     <Link
       href={`/sklep/${value}`}

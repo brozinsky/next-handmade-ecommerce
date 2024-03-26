@@ -1,3 +1,6 @@
+import { StaticImageData } from "next/image";
+import { ReactNode } from "react";
+
 export type TProduct = {
   _id: string;
   title?: string;
@@ -84,4 +87,45 @@ export type TCartStore = {
   clearCart: () => void;
   incrementItemQuantity: (itemId: string) => void;
   decrementItemQuantity: (itemId: string) => void;
+};
+
+export type TCategoryTile = {
+  imgSrc: StaticImageData;
+  title: string;
+  value: string;
+  width?: number;
+  height?: number;
+};
+
+export type TButton = {
+  onClick?: any;
+  children?: ReactNode;
+  variant?: "primary" | "neutral" | "ghost" | "outlined" | "outlined-no-hover" | null | undefined;
+  icon?: string;
+  className?: string;
+  shape?:
+    | "rectangle"
+    | "circle"
+    | "square"
+    | "custom"
+    | "custom-reversed"
+    | null
+    | undefined;
+  size?: "md" | "sm" | null | undefined;
+  isLoading?: boolean;
+  label?: string;
+  isFullWidth?: boolean;
+};
+
+export type TLoadingWrapper = {
+  children?: ReactNode;
+  isLoading?: boolean;
+};
+
+export type TSVG = {
+  className?: string;
+  width?: string | number;
+  height?: string | number;
+  direction?: "left" | "right" | "top" | "bottom";
+  pathClass?: string;
 };

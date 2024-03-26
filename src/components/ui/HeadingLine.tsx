@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-type Props = {
+type TProps = {
   children: React.ReactNode;
   textPosition?: "left" | "right" | "center";
 };
@@ -9,7 +9,7 @@ type Props = {
 export default function HeadingLine({
   children,
   textPosition = "left",
-}: Props) {
+}: TProps) {
   return (
     <div className="flex items-center gap-8 mb-8">
       {(textPosition === "right" || textPosition === "center") && (

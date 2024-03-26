@@ -25,7 +25,7 @@ const variants = {
   },
 };
 
-type Props = {
+type TProps = {
   className?: string;
   children?: ReactNode;
   variant?: keyof typeof variants;
@@ -35,7 +35,7 @@ export default function ScrollAnimated({
   className,
   children,
   variant = "opacity",
-}: Props) {
+}: TProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 

@@ -2,14 +2,14 @@
 import React from "react";
 import Select from "./Select";
 
-type InputOptionType = {
+type TInputOption = {
   id: number;
   value: string;
   title: string;
 };
 
-type PropsType = {
-    options: InputOptionType[];
+type TProps = {
+    options: TInputOption[];
     state: string;
     setState: (value: string) => void;
 };
@@ -18,7 +18,7 @@ export default async function ColorSelect({
   options,
   state,
   setState,
-}: PropsType) {
+}: TProps) {
   return (
     <Select
       label={"Kolory"}

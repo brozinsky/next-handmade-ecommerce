@@ -1,15 +1,15 @@
 import React from "react";
 
-type Props = {
+type TProps = {
   children: React.ReactNode;
 };
 
-type State = {
+type TState = {
   hasError: boolean;
 };
 
-class ErrorBoundary extends React.Component<Props, State> {
-  constructor(props: Props) {
+class ErrorBoundary extends React.Component<TProps, TState> {
+  constructor(props: TProps) {
     super(props);
 
     // Define a state variable to track whether is an error or not
