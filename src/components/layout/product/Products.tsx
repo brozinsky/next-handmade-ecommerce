@@ -3,13 +3,12 @@ import Product from "./Product";
 import clsx from "clsx";
 import HeadingLine from "@/components/ui/HeadingLine";
 import Link from "next/link";
-import { categories } from "@/utils/categories";
-import { getProducts } from "../../../../sanity/sanity-utils";
+import { getCategories, getProducts } from "../../../../sanity/sanity-utils";
 import DropdownCategories from "@/components/modules/DropdownCategories";
 
 export default async function Products({ category = "wszystkie" }) {
   const products = await getProducts();
-
+  const categories = await getCategories();
   return (
     <section id="Featured" className="bg-white py-section min-h-screen-footer">
       <div className="container mx-auto space-y-8 container--xs">
@@ -17,23 +16,43 @@ export default async function Products({ category = "wszystkie" }) {
           <HeadingLine textPosition="center">Produkty</HeadingLine>
           <DropdownCategories category={category} categories={categories} />
           <div className="flex-col items-center justify-center hidden gap-8 py-4 text-lg lg:flex lg:flex-row">
-            {categories.map(({ title, value, id }) => {
-              return (
-                <Link
-                  href={`/sklep/${value}`}
-                  key={id}
-                  prefetch={false}
-                  role="button"
-                  className={clsx(
-                    category == value &&
-                      "border-primary-500 text-primary-500 hover:text-primary-500 border-t-2 border-b-2",
-                    "select-none py-1.5 text-neutral-600 cursor-pointer hover:text-black transition"
-                  )}
-                >
-                  {title}
-                </Link>
-              );
-            })}
+            <Link
+              href={`/sklep`}
+              prefetch={false}
+              role="button"
+              className={clsx(
+                category == "wszystkie" &&
+                  "border-primary-500 text-primary-500 hover:text-primary-500 border-t-2 border-b-2",
+                "select-none py-1.5 text-neutral-600 cursor-pointer hover:text-black transition"
+              )}
+            >
+              Wszystkie
+            </Link>
+            {categories.map(
+              ({
+                slug,
+                title,
+              }: {
+                slug: { current: string };
+                title: string;
+              }) => {
+                return (
+                  <Link
+                    href={`/sklep/${slug.current}`}
+                    key={slug.current}
+                    prefetch={false}
+                    role="button"
+                    className={clsx(
+                      category == slug.current &&
+                        "border-primary-500 text-primary-500 hover:text-primary-500 border-t-2 border-b-2",
+                      "select-none py-1.5 text-neutral-600 cursor-pointer hover:text-black transition"
+                    )}
+                  >
+                    {title}
+                  </Link>
+                );
+              }
+            )}
           </div>
         </div>
         <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">

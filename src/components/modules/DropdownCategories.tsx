@@ -8,8 +8,7 @@ import clsx from "clsx";
 
 interface CategoryType {
   title: string;
-  value: string;
-  id: number;
+  slug: { current: string };
 }
 
 interface PropsType {
@@ -17,16 +16,20 @@ interface PropsType {
   category: string;
 }
 
-export default function DropdownCategories({categories, category}: PropsType) {
+export default function DropdownCategories({
+  categories,
+  category,
+}: PropsType) {
   const pathname = usePathname();
 
-  const currentPath = pathname
-    .split("/")
-    .pop()
-    ?.toLowerCase()
-    .replace(/^\w/, (c) => c.toUpperCase()) ?? "";
+  const currentPath =
+    pathname
+      .split("/")
+      .pop()
+      ?.toLowerCase()
+      .replace(/^\w/, (c) => c.toUpperCase()) ?? "";
 
-    const dropdownName = currentPath === "Sklep" ? "Wszystkie" : currentPath;
+  const dropdownName = currentPath === "Sklep" ? "Wszystkie" : currentPath;
 
   return (
     <Dropdown
@@ -39,14 +42,14 @@ export default function DropdownCategories({categories, category}: PropsType) {
       }
     >
       <div className="flex flex-col items-center justify-center gap-8 py-4 mx-auto overflow-hidden text-lg bg-white rounded-md shadow-2xl">
-        {categories.map(({ title, value, id }) => {
+        {categories.map(({ title, slug }) => {
           return (
             <Link
-              href={`/sklep/${value}`}
-              key={id}
+              href={`/sklep/${slug.current}`}
+              key={slug.current}
               role="button"
               className={clsx(
-                category == value &&
+                category == slug.current &&
                   "border-primary-500 text-primary-500 hover:text-primary-500 border-t-2 border-b-2",
                 "select-none py-1.5 text-neutral-600 cursor-pointer hover:text-black transition"
               )}

@@ -35,6 +35,19 @@ export async function getProducts() {
   }
 }
 
+export async function getCategories() {
+  try {
+    return await client.fetch(`*[_type == "category"] | order(order asc) {
+      title,
+      slug,
+      order
+    }`);
+  } catch (error) {
+    console.error("Failed to fetch categories:", error);
+    throw error;
+  }
+}
+
 export async function getShippingInfo() {
   try {
     return await client.fetch(
