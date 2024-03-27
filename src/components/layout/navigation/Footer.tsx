@@ -9,11 +9,16 @@ const links = [
   { id: 1, title: "Sklep", path: "/sklep" },
   { id: 2, title: "O mnie", path: "/o-mnie" },
   { id: 3, title: "Kontakt", path: "/kontakt" },
+  { id: 4, title: "Polityka prywatności", path: "/polityka-prywatnosci" },
+  { id: 5, title: "Regulamin", path: "/regulamin" },
 ];
 
 export default function Footer() {
   return (
-    <footer id="Footer" className="bottom-0 w-full py-6 rounded-t-lg absoltue justify-self-end bg-primary-300">
+    <footer
+      id="Footer"
+      className="bottom-0 w-full py-6 rounded-t-lg absoltue justify-self-end bg-primary-300"
+    >
       <div className="container container--sm">
         <div className="max-w-screen-xl mx-auto text-center">
           <Link
@@ -32,7 +37,11 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-6 mt-4 mb-6 text-neutral-900">
             {links.map(({ id, title, path }) => {
               return (
-                <Link key={id} className="font-light hover:underline" href={path}>
+                <Link
+                  key={id}
+                  className="font-light hover:underline"
+                  href={path}
+                >
                   {title}
                 </Link>
               );

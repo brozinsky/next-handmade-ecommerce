@@ -1,0 +1,19 @@
+.content-section {
+  @apply text-neutral-800;
+  h1 {
+    @apply text-3xl mb-8;
+  }
+  h2 {
+    @apply text-2xl mb-6 mt-10;
+  }
+  p {
+    @apply mb-4 font-light;
+    strong {
+    
+      @apply font-semibold;
+    }
+  }
+  ol {
+    @apply pl-4 mb-4 font-light;
+  }
+}
