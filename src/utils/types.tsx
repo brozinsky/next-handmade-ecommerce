@@ -100,7 +100,14 @@ export type TCategoryTile = {
 export type TButton = {
   onClick?: any;
   children?: ReactNode;
-  variant?: "primary" | "neutral" | "ghost" | "outlined" | "outlined-no-hover" | null | undefined;
+  variant?:
+    | "primary"
+    | "neutral"
+    | "ghost"
+    | "outlined"
+    | "outlined-no-hover"
+    | null
+    | undefined;
   icon?: string;
   className?: string;
   shape?:
@@ -128,4 +135,10 @@ export type TSVG = {
   height?: string | number;
   direction?: "left" | "right" | "top" | "bottom";
   pathClass?: string;
+};
+
+export type TShippingInfo = {
+  name: string;
+  slug: string;
+  price: number;
 };

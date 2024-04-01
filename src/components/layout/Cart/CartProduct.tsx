@@ -48,7 +48,7 @@ export default function CartProduct({
     <li className="flex gap-4 py-6">
       <Link
         href={href}
-        className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md "
+        className="self-center overflow-hidden border border-gray-200 rounded-md w-[20vw] h-[20vw] sm:w-24 sm:h-24 aspect-square sm:flex-shrink-0 "
       >
         <Image
           src={imgSrc}
@@ -97,7 +97,7 @@ export default function CartProduct({
               onClick={() => handleCartItem("remove", title as string, color)}
               className="relative inline-flex items-center justify-center h-12 px-6 overflow-hidden font-medium rounded-md hover:bg-red-100/40 group"
             >
-              <div className="text-red-600 mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+              <div className="text-red-600 mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 md:group-hover:mr-1 md:group-hover:w-5 md:group-hover:translate-x-0 md:group-hover:opacity-100">
                 <FiTrash />
               </div>
               <span className="text-red-600">Usuń</span>

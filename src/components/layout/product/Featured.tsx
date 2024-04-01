@@ -40,7 +40,6 @@ export default async function Featured() {
                     isAvailable={product.isAvailable}
                     isNew={product.isNew}
                     isImmediate={product.isImmediate}
-                    isCentered
                   />
                 );
               })}
