@@ -2,14 +2,14 @@
 import React from "react";
 import useCartStore from "@/stores/useCartStore";
 import CartEmpty from "./CartEmpty";
-import CartSummary from "./CartSummary";
+// import CartSummary from "./CartSummary";
 import { TShippingInfo } from "@/utils/types";
 import CartItems from "./CartItems";
 
 export default function CartSection({
   shippingInfo,
 }: {
-  shippingInfo: TShippingInfo;
+  shippingInfo?: TShippingInfo;
 }) {
   const { items } = useCartStore();
 
@@ -22,7 +22,7 @@ export default function CartSection({
       <div className="container container--xs ">
         <div className="flex flex-col gap-8 md:gap-20 md:flex-row ">
           <CartItems items={items}/>
-          <CartSummary shippingInfo={shippingInfo}/>
+          {/* <CartSummary shippingInfo={shippingInfo}/> */}
         </div>
       </div>
     </section>
