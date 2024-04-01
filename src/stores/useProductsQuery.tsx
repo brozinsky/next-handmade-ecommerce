@@ -1,5 +1,5 @@
-import { getProducts } from '@/api/api';
 import { useQuery } from '@tanstack/react-query';
+import { getProducts } from '../../sanity/sanity-utils';
 
 export default function useProductsQuery(isEnabled: boolean = true) {
   const {
