@@ -23,11 +23,11 @@ export const POST = async (request: any) => {
       );
 
       if (stripeProduct == undefined) {
-        const prod = await stripe.products.create({
+        await stripe.products.create({
           name: product.name,
           default_price_data: {
             unit_amount: product.price * 100,
-            currency: "usd",
+            currency: "pln",
           },
         });
       }
@@ -45,6 +45,8 @@ export const POST = async (request: any) => {
       (prod: any) => prod?.name?.toLowerCase() == product?.name?.toLowerCase()
     );
 
+    console.log(stripeProduct);
+
     if (stripeProduct) {
       stripeItems.push({
         price: stripeProduct?.default_price,
@@ -56,8 +58,9 @@ export const POST = async (request: any) => {
   const session = await stripe.checkout.sessions.create({
     line_items: stripeItems,
     mode: "payment",
-    success_url: "http://localhost:3000/success",
-    cancel_url: "http://localhost:3000/cancel",
+    success_url: `${process.env.BASE_URL}/dziekujemy-za-zamowienie`,
+    cancel_url: `${process.env.BASE_URL}/cancel`,
+    locale: "pl",
   });
 
   return NextResponse.json({ url: session.url });

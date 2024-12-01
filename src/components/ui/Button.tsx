@@ -56,7 +56,7 @@ export default function Button({
           sm: "px-2 py-2",
         },
         isLoading: {
-          true: "bg-emerald-700 !cursor-default",
+          true: "opacity-50 hover:bg-primary-500 cursor-default",
         },
         isFullWidth: {
           true: "w-full",
@@ -79,9 +79,16 @@ export default function Button({
 
   return (
     <motion.button
+      disabled={isLoading}
       aria-label={label}
       onClick={onClick}
-      className={classes({ variant, shape, size, isLoading, isFullWidth })}
+      className={classes({
+        variant,
+        shape,
+        size,
+        isLoading,
+        isFullWidth,
+      })}
       whileTap={isLoading ? undefined : { scale: 0.9 }}
     >
       <LoadingWrapper isLoading={isLoading}>
@@ -94,10 +101,7 @@ export default function Button({
       </LoadingWrapper>
       {isLoading && (
         <div className="absolute -rotate-90 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
-          <SpinnerSVG
-            className="origin-center"
-            pathClass="stroke-neutral-800"
-          />
+          <SpinnerSVG className="origin-center" />
         </div>
       )}
     </motion.button>
