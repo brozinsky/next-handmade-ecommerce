@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 
-export default function Home() {
+export default function NotFound() {
   return (
     <PageWrapper className="overflow-x-hidden">
       <section className="py-section h-screen-footer">
