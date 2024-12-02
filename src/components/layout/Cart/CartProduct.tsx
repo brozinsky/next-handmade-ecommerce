@@ -74,7 +74,7 @@ export default function CartProduct({
           <div className="gap-2 flex-center-center">
             <div
               onClick={() =>
-                handleCartItem("decrement", title as string, color)
+                handleCartItem("decrement", title || "Produkt", color)
               }
               className="w-4 h-4 text-gray-500 transition transform border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
@@ -85,7 +85,7 @@ export default function CartProduct({
             </p>
             <div
               onClick={() =>
-                handleCartItem("increment", title as string, color)
+                handleCartItem("increment", title || "Produkt", color)
               }
               className="w-4 h-4 text-gray-500 transition border rounded-md cursor-pointer select-none flex-center-center hover:bg-gray-100 active:translate-y-1"
             >
@@ -94,7 +94,9 @@ export default function CartProduct({
           </div>
           <div className="flex">
             <button
-              onClick={() => handleCartItem("remove", title as string, color)}
+              onClick={() =>
+                handleCartItem("remove", title || "Produkt", color)
+              }
               className="relative inline-flex items-center justify-center h-12 px-6 overflow-hidden font-medium rounded-md hover:bg-red-100/40 group"
             >
               <div className="text-red-600 mr-0 w-0 -translate-x-[100%] opacity-0 transition-all duration-200 md:group-hover:mr-1 md:group-hover:w-5 md:group-hover:translate-x-0 md:group-hover:opacity-100">
