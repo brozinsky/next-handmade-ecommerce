@@ -60,7 +60,7 @@ export default async function Products({ category = "wszystkie" }) {
             .filter(
               (product) =>
                 category === "wszystkie" ||
-                product.categories[0].title.toLowerCase() ===
+                product.categories?.[0]?.title.toLowerCase() ===
                   category.toLowerCase()
             )
             .sort((a, b) =>
