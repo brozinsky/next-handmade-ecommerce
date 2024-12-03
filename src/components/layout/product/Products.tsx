@@ -67,13 +67,14 @@ export default async function Products({ category = "wszystkie" }) {
               a.isAvailable === b.isAvailable ? 0 : a.isAvailable ? -1 : 1
             )
             .map((product) => {
+              const category = product.categories?.[0]?.title?.toLowerCase() || "unknown";
               return (
                 <Product
                   key={product._id}
                   _id={product._id}
                   imageUrl={product.imageUrl}
                   title={product.name}
-                  category={product.categories[0].title.toLowerCase()}
+                  category={category}
                   price={product.price}
                   discountPrice={product.discountPrice}
                   isAvailable={product.isAvailable}
