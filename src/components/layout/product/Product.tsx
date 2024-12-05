@@ -49,18 +49,18 @@ export default function Product({
             Wyprzedane
           </div>
         )}
-        {/* {isImmediate && isAvailable && (
+        {isImmediate && isAvailable && (
           <span className="absolute z-10 px-6 py-1 text-yellow-900 bg-yellow-200 rounded-md font-regular text-md top-1 left-1">
             Dostępne od ręki
           </span>
-        )} */}
-        {isNew && isAvailable && (
-          <span className="absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-sky-200 text-sky-900 top-2 left-2">
+        )}
+        {!isImmediate && isNew && isAvailable && (
+          <span className="absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-sky-200 text-sky-900 top-1 left-1">
             Nowość
           </span>
         )}
         {discountPrice && discountPrice >= 0 && isAvailable && (
-          <span className="absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-rose-200 text-rose-800 top-2 left-2">
+          <span className={clsx("absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-rose-200 text-rose-800 top-1 left-1", isImmediate ? "top-10" : "")}>
             Promocja!
           </span>
         )}
