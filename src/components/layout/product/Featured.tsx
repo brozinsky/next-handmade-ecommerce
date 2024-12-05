@@ -34,7 +34,7 @@ export default async function Featured() {
                     _id={product._id}
                     imageUrl={product.imageUrl}
                     title={product.name}
-                    category={product.categories[0].title.toLowerCase()}
+                    category={product.categories?.[0].title.toLowerCase() || ''}
                     price={product.price}
                     discountPrice={product.discountPrice}
                     isAvailable={product.isAvailable}

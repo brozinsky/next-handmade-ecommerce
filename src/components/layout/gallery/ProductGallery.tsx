@@ -60,7 +60,7 @@ export default function ProductGallery({title, featuredImage, images}: TProps) {
           {imagesGallery.map((image, index) => (
             <SwiperSlide key={`slide-${index}`}>
               <a
-                className="rounded-lg bg-neutral-200"
+                className="block rounded-lg bg-neutral-200 min-w-[400px]"
                 href={image}
                 data-pswp-width={1300}
                 data-pswp-height={1300}
