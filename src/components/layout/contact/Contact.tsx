@@ -73,7 +73,7 @@ export default function Contact({ page }: { page: "home" | "contact" }) {
                 className="truncate w-fit text-neutral-600 group-hover:underline group-hover:text-primary-500"
                 href={"mailto:contact@loremipsum.com"}
               >
-                contact@loremipsum.com
+                sznurkowekrolowe@gmail.com
               </Link>
             </div>
             <section className="mt-6 ">
