@@ -9,8 +9,15 @@ const links = [
   { id: 1, title: "Sklep", path: "/sklep" },
   { id: 2, title: "O mnie", path: "/o-mnie" },
   { id: 3, title: "Kontakt", path: "/kontakt" },
-  { id: 4, title: "Polityka prywatności", path: "/polityka-prywatnosci" },
-  { id: 5, title: "Regulamin", path: "/regulamin" },
+  {
+    id: 4,
+    title: "Polityka prywatności",
+    isPdf: true,
+    path: "/pdf/Polityka prywatności.pdf",
+  },
+  { id: 5, title: "Regulamin", isPdf: true, path: "/pdf/Regulamin sklepu.pdf" },
+  { id: 6, title: "Zwrot", path: "/zwrot" },
+  { id: 7, title: "Reklamacje", path: "/reklamacje" },
 ];
 
 export default function Footer() {
@@ -34,18 +41,36 @@ export default function Footer() {
               alt={"Sznurkowe Królowe logo"}
             />
           </Link>
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-4 mb-6 text-neutral-900">
-            {links.map(({ id, title, path }) => {
-              return (
-                <Link
-                  key={id}
-                  className="font-light hover:underline"
-                  href={path}
-                >
-                  {title}
-                </Link>
-              );
-            })}
+          <div>
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-4 mb-2 text-neutral-900">
+              {links.map(({ id, title, path }) => {
+                if (id >= 4) return;
+                return (
+                  <Link
+                    key={id}
+                    className="font-light hover:underline"
+                    href={path}
+                  >
+                    {title}
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-6 mb-6 text-neutral-900">
+              {links.map(({ id, title, path, isPdf }) => {
+                if (id < 4) return;
+                return (
+                  <Link
+                    key={id}
+                    className="font-light hover:underline"
+                    href={path}
+                    target={isPdf ? "_blank" : "_self"}
+                  >
+                    {title}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
           <span className="text-sm font-light text-neutral-800 sm:text-center">
             Created by{" "}

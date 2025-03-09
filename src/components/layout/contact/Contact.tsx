@@ -7,7 +7,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Image from "next/image";
 import contact1 from "@/public/contact/contact-1.jpg";
 import contact2 from "@/public/contact/contact-2.jpg";
-import HeadingLine from "@/components/ui/HeadingLine";
+import { COMPANY_INFO } from "@/utils/const";
 
 export default function Contact({ page }: { page: "home" | "contact" }) {
   const isMobile = useMediaQuery(`(max-width: 1023px)`);
@@ -47,9 +47,9 @@ export default function Contact({ page }: { page: "home" | "contact" }) {
               </svg>
               <Link
                 className="font-light truncate text-neutral-600 hover:underline group-hover:text-primary-500"
-                href={"tel:1234567890"}
+                href={`tel:${COMPANY_INFO.phone}`}
               >
-                (123) 456-7890
+                {COMPANY_INFO.phone}
               </Link>
             </div>
 
@@ -71,9 +71,9 @@ export default function Contact({ page }: { page: "home" | "contact" }) {
 
               <Link
                 className="truncate w-fit text-neutral-600 group-hover:underline group-hover:text-primary-500"
-                href={"mailto:contact@loremipsum.com"}
+                href={`mailto:${COMPANY_INFO.email}`}
               >
-                sznurkowekrolowe@gmail.com
+                {COMPANY_INFO.email}
               </Link>
             </div>
             <section className="mt-6 ">
@@ -81,8 +81,14 @@ export default function Contact({ page }: { page: "home" | "contact" }) {
                 Obserwuj nas:
               </p>
               <div className="flex items-center justify-center gap-2 lg:justify-start">
-                <SocialLink variant="facebook" url="https://facebook.com/" />
-                <SocialLink variant="instagram" url="https://instagram.com/" />
+                <SocialLink
+                  variant="facebook"
+                  url="https://www.facebook.com/p/Sznurkowe-Kr%C3%B3lowe-100063608470535/?_rdr"
+                />
+                <SocialLink
+                  variant="instagram"
+                  url="https://www.instagram.com/sznurkowe_krolowe/"
+                />
               </div>
             </section>
           </div>

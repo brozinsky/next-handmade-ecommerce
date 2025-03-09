@@ -1,5 +1,6 @@
 import About from "@/components/layout/about/About";
 import PageWrapper from "@/components/utils/PageWrapper";
+import { COMPANY_INFO, WEBSITE_URL } from "@/utils/const";
 
 export default function AboutPage() {
   return (
@@ -12,99 +13,237 @@ export default function AboutPage() {
               <span>§1</span> Postanowienia ogólne
             </h2>
             <p>
-              1. Sklep www…………………...pl działa na zasadach określonych w
-              niniejszym Regulaminie
+              1. Niniejszy Regulamin określa zasady funkcjonowania Serwisu{" "}
+              {WEBSITE_URL}, w szczególności:
+            </p>
+            <div className="pl-4">
+              <p>1.1 definiuje określenia używane w Regulaminie,</p>
+              <p>
+                1.2 określa zasady zawierania Umów sprzedaży, składania zamówień
+                i ich realizacji,
+              </p>
+              <p>
+                1.3 określa zasady dokonywania płatności i realizacji dostawy,
+              </p>
+              <p>1.4 określa zasady postępowania przy odbiorze przesyłki,</p>
+              <p>
+                1.5 określa zasady składania reklamacji i oświadczenia o
+                odstąpieniu od umowy, w tym określa wyjątki,
+              </p>
+              <p>1.6 określa wymagania techniczne,</p>
+              <p>1.7 informuje o Polityce prywatności,</p>
+              <p>1.8 informuje o majątkowych prawach autorskich,</p>
+              <p>1.9 wskazuje pozasądowe sposoby rozstrzygania sporów.</p>
+            </div>
+            <p>
+              2. Serwis internetowy działający w domenie {WEBSITE_URL}{" "}
+              prowadzony jest przez:
+            </p>
+            <div className="space-y-0 text-center">
+              <p style={{ marginBottom: 0 }}>
+                <strong>Paulina Dziubańska</strong>
+              </p>
+              <p>
+                {COMPANY_INFO.address.street},{" "}
+                {COMPANY_INFO.address.postalCodeCity}
+              </p>
+              <p>
+                NIP: {COMPANY_INFO.nip} REGON: {COMPANY_INFO.regon}
+              </p>
+              <p>
+                prowadząca działalność nieewidencjonowaną na podstawie Ustawy z
+                dnia 6 marca 2018 r. –
+              </p>
+              <p>Prawo przedsiębiorców ( Dz. U. 2018 poz. 646)</p>
+              <p>
+                e-mail: {COMPANY_INFO.email} telefon kontaktowy:
+                {COMPANY_INFO.phone}
+              </p>
+            </div>
+            <br />
+            <p>
+              3. Ceny podane w Sklepie są podane w polskich złotych i są cenami
+              brutto. Cena podana przy danym Produkcie jest wiążąca dla Klienta
+              w chwili składania Zamówienia. Ceny nie zawierają kosztów dostawy.
             </p>
             <p>
-              2. Regulamin określa warunki zawierania i rozwiązywania Umów
-              Sprzedaży Produktu oraz tryb postępowania reklamacyjnego, a także
-              rodzaje i zakres usług świadczonych drogą elektroniczną przez
-              Sklep www………………...pl, zasady świadczenia tych usług, warunki
-              zawierania i rozwiązywania umów o świadczenie usług drogą
-              elektroniczną.
+              4. Sprzedawca korzysta ze zwolnienia z VAT na podstawie art. 113
+              Ustawy z dnia 11 marca 2004 r. o podatku od towarów i usług (Dz.
+              U. 2004 nr 54 poz. 535).
             </p>
             <p>
-              3. Każdy Usługobiorca z chwilą podjęcia czynności zmierzających do
-              korzystania z Usług Elektronicznych Sklepu www…………………..pl
-              zobowiązany jest do przestrzegania postanowień niniejszego
-              Regulaminu.
+              5. Informacje o Produktach podane na stronach internetowych
+              Sklepu, w szczególności ich opisy i ceny, nie stanowią oferty w
+              rozumieniu Kodeksu cywilnego, a są jedynie zaproszeniem do
+              zawarcia umowy w rozumieniu art.71 Kodeksu cywilnego.
             </p>
             <p>
-              4. W sprawach nieuregulowanych w niniejszym Regulaminie mają
-              zastosowanie przepisy:
+              6. Sprzedawca zastrzega sobie prawo do zmiany cen Produktów
+              dostępnych w Sklepie internetowym, wprowadzania nowych Produktów,
+              wycofywania Produktów, przeprowadzania promocji i dawania rabatów,
+              a także ograniczonego w czasie oferowania Produktów 2
+              nieodpłatnych. Powyższe zapisy nie mają wpływu na Zamówienia,
+              które zostały złożone przed datą wejścia w życie którejkolwiek ze
+              zmian.
             </p>
-            <ol>
-              <li>
-                1. ustawy o świadczeniu usług drogą elektroniczną z dnia 18
-                lipca 2002 r.,
-              </li>
-              <li>2. ustawy o prawach konsumenta z dnia 30 maja 2014 r.,</li>
-              <li>
-                3. ustawy o pozasądowym rozwiązywaniu sporów konsumenckich z
-                dnia 23 września 2016 r.,
-              </li>
-              <li>
-                4. ustawy Kodeks cywilny z dnia 23 kwietnia 1964 r. oraz inne
-                właściwe przepisy prawa polskiego
-              </li>
-            </ol>
+            <p>
+              7. Czas trwania promocji jest ograniczony. Rabaty i promocje nie
+              łączą się. Szczegółowe informacje zawarte są każdorazowo w
+              warunkach lub regulaminie danej promocji.
+            </p>
+            <p>
+              8.Warunkiem złożenia Zamówienia przez Klienta jest zapoznanie się
+              z Regulaminem i akceptacja jego postanowień w czasie składania
+              Zamówienia. Klient poprzez akceptację wyraża zgodę na wszystkie
+              postanowienia i zobowiązuje się ich przestrzegać.
+            </p>
+            <p>
+              9. Serwis nie udostępnia możliwości rejestracji Konta klienta.
+            </p>
+            <p>
+              10. Niniejszy Regulamin jest udostępniany nieodpłatnie. Klient
+              może utrwalić treść Regulaminu w dogodny dla siebie sposób, np.
+              poprzez zapis na trwałym nośniku lub wydruk.
+            </p>
+            <p>
+              11. Regulamin może odsyłać do odrębnych regulaminów oraz ogólnych
+              warunków świadczenia usług poprzez właściciela Serwisu
+              internetowego, które w takim wypadku stają się integralną częścią
+              niniejszego Regulaminu.
+            </p>
+            <p>
+              12. Zastrzega się, że Konsumentów oraz Przedsiębiorców na prawach
+              konsumentów, nie dotyczą te postanowienia Regulaminu, które
+              stanowiłyby niedozwolone postanowienia umowne w rozumieniu Kodeksu
+              cywilnego (art.385(1) do 385(3)), czy naruszałyby bezwzględnie
+              obowiązujące przepisy prawne dotyczące zawierania umów z udziałem
+              Konsumenta oraz Przedsiębiorcy na prawach konsumentów, które
+              zostałyby zawarte w rejestrze postanowień wzorców umownych
+              uznanych za niedozwolone, prowadzonych przez Prezesa Urzędu
+              Ochrony Konkurencji i Konsumentów.
+            </p>
+            <p>
+              13. Zakazane jest dostarczanie przez Klienta treści o charakterze
+              bezprawnym.
+            </p>
+            <p>
+              14. Sprzedawca nie jest dostawcą hostingu w rozumieniu przepisów
+              Rozporządzenia DSA (Akt o usługach cyfrowych). Nie prowadzi bloga,
+              nie umożliwia pozostawiania opinii oraz nie przechowuje na Koncie
+              klienta innych danych jak dane osobowe niezbędne do obsługi
+              zamówień.
+            </p>
+            <p>
+              15. Sprzedawca nie stosuje mechanizmu plasowania Produktów na
+              liście wyników wyszukiwania.
+            </p>
             <h2 className="flex flex-col items-center">
-              <span>§2</span> Definicje zawarte w regulaminie
+              <span>§2</span> Definicje
             </h2>
             <p>
-              1. <strong>FORMULARZ ZAMÓWIENIA</strong> – formularz dostępny na
-              stronie internetowej www……………..pl umożliwiający złożenie
-              Zamówienia.
+              <strong>Dzień roboczy</strong> – Jeden dzień od poniedziałku do
+              piątku z wyłączeniem dni ustawowo wolnych od pracy.
             </p>
             <p>
-              2. <strong>KLIENT</strong> – Usługobiorca, który zamierza zawrzeć
-              lub zawarł Umowę Sprzedaży ze Sprzedawcą.
+              <strong>Formularz zamówienia</strong> – Usługa elektroniczna,
+              interaktywna, dostępna w Sklepie internetowym Sprzedawcy,
+              umożliwiająca złożenie zamówienia.
             </p>
             <p>
-              3. <strong>KONSUMENT</strong> – osoba fizyczna, która dokonuje z
-              przedsiębiorcą czynności prawnej niezwiązane bezpośrednio z jej
-              działalnością gospodarczą lub zawodową.
+              <strong>Kodeks cywilny</strong> – Kodeks cywilny Ustawa Kodeks
+              cywilny z dnia 23 kwietnia 1964 r. ( Dz.U.1964.16.93 ze zm.).
             </p>
             <p>
-              4. <strong>PRZEDSIĘBIORCA</strong> - osoba fizyczna, osoba prawna
-              i jednostka organizacyjna niebędąca osobą prawną, której ustawa
-              przyznaje zdolność prawną, prowadząca we własnym imieniu
-              działalność gospodarczą lub zawodową.
+              <strong>Produkt</strong> - Produkt Wszystkie produkty dostępne w
+              Sklepie internetowym będące przedmiotem Umowy sprzedaży między
+              Sprzedawcą a Klientem.
             </p>
             <p>
-              5. <strong>PRODUKT</strong> – dostępna w Sklepie rzecz ruchoma
-              będąca przedmiotem Umowy Sprzedaży między Klientem a Sprzedawcą.
+              <strong>
+                Produkt wyprodukowany według specyfikacji Konsumenta lub
+                Przedsiębiorcy na prawach konsumenta Oznacza produkt
+                nieprefabrykowany, który wykonano na podstawie indywidualnego
+                wyboru lub decyzji Konsumenta lub Przedsiębiorcy na prawach
+                konsumenta.
+              </strong>
+              - Produkt wyprodukowany według specyfikacji Konsumenta lub
+              Przedsiębiorcy na prawach konsumenta Oznacza produkt
+              nieprefabrykowany, który wykonano na podstawie indywidualnego
+              wyboru lub decyzji Konsumenta lub Przedsiębiorcy na prawach
+              konsumenta.
             </p>
             <p>
-              6. <strong>REGULAMIN</strong> - niniejszy regulamin Sklepu.
+              <strong>Regulamin</strong> - Niniejszy Regulamin.
             </p>
             <p>
-              7. <strong>SKLEP</strong> - Sklep internetowy Usługodawcy
-              działający pod adresem www………………….pl.
+              <strong>Serwis/ Sklep internetowy</strong> – Serwis/ Sklep
+              internetowy Sklep internetowy dostępny pod adresem
+              {WEBSITE_URL} za pośrednictwem, którego Klient może dokonać
+              zamówienia Produktów lub Usług.
             </p>
             <p>
-              8. <strong>SPRZEDAWCA, USŁUGODAWCA</strong> –
-              ………………………………………………………………………………………………
+              <strong>Sprzedawca/ Usługodawca </strong> – Sprzedawca/
+              Usługodawca {COMPANY_INFO.name}, {COMPANY_INFO.address.street},{" "}
+              {COMPANY_INFO.address.postalCodeCity}, NIP: {COMPANY_INFO.nip},
+              REGON: {COMPANY_INFO.regon}
             </p>
             <p>
-              9. <strong>UMOWA SPRZEDAŻY</strong> – Umowa Sprzedaży Produktu
-              zawarta między Klientem, a Sprzedawcą za pośrednictwem Sklepu.
+              <strong>Umowa sprzedaży</strong> - Umowa sprzedaży Umowa sprzedaży
+              Produktu zawarta między Klientem a Sprzedawcą za pośrednictwem
+              Sklepu internetowego.
             </p>
             <p>
-              10. <strong>ZAMÓWIENIE</strong> - oświadczenie woli Klienta
-              stanowiące ofertę zawarcia Umowy Sprzedaży Produktu ze Sprzedawcą.
+              <strong>Usługa elektroniczna</strong> – Usługa elektroniczna
+              Usługa świadczona drogą elektroniczną przez Usługodawcę na rzecz
+              Usługobiorcy za pośrednictwem Serwisu internetowego.
             </p>
+
             <p>
-              11. <strong>CENA</strong> – wartość wyrażona w jednostkach
-              pieniężnych, którą Klient jest obowiązany zapłacić Sprzedawcy za
-              Produkt.
+              <strong>Zamówienie</strong> – Oświadczenie woli Klienta, składane
+              za pomocą Formularza zamówienia, zmierzające bezpośrednio do
+              zawarcia Umowy sprzedaży Produktu z Sprzedawcą.
             </p>
+
+            <p>
+              <strong>Polityka prywatności </strong> – Dokument, w którym
+              opisane są cele i zasady przetwarzania danych, w tym prawa osób,
+              których dane dotyczą.
+            </p>
+
+            <p>
+              <strong>Klient/ Usługobiorca</strong> – Klient/ Usługobiorca
+              Konsument, Przedsiębiorca na prawach konsumenta, Przedsiębiorca.
+            </p>
+
+            <p>
+              <strong>Konsument</strong> – Zgodnie z definicją zawartą w art.
+              22(1) Kodeksu cywilnego.
+            </p>
+
+            <p>
+              <strong>Przedsiębiorca</strong> – Przedsiębiorca Zgodnie z
+              definicją zawartą w art.43(1) Kodeksu cywilnego.
+            </p>
+
+            <p>
+              <strong>Przedsiębiorca na prawach konsumenta</strong> – Osoba
+              fizyczna prowadząca jednoosobową działalność gospodarczą,
+              posiadająca wpis do Centralnej Ewidencji i Informacji o
+              Działalności Gospodarczej, zawierająca umowę bezpośrednio związaną
+              z jej działalnością gospodarczą, ale nieposiadającą dla niej
+              charakteru zawodowego, wynikającego z przedmiotu wykonywanej
+              działalności gospodarczej, weryfikowanego na podstawie przepisów o
+              Centralnej Ewidencji i Informacji o Działalności Gospodarczej.
+              Przy czym dotyczy to tylko umów zawieranych na odległość oraz poza
+              lokalem przedsiębiorstwa.
+            </p>
+
             <h2 className="flex flex-col items-center">
               <span>§3</span> INFORMACJE DOTYCZĄCE PRODUKTÓW ORAZ ICH ZAMAWIANIA
             </h2>
             <p>
-              1. Sklep www…………...pl prowadzi sprzedaż Produktów za pośrednictwem
-              sieci Internet.
+              1. Sklep {WEBSITE_URL} prowadzi sprzedaż Produktów za
+              pośrednictwem sieci Internet.
             </p>
             <p>
               2. Produkty oferowane w Sklepie są nowe, zgodne z umową i zostały
@@ -173,7 +312,6 @@ export default function AboutPage() {
               <span>§5</span> SPOSOBY PŁATNOŚCI
             </h2>
             <p>1. Sprzedawca udostępnia następujące sposoby płatności:</p>
-
             <ol>
               <li>
                 a. płatność przelewem tradycyjnym na rachunek bankowy
@@ -215,7 +353,6 @@ export default function AboutPage() {
               2. Na termin dostawy Produktu składa się czas kompletowania
               Produktu oraz czas dostawy Produktu przez przewoźnika:
             </p>
-
             <ol>
               <li>
                 czas kompletowania Produktów wynosi …………….. dni roboczych,
@@ -455,13 +592,11 @@ export default function AboutPage() {
               <span>§11</span> REKLAMACJE ZWIĄZANE ZE ŚWIADCZENIEM USŁUG
               ELEKTRONICZNYCH
             </h2>
-
             <p>
               1. Reklamacje związane ze świadczeniem Usługi Elektronicznej za
               pośrednictwem Sklepu Usługobiorca może składać za pośrednictwem
               poczty elektronicznej na adres: ……………………
             </p>
-
             <p>
               2. W powyższej wiadomości e-mail, należy podać jak najwięcej
               informacji i okoliczności dotyczących przedmiotu reklamacji, w
@@ -469,34 +604,28 @@ export default function AboutPage() {
               kontaktowe. Podane informacje znacznie ułatwią i przyspieszą
               rozpatrzenie reklamacji przez Usługodawcę.
             </p>
-
             <p>
               3. Rozpatrzenie reklamacji przez Usługodawcę następuje
               niezwłocznie, nie później niż w terminie 14 dni od momentu
               zgłoszenia.
             </p>
-
             <p>
               4. Odpowiedź Usługodawcy w sprawie reklamacji jest wysyłana na
               adres e-mail Usługobiorcy podany w zgłoszeniu reklamacyjnym lub w
               inny podany przez Usługobiorcę sposób
             </p>
-
             <h2 className="flex flex-col items-center">
               <span>§12</span> POSTANOWIENIA KOŃCOWE
             </h2>
-
             <p>
               1. Umowy zawierane poprzez Sklep zawierane są zgodnie z prawem
               polskim.
             </p>
-
             <p>
               2. W przypadku niezgodności jakiejkolwiek części Regulaminu z
               obowiązującym prawem, w miejsce zakwestionowanego przepisu
               Regulaminu zastosowanie mają właściwe przepisy prawa polskiego.
             </p>
-
             <p>
               3. Wszelkie spory wynikłe z Umów Sprzedaży między Sklepem, a
               Konsumentami będą rozstrzygane w pierwszej kolejności na drodze
@@ -507,14 +636,12 @@ export default function AboutPage() {
               rozstrzygane przez właściwy sąd powszechny, zgodnie z pkt 4
               niniejszego paragrafu.
             </p>
-
             <p>
               4. Ewentualne spory powstałe pomiędzy Usługodawcą, a Usługobiorcą
               (Klientem) będącym jednocześnie Konsumentem zostają poddane sądom
               właściwym zgodnie z przepisami kodeksu postępowania cywilnego z
               dnia 17 listopada 1964 r.
             </p>
-
             <p>
               5. Klient będący Konsumentem ma również prawo do skorzystania z
               pozasądowych sposobów rozstrzygania sporów w szczególności poprzez
@@ -531,14 +658,12 @@ export default function AboutPage() {
               dochodzenie roszczeń po zakończeniu postępowania reklamacyjnego
               jest bezpłatne.
             </p>
-
             <p>
               6. Konsument w celu polubownego rozwiązania sporu może w
               szczególności złożyć skargę za pośrednictwem platformy
               internetowej ODR (Online Dispute Resolution), dostępnej pod
               adresem: http://ec.europa.eu/consumers/odr/.
             </p>
-
             <p>
               7. Dokument opracowany za pomocą automatycznego generatora
               dostępnego na stronie www.lexlab.pl/generator-regulaminu

@@ -1,5 +1,6 @@
 import About from "@/components/layout/about/About";
 import PageWrapper from "@/components/utils/PageWrapper";
+import { COMPANY_INFO, WEBSITE_URL } from "@/utils/const";
 
 export default function AboutPage() {
   return (
@@ -7,7 +8,7 @@ export default function AboutPage() {
       <div className="container container--sm">
         <div className="py-section min-h-screen-footer">
           <div className="content-section">
-            <h1>Polityka Prywatności Serwisu www.sznurkowe-krolowe.pl</h1>
+            <h1>Polityka Prywatności Serwisu {WEBSITE_URL}</h1>
             <h2>1. Informacje ogólne</h2>
             <p>
               Niniejsza Polityka Prywatności określa zasady przetwarzania i
@@ -18,8 +19,10 @@ export default function AboutPage() {
               2. Administratorem danych osobowych zawartych w serwisie jest
             </h2>
             <p>
-              [Nazwa firmy] z siedzibą w [Adres] KRS[Numer KRS] NIP[Numer NIP]
-              REGON[Numer REGON]
+              {COMPANY_INFO.companyName} z siedzibą w{" "}
+              {COMPANY_INFO.address.street}, {COMPANY_INFO.address.postalCodeCity} KRS
+              {COMPANY_INFO.krs} NIP {COMPANY_INFO.nip} REGON
+              {COMPANY_INFO.regon}
             </p>
             <h2>3. Bezpieczeństwo danych</h2>
             <p>
