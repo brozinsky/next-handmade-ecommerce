@@ -1,5 +1,7 @@
 import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
+import { z } from "zod";
+import { cartSchema } from "./cartFormData";
 
 export type TProduct = {
   _id: string;
@@ -122,6 +124,7 @@ export type TButton = {
   isLoading?: boolean;
   label?: string;
   isFullWidth?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 
 export type TLoadingWrapper = {
@@ -142,3 +145,11 @@ export type TShippingInfo = {
   slug: string;
   price: number;
 };
+
+export type TInputOption = {
+  id: number;
+  value: string;
+  title: string;
+};
+
+export type TCartForm = z.infer<typeof cartSchema>;

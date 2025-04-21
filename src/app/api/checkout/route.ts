@@ -10,7 +10,16 @@ const getActiveProducts = async () => {
 };
 
 export const POST = async (request: any) => {
-  const { products } = await request.json();
+  const {
+    products,
+    email,
+    name,
+    secondName,
+    phone,
+    address,
+    postalCode,
+    city,
+  } = await request.json();
   const data: any[] = products;
 
   let activeProducts = await getActiveProducts();
@@ -22,7 +31,7 @@ export const POST = async (request: any) => {
           stripeProduct?.name?.toLowerCase() == product?.name?.toLowerCase()
       );
 
-      if (stripeProduct == undefined) {
+      if (!stripeProduct) {
         await stripe.products.create({
           name: product.name,
           default_price_data: {
@@ -45,8 +54,6 @@ export const POST = async (request: any) => {
       (prod: any) => prod?.name?.toLowerCase() == product?.name?.toLowerCase()
     );
 
-    console.log(stripeProduct);
-
     if (stripeProduct) {
       stripeItems.push({
         price: stripeProduct?.default_price,
@@ -55,9 +62,36 @@ export const POST = async (request: any) => {
     }
   }
 
+  const customer = await stripe.customers.create({
+    email,
+    name: `${name} ${secondName}`,
+    phone,
+    address: {
+      line1: address,
+      postal_code: postalCode,
+      city,
+      country: "PL",
+    },
+    metadata: {
+      name,
+      secondName,
+    },
+  });
+
   const session = await stripe.checkout.sessions.create({
     line_items: stripeItems,
     mode: "payment",
+    customer: customer.id,
+    payment_intent_data: {
+      metadata: {
+        name,
+        secondName,
+        phone,
+        address,
+        postalCode,
+        city,
+      },
+    },
     success_url: `${process.env.BASE_URL}/dziekujemy-za-zamowienie`,
     cancel_url: `${process.env.BASE_URL}/cancel`,
     locale: "pl",

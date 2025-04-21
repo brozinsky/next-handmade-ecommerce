@@ -26,16 +26,15 @@ a {
 }
 
 .min-h-screen-footer {
-  min-height: calc(100vh - 250px);
+  min-height: calc(100dvh - 210px - 72px);
 }
 
 .h-screen-footer {
-  height: calc(100vh - 250px);
+  height: calc(100dvh - 210px - 72px);
 }
 
 .heading-first {
-  @apply text-3xl font-semibold md:text-5xl font-brush ;
-
+  @apply text-3xl font-semibold md:text-5xl font-brush;
 }
 
 .heading-second {
