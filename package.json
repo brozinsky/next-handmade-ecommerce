@@ -30,6 +30,8 @@
     "@types/react": "18.2.47",
     "@types/react-dom": "18.2.18",
     "@types/shortid": "^0.0.32",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

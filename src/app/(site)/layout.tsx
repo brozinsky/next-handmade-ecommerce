@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import ReactQueryProvider from "@/utils/provider";
 import NextTopLoader from "nextjs-toploader";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Sznurkowe Królowe",
@@ -33,6 +35,8 @@ export default function RootLayout({
           {children}
           <Footer />
         </ReactQueryProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
