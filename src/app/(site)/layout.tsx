@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import ReactQueryProvider from "@/utils/provider";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata = {
   title: "Sznurkowe Królowe",
@@ -20,6 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative h-full min-h-screen">
+        <NextTopLoader
+          color={"#D88A8D"}
+          initialPosition={0.25}
+          height={4}
+          showSpinner={false}
+        />
         <ReactQueryProvider>
           <ToastContainer />
           <Header />
