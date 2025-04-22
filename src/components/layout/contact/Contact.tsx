@@ -5,8 +5,8 @@ import Link from "next/link";
 import ScrollAnimated from "../../utils/ScrollAnimated";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Image from "next/image";
-import contact1 from "@/public/contact/contact-1.jpg";
-import contact2 from "@/public/contact/contact-2.jpg";
+import contact1 from "@/public/contact/contact-1.webp";
+import contact2 from "@/public/contact/contact-2.webp";
 import { COMPANY_INFO } from "@/utils/const";
 
 export default function Contact({ page }: { page: "home" | "contact" }) {

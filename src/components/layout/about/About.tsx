@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Image1 from "@/public/about/about-1.jpg";
+import Image1 from "@/public/about/about-1.webp";
 import HeadingLine from "@/components/ui/HeadingLine";
 import { getDescription } from "../../../../sanity/sanity-utils";
 import renderText from "@/utils/renderText";

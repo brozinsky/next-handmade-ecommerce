@@ -1,8 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import LogoSVG from "../../svg/LogoSVG";
 import Image from "next/image";
-import logoSm from "@/public/logo-sm.png";
+import logoSm from "@/public/logo-sm.webp";
 
 const links = [
   { id: 0, title: "Strona główna", path: "/" },

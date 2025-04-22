@@ -5,10 +5,7 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Hamburger from "@/components/ui/Hamburger";
 import Image from "next/image";
-import Image1 from "@/public/contact/contact-1.jpg";
-import logoSm from "@/public/logo-sm.png";
-import useCartStore from "@/stores/useCartStore";
-import { getTotalQuantity } from "@/utils/function";
+import logoSm from "@/public/logo-sm.webp";
 import LinkCart from "@/components/ui/LinkCart";
 
 const links = [

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import logoBig from "@/public/logo-big.png";
-import hero1 from "@/public/hero/hero-1.png";
+import logoBig from "@/public/logo-big.webp";
+import hero1 from "@/public/hero/hero-1.webp";
 import Image from "next/image";
 
 export default function Hero() {
