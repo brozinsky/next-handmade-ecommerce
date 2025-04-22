@@ -34,11 +34,11 @@ export default function CartProduct({
     color?: string
   ) => {
     variant === "increment" &&
-      incrementItemQuantity(color ? `${title} ${color}` : (title as string));
+      incrementItemQuantity(color ? `${title} ${color}` : (title));
     variant === "decrement" &&
-      decrementItemQuantity(color ? `${title} ${color}` : (title as string));
+      decrementItemQuantity(color ? `${title} ${color}` : (title));
     variant === "remove" &&
-      removeItem(color ? `${title} ${color}` : (title as string));
+      removeItem(color ? `${title} ${color}` : (title));
   };
   const href = {
     pathname: `/sklep/produkt/${_id}`,

@@ -24,6 +24,7 @@ export default function Button({
   size = "md",
   label,
   isFullWidth,
+  type = "submit",
 }: TButton) {
   const classes = cva(
     [
@@ -82,6 +83,7 @@ export default function Button({
       disabled={isLoading}
       aria-label={label}
       onClick={onClick}
+      type={type}
       className={classes({
         variant,
         shape,
