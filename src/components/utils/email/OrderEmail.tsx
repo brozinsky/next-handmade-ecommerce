@@ -24,7 +24,7 @@ type OrderEmailProps = {
   postalCode: string;
   city: string;
   shipping: string;
-  shippingPrice: number;
+  shippingPrice: string;
   products: Product[];
 };
 
@@ -73,7 +73,7 @@ export default function OrderEmail({
               <strong>Adres:</strong> {address}, {postalCode} {city}
             </Text>
             <Text>
-              <strong>Dostawa:</strong> {shipping} ({shippingPrice.toFixed(2)}{" "}
+              <strong>Dostawa:</strong> {shipping} ({Number(shippingPrice).toFixed(2)}{" "}
               PLN)
             </Text>
           </Section>

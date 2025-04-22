@@ -19,6 +19,8 @@ export const POST = async (request: any) => {
     address,
     postalCode,
     city,
+    shipping,
+    shippingPrice,
   } = await request.json();
   const data: any[] = products;
 
@@ -90,6 +92,10 @@ export const POST = async (request: any) => {
         address,
         postalCode,
         city,
+        email,
+        shipping,
+        shippingPrice: shippingPrice.toString(),
+        products: JSON.stringify(products),
       },
     },
     success_url: `${process.env.BASE_URL}/dziekujemy-za-zamowienie`,
