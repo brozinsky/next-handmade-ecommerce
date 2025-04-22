@@ -9,7 +9,7 @@ export type TProduct = {
   name?: string;
   category: string;
   price: number;
-  discountPrice?: number | null;
+  oldPrice?: number | null;
   description?: string;
   isAvailable?: boolean;
   isNew?: boolean;
@@ -58,7 +58,7 @@ export type TProductSchema = {
   featured_image?: TSanityImage;
   price: number;
   currency: "PLN";
-  discountPrice?: number;
+  oldPrice?: number;
   isOnSale: boolean;
   isImmediate: boolean;
   isAvailable: boolean;

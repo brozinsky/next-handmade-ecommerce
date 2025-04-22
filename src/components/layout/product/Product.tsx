@@ -8,7 +8,7 @@ import { TProduct } from "@/utils/types";
 import NoImageSVG from "@/components/svg/NoImageSVG";
 
 type TProps = TProduct & {
-  discountPrice?: number | null;
+  oldPrice?: number | null;
   isNew?: boolean;
   imageUrl?: string;
   isCentered?: boolean;
@@ -18,7 +18,7 @@ export default function Product({
   _id,
   title,
   price,
-  discountPrice,
+  oldPrice,
   isAvailable = true,
   isNew = false,
   isImmediate = false,
@@ -59,7 +59,7 @@ export default function Product({
             Nowość
           </span>
         )}
-        {discountPrice && discountPrice >= 0 && isAvailable && (
+        {oldPrice && oldPrice >= 0 && isAvailable && (
           <span className={clsx("absolute z-10 px-6 py-1 rounded-md font-regular text-md bg-rose-200 text-rose-800 top-1 left-1", isImmediate ? "top-10" : "")}>
             Promocja!
           </span>
@@ -95,14 +95,14 @@ export default function Product({
             </p>
           )} */}
           <div className="flex flex-wrap items-end justify-center space-x-2 text-xs text-neutral-600">
-            {discountPrice ? (
+            {oldPrice ? (
               <span className="text-sm line-through text-primary-900">
-                {price}.00 <span>zł</span>
+                {oldPrice}.00 <span>zł</span>
               </span>
             ) : null}
-            {discountPrice ? (
+            {oldPrice ? (
               <span className="text-xl font-medium text-red-500">
-                {discountPrice}.00 <span>zł</span>
+                {price}.00 <span>zł</span>
               </span>
             ) : (
               <span className="text-xl font-medium text-center text-primary-900">

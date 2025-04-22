@@ -95,7 +95,7 @@ export default async function ProductPage({
                   colors={inputOptions}
                   isColorSelect={product.isColorSelect}
                   price={product.price}
-                  discountPrice={product.discountPrice}
+                  oldPrice={product.oldPrice}
                   products={products}
                   productId={searchParams._id}
                 />

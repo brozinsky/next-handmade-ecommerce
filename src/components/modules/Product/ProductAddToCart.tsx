@@ -19,7 +19,7 @@ type TProps = {
   products: TProduct[];
   productId: string;
   price: string;
-  discountPrice?: string;
+  oldPrice?: string;
   isColorSelect: boolean;
   colors: TInputOption[];
   colorsGallery: { url: string }[];
@@ -29,7 +29,7 @@ export default function ProductAddToCart({
   products,
   productId,
   price,
-  discountPrice,
+  oldPrice,
   colors,
   colorsGallery,
   isColorSelect,
@@ -157,14 +157,14 @@ export default function ProductAddToCart({
 
       <div className="flex flex-col items-center justify-between gap-8 sm:flex-row xl:flex-row">
         <div className="flex flex-col ">
-          {discountPrice && (
+          {oldPrice && (
             <div className="line-through text-primary-800 opacity-70">
-              {parseFloat(price).toFixed(2).replace(".", ",")} zł
+              {parseFloat(oldPrice).toFixed(2).replace(".", ",")} zł
             </div>
           )}
           <div className="text-3xl font-semibold whitespace-nowrap text-primary-800">
-            {discountPrice
-              ? parseFloat(discountPrice).toFixed(2).replace(".", ",")
+            {oldPrice
+              ? parseFloat(price).toFixed(2).replace(".", ",")
               : parseFloat(price).toFixed(2).replace(".", ",")}{" "}
             zł
           </div>

@@ -5,7 +5,7 @@ import { getProducts } from "../../../../sanity/sanity-utils";
 import { TProduct } from "@/utils/types";
 
 type TProductFeatured = TProduct & {
-  discountPrice?: number | null;
+  oldPrice?: number | null;
   isNew?: boolean;
   imageUrl?: string;
   categories?: any;
@@ -36,7 +36,7 @@ export default async function Featured() {
                     title={product.name}
                     category={product.categories?.[0].title.toLowerCase() || ''}
                     price={product.price}
-                    discountPrice={product.discountPrice}
+                    oldPrice={product.oldPrice}
                     isAvailable={product.isAvailable}
                     isNew={product.isNew}
                     isImmediate={product.isImmediate}

@@ -58,8 +58,8 @@ export default {
         hidden: true
       },
       {
-        title: "Cena promocyjna",
-        name: "discountPrice",
+        title: "Cena przed promocją",
+        name: "oldPrice",
         type: "number",
         hidden: ({ document }: any) => !document.isOnSale
       },

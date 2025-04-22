@@ -19,7 +19,7 @@ const ProductsSimilar = ({ products }: { products: TProductSchema[] }) => {
               name,
               categories,
               price,
-              discountPrice,
+              oldPrice,
               isAvailable,
               isNew,
               isImmediate,
@@ -32,7 +32,7 @@ const ProductsSimilar = ({ products }: { products: TProductSchema[] }) => {
                   title={name}
                   category={categories[0].title.toLowerCase()}
                   price={price}
-                  discountPrice={discountPrice}
+                  oldPrice={oldPrice}
                   isAvailable={isAvailable}
                   isNew={isNew}
                   isImmediate={isImmediate}
