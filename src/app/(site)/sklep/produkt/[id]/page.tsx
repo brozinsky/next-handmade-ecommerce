@@ -31,10 +31,10 @@ export default async function ProductPage({
   const product = await getProductById(searchParams._id);
   const products = await getProducts();
   const colors = await getColors();
-  const shippingInfo = await getShippingInfo()
+  const shippingInfo = await getShippingInfo();
 
   const similarProductIds = product.similarProducts?.map((sp: any) => sp._ref);
-  let similarProducts = []
+  let similarProducts = [];
   if (similarProductIds) {
     similarProducts = await getProductsByIds(similarProductIds);
   }
@@ -81,10 +81,13 @@ export default async function ProductPage({
 
               <div className="w-full space-y-4">
                 {product.isImmediate && (
-                  <p className="font-light">
-                    <strong className="font-semibold">Dostępność:</strong> od
-                    ręki
-                  </p>
+                  // <p className="font-light">
+                  //   <strong className="font-semibold">Dostępność:</strong> od
+                  //   ręki
+                  // </p>
+                  <span className="block px-6 py-1 mt-2 text-yellow-900 bg-yellow-200 rounded-md w-fit font-regular text-md">
+                    Dostępność: od ręki
+                  </span>
                 )}
 
                 <ProductAddToCart
@@ -97,10 +100,7 @@ export default async function ProductPage({
                   productId={searchParams._id}
                 />
                 <Separator />
-                <TabsProducts
-                  product={product}
-                  shipping={shippingInfo}
-                />
+                <TabsProducts product={product} shipping={shippingInfo} />
               </div>
             </div>
           </div>

@@ -31,7 +31,7 @@ export default function Product({
     query: { title, _id },
   };
   return (
-    <div className={clsx("mx-auto max-w-[240px] xs:max-w-[300px] w-full flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default")}>
+    <div className={clsx("max-w-[240px] xs:max-w-[300px] w-full flex flex-col overflow-hidden transition rounded-md shadow-default lg:shadow-none group lg:hover:shadow-default")}>
       <Link
         prefetch={false}
         href={href}
