@@ -45,15 +45,3 @@ $xxxl-width: 1660px;
         @content;
     }
 }
-
-@mixin dark-theme() {
-    [data-theme="dark"] {
-        @content;
-    }
-}
-
-@mixin light-theme() {
-    [data-theme="light"] {
-        @content;
-    }
-}

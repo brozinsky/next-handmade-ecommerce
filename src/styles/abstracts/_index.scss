@@ -1,3 +1,4 @@
-@import "variables";
-@import "mixins";
-@import "animations";
+@forward "tailwind";
+@forward "variables";
+@forward "mixins";
+@forward "animations";

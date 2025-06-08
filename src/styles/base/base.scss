@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 html,
 body {
   @apply text-neutral-900;
