@@ -81,10 +81,10 @@ export default function Product({
           </div>
         )}
       </Link>
-      <div className="flex flex-col justify-between flex-1 p-6">
+      <div className="flex flex-col justify-between flex-1 px-4 py-6">
         <div>
           <Link href={href}>
-            <h3 className="mb-2 text-xl font-medium leading-tight text-center">
+            <h3 className="mb-2 text-lg font-medium leading-tight text-center">
               {title}
               {/* {category} */}
             </h3>
